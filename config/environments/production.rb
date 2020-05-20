@@ -23,7 +23,11 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+
+  # 「本番環境にデプロイ作業時」に「デプロイエラー原因」になるためコメントアウトしました。木下5/18
+  # config.assets.js_compressor = :uglifier
+
+
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
