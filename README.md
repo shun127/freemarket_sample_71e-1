@@ -4,5 +4,3 @@
 |------|----|-------|
 |nickname|string|null: false|
 
-
-ああああああっっっｊ
