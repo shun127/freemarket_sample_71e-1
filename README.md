@@ -4,3 +4,4 @@
 |------|----|-------|
 |nickname|string|null: false|
 
+testtesttest
