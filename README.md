@@ -5,4 +5,4 @@
 |nickname|string|null: false|
 
 
-ああああああっっっｊ
+test
