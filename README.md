@@ -33,7 +33,7 @@
 - has_many :itemimage
 - has_many :comment
 - has_many :tavorites
-- belongs_to :categories
+- belongs_to :category
 - belongs_to :item_condition
 - belongs_to :brands
 - belongs_to :postage_payers
