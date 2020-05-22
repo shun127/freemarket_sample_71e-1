@@ -9,10 +9,10 @@
 - has_one :profiles
 - has_one :destinations
 - has_one :credit_cards
-- has_meny :comment
-- has_meny :favorites
-- has_meny :seller_items
-- has_meny :buyer_items
+- has_many :comment
+- has_many :favorites
+- has_many :seller_items
+- has_many :buyer_items
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -30,16 +30,16 @@
 |deal_closed_data|timestamp| -|
 
 ### Association
-- has_meny :itemimage
-- has_meny :comment
-- has_meny :tavorites
-- belong_to :categories
-- belong_to :item_condition
-- belong_to :brands
-- belong_to :postage_payers
-- belong_to :preparation_period
-- belong_to :seller_items
-- belong_to :buyer_items
+- has_many :itemimage
+- has_many :comment
+- has_many :tavorites
+- belongs_to :categories
+- belongs_to :item_condition
+- belongs_to :brands
+- belongs_to :postage_payers
+- belongs_to :preparation_period
+- belongs_to :seller_items
+- belongs_to :buyer_items
 
 ## credit_cardsテーブル
 |Column|Type|Options|
@@ -51,7 +51,7 @@
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
-belong_to :user
+belongs_to :user
 
 ## destinationsテーブル
 |Column|Type|Options|
@@ -69,7 +69,7 @@ belong_to :user
 |user_id|references|null:false, foreign_key: true|
 
 ### Association
-belong_to :user
+belongs_to :user
 
 ## profilesテーブル
 |Column|Type|Options|
@@ -85,7 +85,7 @@ belong_to :user
 |introduction|text|
 
 ### Association
-belong_to :user
+belongs_to :user
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -93,7 +93,7 @@ belong_to :user
 |name|string|null: false|
 
 ### Association
-- has_meny :items
+- has_many :items
 
 ## brandsテーブル
 |Column|Type|Options|
@@ -101,7 +101,7 @@ belong_to :user
 |name|string| -|
 
 ### Association
-- has_meny :items
+- has_many :items
 
 ## item_conditionテーブル
 |Column|Type|Options|
@@ -109,7 +109,7 @@ belong_to :user
 |item_condition|string|null: false|
 
 ### Association
-- has_meny :items
+- has_many :items
 
 ## postage_payersテーブル
 |Column|Type|Options|
@@ -117,7 +117,7 @@ belong_to :user
 |postage_payers|string|null:false|
 
 ### Association
-- has_meny :items
+- has_many :items
 
 ## preparation_periodテーブル
 |Column|Type|Options|
@@ -125,7 +125,7 @@ belong_to :user
 |preparation_period|string|null:false|
 
 ### Association
-- has_meny :items
+- has_many :items
 
 ## itemimagesテーブル
 |Column|Type|Options|
@@ -134,7 +134,7 @@ belong_to :user
 |url|string|null:false|
 
 ### Association
-- belong_to :item
+- belongs_to :item
 
 ## commentsテーブル(中間テーブル)
 |Column|Type|Options|
@@ -144,8 +144,8 @@ belong_to :user
 |item_id|references|null:false, foreign_key: true|
 
 ### Association
-- belong_to :user
-- belong_to :item
+- belongs_to :user
+- belongs_to :item
 
 ## favoritesテーブル(中間テーブル)
 |Column|Type|Options|
@@ -155,5 +155,5 @@ belong_to :user
 |item_id|references|null:false, foreign_key: true|
 
 ### Association
-- belong_to :user
-- belong_to :item
+- belongs_to :user
+- belongs_to :item
