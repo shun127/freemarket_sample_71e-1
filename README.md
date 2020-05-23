@@ -35,11 +35,11 @@
 - has_many :tavorites
 - belongs_to :category
 - belongs_to :item_condition
-- belongs_to :brands
-- belongs_to :postage_payers
+- belongs_to :brand
+- belongs_to :postage_payer
 - belongs_to :preparation_period
-- belongs_to :seller_items
-- belongs_to :buyer_items
+- belongs_to :seller_item
+- belongs_to :buyer_item
 
 ## credit_cardsテーブル
 |Column|Type|Options|
