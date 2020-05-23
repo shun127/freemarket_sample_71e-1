@@ -6,10 +6,10 @@
 |email|string|null: false, unique: true|
 
 ### Association
-- has_one :profiles
-- has_one :destinations
-- has_one :credit_cards
-- has_many :comment
+- has_one :profil
+- has_one :destination
+- has_one :credit_card
+- has_many :comments
 - has_many :favorites
 - has_many :seller_items
 - has_many :buyer_items
@@ -30,8 +30,8 @@
 |deal_closed_data|timestamp| -|
 
 ### Association
-- has_many :itemimage
-- has_many :comment
+- has_many :itemimages
+- has_many :comments
 - has_many :tavorites
 - belongs_to :category
 - belongs_to :item_condition
