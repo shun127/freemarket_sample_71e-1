@@ -26,8 +26,8 @@
 |postage_payers_id|references|null:false, foreign_key: true|
 |preparation_period_id|references|null: false, foreign_key: true|
 |itemimage_id|references|null:false, foreign_key: true|
-|trading_status|enum|null: false|
-|deal_closed_data|timestamp| -|
+|trading_status|string|null: false|
+|deal_closed_data|string| -|
 
 ### Association
 - has_many :itemimages,dependent: :destroy
