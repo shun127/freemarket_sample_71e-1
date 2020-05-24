@@ -6,13 +6,13 @@
 |email|string|null: false, unique: true|
 
 ### Association
-- has_one :profil
-- has_one :destination
-- has_one :credit_card
+- has_one :profil,dependent: :destroy
+- has_one :destination,dependent: :destroy
+- has_one :credit_card,dependent: :destroy
 - has_many :comments
-- has_many :favorites
-- has_many :seller_items
-- has_many :buyer_items
+- has_many :favorites,dependent: :destroy
+- has_many :seller_items,class:"items"
+- has_many :buyer_items,class:"items"
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -30,16 +30,16 @@
 |deal_closed_data|timestamp| -|
 
 ### Association
-- has_many :itemimages
-- has_many :comments
-- has_many :tavorites
+- has_many :itemimages,dependent: :destroy
+- has_many :comments,dependent: :destroy
+- has_many :tavorites,dependent: :destroy
 - belongs_to :category
-- belongs_to :item_condition
+- belongs_to :item_condition,dependent: :destroy
 - belongs_to :brand
-- belongs_to :postage_payer
-- belongs_to :preparation_period
-- belongs_to :seller_item
-- belongs_to :buyer_item
+- belongs_to :postage_payer,dependent: :destroy
+- belongs_to :preparation_period,dependent: :destroy
+- belongs_to :seller_item,class_name:"User"
+- belongs_to :buyer_item,class_name:"User"
 
 ## credit_cardsテーブル
 |Column|Type|Options|
