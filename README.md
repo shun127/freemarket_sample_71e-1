@@ -25,7 +25,6 @@
 |item_condition_id|references|null: false, foreign_key: true|
 |postage_payers_id|references|null:false, foreign_key: true|
 |preparation_period_id|references|null: false, foreign_key: true|
-|itemimage_id|references|null:false, foreign_key: true|
 |trading_status|string|null: false|
 |deal_closed_data|string| -|
 
@@ -56,10 +55,10 @@ belongs_to :user
 ## destinationsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|destination_first_name|string|null: false|
-|destination_family_name|string|null: false|
-|destination_first_name_kana|string|null: false|
-|destination_family_name_kana|string|null: false|
+|first_name|string|null: false|
+|family_name|string|null: false|
+|first_name_kana|string|null: false|
+|amily_name_kana|string|null: false|
 |post_code|integer(7)|null: false|
 |prefecture_code|string|null: false|
 |city|string|null: false|
@@ -87,10 +86,11 @@ belongs_to :user
 ### Association
 belongs_to :user
 
-## categoriesテーブル
+## categoriesテーブル(gem:ancestry)
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|ancestry|string|index|
 
 ### Association
 - has_many :items
