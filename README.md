@@ -9,7 +9,7 @@
 - has_one :profil,dependent: :destroy
 - has_one :destination,dependent: :destroy
 - has_one :credit_card,dependent: :destroy
-- has_many :comments
+- has_many :comments,dependent: :destroy
 - has_many :favorites,dependent: :destroy
 - has_many :seller_items,class:"items"
 - has_many :buyer_items,class:"items"
@@ -32,7 +32,7 @@
 ### Association
 - has_many :itemimages,dependent: :destroy
 - has_many :comments,dependent: :destroy
-- has_many :tavorites,dependent: :destroy
+- has_many :favorites,dependent: :destroy
 - belongs_to :category
 - belongs_to :item_condition,dependent: :destroy
 - belongs_to :brand
