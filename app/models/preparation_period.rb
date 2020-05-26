@@ -1,0 +1,2 @@
+class PreparationPeriod < ApplicationRecord
+end
