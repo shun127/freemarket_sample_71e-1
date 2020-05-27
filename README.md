@@ -58,8 +58,8 @@ belongs_to :user
 |first_name|string|null: false|
 |family_name|string|null: false|
 |first_name_kana|string|null: false|
-|amily_name_kana|string|null: false|
-|post_code|integer(7)|null: false|
+|family_name_kana|string|null: false|
+|post_code|integer|null: false|
 |prefecture_code|string|null: false|
 |city|string|null: false|
 |house_number|string|null:false|
@@ -90,7 +90,7 @@ belongs_to :user
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|string|index|
+|ancestry|string|null:false|
 
 ### Association
 - has_many :items
