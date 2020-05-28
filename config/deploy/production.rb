@@ -64,5 +64,5 @@ server '18.180.183.116', user: 'ec2-user', roles: %w{app db web}
 
 
 # 本番環境のみでBasic認証するように記述5/20木下
-set :rails_env, "production"
-set :unicorn_rack_env, "production"
+# set :rails_env, "production"
+# set :unicorn_rack_env, "production"

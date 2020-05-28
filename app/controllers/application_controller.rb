@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # Basic認証によるログインの要求を全てのコントローラーで行う
   # ルーティング設定後にBasic認証のコードを改良します(5/18)。木下
-  before_action :basic_auth, if: :production?
+  # before_action :basic_auth, if: :production?
   
   # CSRF対策
   protect_from_forgery with: :exception
