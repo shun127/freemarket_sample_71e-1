@@ -8,10 +8,10 @@ class ApplicationController < ActionController::Base
   
   private
 
-  # 「production?」メソッドの定義。現在の環境が本番環境ならtrue、そうでないならfalse。「if: :production?」の記述により本番環境のみでbasic_authメソッドの実行 5/20木下
-  def production?
-    Rails.env.production?
-  end
+  # # 「production?」メソッドの定義。現在の環境が本番環境ならtrue、そうでないならfalse。「if: :production?」の記述により本番環境のみでbasic_authメソッドの実行 5/20木下
+  # def production?
+  #   Rails.env.production?
+  # end
 
   # Basic認証の定義
   def basic_auth
