@@ -11,7 +11,7 @@ class CreateDestinations < ActiveRecord::Migration[5.2]
       t.string :house_number,         null:false
       t.string :building_name
       t.integer :phone_number,        null:false
-      # t.references :user_id           null:false,foregin_key: true
+      t.references :user,           null:false,foregin_key: true
       t.timestamps
     end
   end
