@@ -49,7 +49,7 @@
   }
   &__info{
     background-color: #fcfcfc;
-    padding: 40px 500px;
+    padding: 40px ;
     &__subtitle{
       font-weight: bold;
       font-size: 25px;
@@ -66,8 +66,9 @@
     }
     &__lists{
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       &__list{
+        margin: 0 15px;
         width: 30%;
         max-width: 300px;
         text-align: left;
@@ -108,9 +109,9 @@
           margin-bottom: 40px;
         }
         &__description-last{
-          text-align: center;
-          font-size: 16px;
-          margin-bottom: 40px;
+          @media (min-width: 1000px) {
+            text-align: center;
+         }
         }
       }
     }
@@ -126,7 +127,7 @@
       color: #fff;
       position: absolute;
       top: 100px;
-      left: 100px;
+      left: 200px;
       &__subtitle{
         font-weight: bold;
         font-size: 35px;
@@ -140,7 +141,7 @@
 
   &__feature{
     background-color: #fdfdfd;
-    padding: 40px 500px;
+    padding: 40px ;
     &__subtitle{
       font-weight: bold;
       font-size: 25px;
@@ -157,9 +158,9 @@
     }
     &__lists{
       display: flex;
-      justify-content: space-between;
-      justify-content: space-around;
+      justify-content: center;
       &__list{
+        margin: 0 15px;
         width: 30%;
         max-width: 300px;
         &__image{
@@ -193,13 +194,11 @@
     background-color: #f2f2f2;
     width: 100%;
     text-align: center;
-    
     justify-content: space-between;
     font-weight: bold;
     padding-top: 40px;
     padding-bottom: 40px;
     &__text{
-      
       font-size: 30px;
     }
     .link{
