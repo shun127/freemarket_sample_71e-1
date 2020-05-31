@@ -21,4 +21,13 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+  def purchase
+  end
+
+  def pay
+  end
+
+  def done
+  end
+
 end
