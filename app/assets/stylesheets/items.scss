@@ -49,7 +49,7 @@
   }
   &__info{
     background-color: #fcfcfc;
-    padding: 40px 100px;
+    padding: 40px 500px;
     &__subtitle{
       font-weight: bold;
       font-size: 25px;
@@ -70,6 +70,7 @@
       &__list{
         width: 30%;
         max-width: 300px;
+        text-align: left;
         &__image{
           width: 100%;
           height: auto;
@@ -94,7 +95,7 @@
         }
         &__text{
           font-size: 20px;
-          margin: 20px;
+          margin: 20px 0;
           font-weight: bold;
           text-align: center;
           span{
@@ -102,6 +103,11 @@
           }
         }
         &__description{
+          text-align: left;
+          font-size: 16px;
+          margin-bottom: 40px;
+        }
+        &__description-last{
           text-align: center;
           font-size: 16px;
           margin-bottom: 40px;
@@ -134,7 +140,7 @@
 
   &__feature{
     background-color: #fdfdfd;
-    padding: 40px 100px;
+    padding: 40px 500px;
     &__subtitle{
       font-weight: bold;
       font-size: 25px;
@@ -175,7 +181,7 @@
           }
         }
         &__description{
-          text-align: center;
+          text-align: left;
           font-size: 16px;
           margin-bottom: 40px;
         }
