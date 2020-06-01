@@ -60,7 +60,7 @@
 #     # password: "please use keys"
 #   }
 
-server '18.180.183.116', user: 'ec2-user', roles: %w{app db web}
+server '18.177.162.184', user: 'ec2-user', roles: %w{app db web}
 
 
 # 本番環境のみでBasic認証するように記述5/20木下
