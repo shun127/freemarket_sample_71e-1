@@ -49,7 +49,7 @@
   }
   &__info{
     background-color: #fcfcfc;
-    padding: 40px 100px;
+    padding: 40px ;
     &__subtitle{
       font-weight: bold;
       font-size: 25px;
@@ -66,10 +66,12 @@
     }
     &__lists{
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       &__list{
+        margin: 0 15px;
         width: 30%;
         max-width: 300px;
+        text-align: left;
         &__image{
           width: 100%;
           height: auto;
@@ -93,8 +95,8 @@
           }
         }
         &__text{
-          font-size: 20px;
-          margin: 20px;
+          font-size: 24px;
+          margin: 20px 0;
           font-weight: bold;
           text-align: center;
           span{
@@ -102,9 +104,14 @@
           }
         }
         &__description{
-          text-align: center;
-          font-size: 16px;
+          text-align: left;
+          font-size: 18px;
           margin-bottom: 40px;
+        }
+        &__description-last{
+          @media (min-width: 1000px) {
+            text-align: center;
+         }
         }
       }
     }
@@ -120,7 +127,7 @@
       color: #fff;
       position: absolute;
       top: 100px;
-      left: 100px;
+      left: 200px;
       &__subtitle{
         font-weight: bold;
         font-size: 35px;
@@ -134,7 +141,7 @@
 
   &__feature{
     background-color: #fdfdfd;
-    padding: 40px 100px;
+    padding: 40px ;
     &__subtitle{
       font-weight: bold;
       font-size: 25px;
@@ -151,9 +158,9 @@
     }
     &__lists{
       display: flex;
-      justify-content: space-between;
-      justify-content: space-around;
+      justify-content: center;
       &__list{
+        margin: 0 15px;
         width: 30%;
         max-width: 300px;
         &__image{
@@ -166,7 +173,7 @@
           }
         }
         &__text{
-          font-size: 20px;
+          font-size: 21px;
           margin: 20px;
           font-weight: bold;
           text-align: center;
@@ -175,8 +182,8 @@
           }
         }
         &__description{
-          text-align: center;
-          font-size: 16px;
+          text-align: left;
+          font-size: 18px;
           margin-bottom: 40px;
         }
       }
@@ -187,13 +194,11 @@
     background-color: #f2f2f2;
     width: 100%;
     text-align: center;
-    
     justify-content: space-between;
     font-weight: bold;
     padding-top: 40px;
     padding-bottom: 40px;
     &__text{
-      
       font-size: 30px;
     }
     .link{
