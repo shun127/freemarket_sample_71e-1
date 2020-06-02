@@ -1,4 +1,8 @@
+.wrapper
+  = render 'header'
+
 = link_to root_path, class:"sell-btn" do
+
   .sell-btn__text
     出品する
   = image_tag('material/icon/icon_camera.png', class:"sell-btn__image")
@@ -106,3 +110,5 @@
               .top-main__new__items__item__info__favorite
                 ★0
 
+.wrapper
+  = render 'footer'
