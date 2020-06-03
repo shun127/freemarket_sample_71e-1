@@ -90,7 +90,7 @@ belongs_to :user
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|string|null:false|
+|ancestry|string|
 
 ### Association
 - has_many :items
