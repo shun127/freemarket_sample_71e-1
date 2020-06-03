@@ -1,0 +1,177 @@
+.main {
+  background-color:rgb(245, 245, 245);
+  height: 1450px;
+  width: 100%;
+  padding-top: 200px;
+  color:#333333;
+  &__body { 
+    width: 700px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    &__top{
+      height: 150px;
+      width: 100%;
+      border: solid 1px rgb(245, 245, 245);
+      text-align: center;
+      line-height: 150px;
+      font-size: 23px; 
+      font-weight: bolder;    
+    }
+    &__item {
+      height: 150px;
+      width: 100%;
+      font-size: 15px;           
+      display:flex;
+      justify-content: left;      
+      border: solid 1px rgb(245, 245, 245);
+      &__img{
+        height: 80px;
+        width: 80px;
+        background-color:seagreen; 
+        margin-top: 30px;
+        margin-left: 110px;
+      } 
+      &__explanation{
+        margin-top: 30px;
+        margin-left: 30px;
+        &__text{
+          height: 60px;
+          width: 300px;
+          font-size: 13px;
+        }
+        &__price{
+          height: 20px;
+          width: 200px;
+          font-weight: bolder;
+        }
+      }
+    }
+
+    &__price{
+      height: 150px;
+      width: 100%;
+      display:flex;
+      justify-content: space-around;
+      line-height: 50px;      
+      &__text{
+        height: 50px;
+        width: 100px;
+        margin-top: 50px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      &__price{
+        height: 50px;
+        width: 150px;
+        margin-top: 50px;
+        text-align: right;
+        font-size: 20px;
+        font-weight: 800;       
+      }
+    }
+
+    &__method_payment{
+      height: 200px;
+      width: 100%;
+      border: solid 1px rgb(245, 245, 245);
+      display: flex;
+      justify-content: space-around;
+      &__list{
+        margin-top: 50px;        
+        &__title{
+          height: 25px;
+          width: 200px;
+          font-weight: bolder;
+          font-size: 15px;
+          border: solid 1px rgb(245, 245, 245);
+        }              
+        &__card{
+          height: 20px;
+          width: 200px;
+          font-size: small;
+        }
+        &__number{
+          height: 20px;
+          width: 200px;
+          font-size: small;
+        }
+        &__expiration_date{
+          height: 20px;
+          width: 200px;
+          font-size: small;
+        }
+        &__card_type{
+          height: 20px;
+          width: 200px;
+          font-size: small;
+        }
+      }
+      &__edit{
+        margin-top: 50px;
+        font-size: small;
+        color:#0099E8;
+      }      
+    }
+
+    &__shipping_address{
+      height: 200px;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      &__list{
+        margin-top: 50px;       
+        &__title{
+          height: 25px;
+          width: 200px;
+          font-weight: bolder;
+          font-size: 15px;
+        }
+        &__postal_code{
+          height: 20px;
+          width: 200px;
+          font-size: small;
+        }
+        &__address{
+          height: 20px;
+          width: 200px;
+          font-size: small;
+        }
+        &__name{
+          height: 20px;
+          width: 200px;
+          font-size: small;
+        }
+      }
+      &__edit{
+        margin-top: 50px;
+        font-size: small;
+        color:#0099E8;
+      }
+    }
+
+    &__purchase{
+      height: 150px;
+      width: 100%;
+      border: solid 1pxrgb(245, 245, 245);
+      position: relative;      
+      &__box {
+        height: 60px;
+        width: 200px;
+        background-color: red;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform : translate(-50%,-50%);
+        transform : translate(-50%,-50%);
+        text-align: center;        
+        line-height: 60px;
+        font-size: 15px;        
+        font-weight: bolder;
+        color: white;
+      }
+    }
+  }
+}
+
+

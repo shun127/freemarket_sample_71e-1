@@ -30,4 +30,7 @@ class ItemsController < ApplicationController
   def done
   end
 
+  def purchase_temporary
+  end
+
 end
