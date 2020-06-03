@@ -1,9 +1,17 @@
+@import "reset";
+
+// 最上部にありましたが、@import "reset";で全てリセットされてしまうので下に持ってきました。木下6/3
 * {
   box-sizing: border-box;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
 }
 
-@import "reset";
 @import "items";
-@import "header.scss";
-@import "footer.scss";
+@import "new";
+@import "purchase_temporary";
+
+// .scssを削除しました
+@import "header";
+@import "footer";
+@import "font-awesome-sprockets";
+@import "font-awesome";

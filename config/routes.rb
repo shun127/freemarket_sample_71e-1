@@ -6,6 +6,10 @@ Rails.application.routes.draw do
       get  'purchase/:id'=>  'items#purchase', as: 'purchase'
       post 'pay/:id'=>   'items#pay', as: 'pay'
       get  'done'=>      'items#done', as: 'done'
+
+      #商品購入のフロント実装コードレビュー確認のための仮ルーティングです。木下6/3
+      get  'purchase_temporary'
+
     end
   end
 
