@@ -1,0 +1,34 @@
+.footerBanner
+  .appBanner
+    .appBanner__banner
+      .appBanner__banner__title だれでもかんたん、人生を変えるフリマアプリ      
+      .appBanner__banner__text 今すぐ登録して使ってみよう！
+      
+.footer
+  %ul.footer__contents
+    %li.footer__contents__content
+      %p FURIMAについて
+      = link_to "#" do
+        会社概要(運営会社)
+      = link_to "#", class:"privacy" do
+        プライバシーポリシー
+      = link_to "#", class:"kiyaku" do
+        FURIMA利用規約
+      = link_to "#", class:"tokuyaku" do
+        ポイントに関する特約 
+    %li.footer__contents__content
+      %p FURIMAを見る
+      = link_to "#", class:"category" do
+        カテゴリー一覧
+      = link_to "#", class:"brand" do
+        ブランド一覧
+    %li.footer__contents__content
+      %p ヘルプ＆ガイド
+      = link_to "#", class:"guide" do
+        FURIMAガイド
+      = link_to "#", class:"guideline" do
+        FURIMAロゴ利用ガイドライン
+      = link_to "#", class:"osirase" do
+        お知らせ
+  = image_tag "material/logo/logo-white.png", class:"footer__logo"
+  .footer__log © FURIMA

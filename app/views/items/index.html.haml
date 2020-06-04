@@ -1,4 +1,8 @@
+.wrapper
+  = render 'header'
+
 = link_to root_path, class:"sell-btn" do
+
   .sell-btn__text
     出品する
   = image_tag('material/icon/icon_camera.png', class:"sell-btn__image")
@@ -38,7 +42,7 @@
           で使いやすい
         .top-main__info__lists__list__description
           めんどくさい入力は必要なく、検索も購入もスムーズ！
-      %li.top-main__info__lists__list.list--last
+      %li.top-main__info__lists__list.top-main__info__lists__list--last
         .top-main__info__lists__list__image
           %span.top-main__info__lists__list__image__number
             3
@@ -47,7 +51,7 @@
           %span
             手数料
           業界最安
-        .top-main__info__lists__list__description
+        .top-main__info__lists__list__description.top-main__info__lists__list__description-last
           最大3%でお得に出品&購入！
   .top-main__middle-image
     .top-main__middle-image__content
@@ -106,3 +110,5 @@
               .top-main__new__items__item__info__favorite
                 ★0
 
+.wrapper
+  = render 'footer'

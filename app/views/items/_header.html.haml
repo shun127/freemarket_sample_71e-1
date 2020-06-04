@@ -1,0 +1,39 @@
+.header
+  .box
+    .box__upper
+      .box__upper__icon
+        = link_to root_path do
+          =image_tag "material/logo/logo.png", class: "header-image"
+      .box__upper__search
+        %input{type: "text", class: "box__upper__search__input", placeholder: " キーワードから探す"}
+        .box__upper__search__btn
+          =image_tag "material/icon/icon-search 1.png", class: "search-icon"
+    .box__select
+      .box__select__left
+        .box__select__left__category
+          %select{name: "category"}
+            %option{value: ""} カテゴリー
+            %option{value: "0"} レディース
+            %option{value: "1"} メンズ
+            %option{value: "2"} ベビー・キッズ
+            %option{value: "3"} インテリア・住まい・小物
+            %option{value: "4"} 本・音楽・ゲーム
+            %option{value: "5"} 家電・スマホ・カメラ
+            %option{value: "6"} スポーツ・レジャー
+            %option{value: "7"} ハンドメイド
+            %option{value: "8"} チケット
+            %option{value: "9"} 自動車・オートバイ
+            %option{value: "10"} その他
+        =link_to "#" , class:"box__select__left__brand" do
+          ブランド
+      .box__navi__right
+        - if user_signed_in?
+          = link_to "#", class: "box__select__right__new" do
+            マイページ
+          = link_to "#", method: :delete, class: "box__select__right__new" do
+            ログアウト
+        - else
+          = link_to "#", class:"box__select__right__login" do
+            ログイン
+          = link_to "#", class:"box__select__right__new" do
+            新規会員登録
