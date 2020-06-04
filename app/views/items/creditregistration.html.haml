@@ -1,0 +1,23 @@
+.mypage
+  = render 'header'
+      
+  .container
+    = render 'mypage-side'
+
+    .container__main
+      .container__main__chapter
+        %h2.container__main__chapter__head
+          支払い方法
+        .container__main__chapter__inner
+          .container__main__chapter__inner__settings-add-card
+            .container__main__chapter__inner__settings-add-card__single-content
+            =link_to "#", class: "btn" do
+              = icon("far", "credit-card", class: "btn--icon")
+              %span<>
+              クレジットカードを追加する
+
+  = render 'footer'
+
+  %a.footer-sell-btn
+    %div 出品
+    = image_tag "material/icon/icon_camera.png"

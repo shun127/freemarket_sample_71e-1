@@ -1,0 +1,18 @@
+.mypage
+  = render 'header'
+  
+  .container
+    = render 'mypage-side'
+
+    .container__main
+      .container__main__chapter
+        .container__main__chapter__inner
+          .single-content
+          =link_to "#", class: "btn" do
+            ログアウト
+
+  = render 'footer'
+
+  %a.footer-sell-btn
+    %div 出品
+    = image_tag "material/icon/icon_camera.png"

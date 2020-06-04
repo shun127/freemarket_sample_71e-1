@@ -1,0 +1,20 @@
+.container__side
+  %nav.container__side__mypage-nav
+    %h1.container__side__mypage-nav__head
+      メニュー
+    %ul.mypage-nav-list
+      %li
+        =link_to "mypage", class: "mypage-nav-list-item" do
+          マイページ
+          = icon("fas", "angle-right", class: "icon-angle-right")
+          %span<>
+      %li
+        =link_to "creditregistration", class: "mypage-nav-list-item" do
+          支払い方法
+          = icon("fas", "angle-right", class: "icon-angle-right")
+          %span<>
+      %li
+        =link_to "logout", class: "mypage-nav-list-item" do
+          ログアウト
+          = icon("fas", "angle-right", class: "icon-angle-right")
+          %span<>
