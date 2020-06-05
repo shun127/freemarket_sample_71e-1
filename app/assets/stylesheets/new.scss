@@ -1,0 +1,294 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  color: rgb(51, 51, 51);
+  background-color: rgb(245, 245, 245);
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.sell {
+  $white: #ffffff;
+  $gray: rgb(245, 245, 245);
+  $dark-gray: #ccc;
+  $red: #ff0211;
+  $blue:  #0095ee;
+  $base-black: rgb(51, 51, 51);
+  $base-border1: 1px solid rgba(51, 51, 51, 0.1);
+
+  vertical-align: baseline;
+  margin: 0px;
+  padding: 0px;
+  border-width: 0px;
+
+  a {
+    text-decoration: none;
+  }
+
+  .main {
+    width: 100%;
+    vertical-align: baseline;
+    margin: 0px;
+    padding: 0px;
+    border-width: 0px;
+
+    .content {
+      display: block;
+      max-width: 700px;
+      width: 100%;
+      margin: 0 auto;
+      background-color: $white;
+
+      .box {
+        align-items: center;
+        margin: 0;
+        padding: 40px; 
+        &__info-1 {  
+          margin: 14px 0;
+          line-height: 1.4em;
+        }
+
+        &__pic {
+          height: 150px;
+          width: 620px;
+          margin-top: 16px;
+          background-color: rgb(245, 245, 245);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          border-width: 1px;
+          border-style: dashed;
+          border-color: rgb(204, 204, 204);
+          &__picfile {
+            display: inline-block;
+            fill: rgb(34, 34, 34);
+          }
+          .icon {
+            margin-bottom: 8px;
+            img {
+              filter: brightness(0) invert(0);
+            }
+          }
+             
+            
+          &__inf {
+            font-size: 12px;
+            line-height: 1.4em;
+            text-align: center;
+            width: 100%;
+          }
+        }
+        
+        &__title {
+          font-weight: bold;
+          margin-bottom: 16px;
+          line-height: 1.4em;
+          span {
+            color: $white;
+            font-size: 12px;
+            margin-left: 8px;
+            padding: 0 4px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 1.4em;
+          }
+          &__must {
+            background-color: $red;
+            border-radius: 2px;
+            display: inline-block;
+          }
+          &__opt {
+            background-color: #bfbfbf;
+            border-radius: 2px;
+            display: inline-block;
+          }
+        }
+        input {
+          border: 1px solid $dark-gray;
+          border-radius: 4px;
+          box-sizing: border-box;
+          height: 48px;
+          width: 620px;
+          margin: 0;
+          outline: none;
+          padding: 0 16px;
+          font-size: 16px;
+        }
+
+        input:focus, textarea:focus, select:focus {
+          border: 1px solid $blue;
+        }
+
+        textarea {
+          margin-top: 16px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          width: 620px;
+          margin: 0;
+          outline: none;
+          padding: 13px 16px;
+          font-size: 16px;
+          color: #222;
+          resize: vertical;
+          vertical-align: middle;
+        }
+        &__count {
+          margin-top: 16px;
+          text-align: right;
+          color: #888;
+          font-size: 12px;
+          line-height: 1.4em;
+        }
+
+        &__info-2 {  
+          color: rgb(136, 136, 136);
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin-bottom: 24px;
+        }
+        
+        select {
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          color: #222;
+          font-size: 16px;
+          height: 48px;
+          line-height: 1;
+          margin: 0;
+          outline: none;
+          padding: 0 56px 0 16px;
+          width: 100%;
+          
+        }
+        .pricebox {
+          width: 285px;
+          padding: 0 16px;
+          text-align: right;
+        }
+        
+        &__price {
+          align-items: center;
+          display: flex;
+          justify-content: space-between;
+          height: 46px;
+          padding: 0 0 12px;
+        
+          &__title {
+            font-weight: bold;
+            height: 35px;
+            line-height: 1.4em;
+            align-items: center;
+            display: inline-flex;
+            span {
+              color: $white;
+              font-size: 12px;
+              margin-left: 8px;
+              padding: 0 4px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 1.4em;
+              height: 16px;
+            }
+            &__must {
+            background-color: $red;
+            border-radius: 2px;
+            display: inline-block;
+            }
+          }
+        }
+        &__sales {
+          display: flex;
+          justify-content: space-between;
+          line-height: 70px;
+          height: 70px;
+          padding: 12px 0;
+          &__title {
+            
+          }
+          &__fee {
+
+          }
+        }
+
+        &__margin {
+          display: flex;
+          justify-content: space-between;
+          line-height: 58px;
+          height: 58px;
+          padding: 12px 0 0;
+          &__title {
+            
+          }
+          &__profit {
+
+          }
+        }
+        
+        &__input__price {
+          width: 285px;
+        }
+      }
+      .button {
+        width: 360px;
+        margin: 0px auto 32px;
+
+        .submit__btn {
+          width: 360px;
+          margin: 0px auto 24px;
+          .submit__botton {
+            width: 360px;
+            border: 1px solid #ea352d;
+            background-color: #ea352d;
+            color: #fff;
+            font-weight: 600;
+            font-size: 17px;
+            height: 48px;
+            padding: 0 24px;
+            border-radius: 4px;
+            &:hover {
+              background-color: #cf0411;
+              text-decoration: none !important;
+            }
+          }
+        }
+        .back__btn {
+          color: $blue;
+          text-decoration: none;
+          display: flex;
+          height: 20px;
+          justify-content: center;
+          align-items: center;
+          &:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+          }
+        }
+      }
+      p.box__attention {
+        background-color: $white;
+        font-size: 12px;
+        line-height: 1.4em;
+        width: 620px;
+        height: 96px;
+        margin: 0px 40px;
+        a {
+          color: $blue;
+          &:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+          }
+        }
+      }
+    }           
+  }
+}
