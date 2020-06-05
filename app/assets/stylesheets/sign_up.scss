@@ -25,6 +25,7 @@
         color: #3CCACE;;
       }
       &__right {      
+        color:rgb(118, 118, 119);
       }
     }
   }
@@ -62,11 +63,12 @@
         margin-left: auto;
         margin-right: auto;
         padding-top: 10px;
-        font-weight: bolder;      
+            
         &__text {
           height: 20px;
           width: 200px;
           font-size: 18px;
+          font-weight: bolder;  
         }
         &__title{
           height: 20px;
