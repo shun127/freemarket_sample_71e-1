@@ -11,7 +11,8 @@ Rails.application.routes.draw do
       get  'purchase_temporary'
       get  'login'
       get  'sign_up'
-
+      get  'member_done'
+    
     end
   end
 

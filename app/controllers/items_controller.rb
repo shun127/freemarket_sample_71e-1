@@ -39,4 +39,6 @@ class ItemsController < ApplicationController
   def sign_up
   end
 
+  def member_done
+  end
 end
