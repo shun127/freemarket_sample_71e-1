@@ -32,13 +32,19 @@
         transform : translate(-50%,-50%);
         text-align: center;        
         line-height: 60px;
-        font-size: 15px;        
-        font-weight: bolder;
-        color: white;
+        
         border-radius: 5px;
         margin-top: 15px;
+        &__text{
+          line-height: 60px;
+          font-size: 15px;        
+          font-weight: bolder;
+          color: white;
+          text-decoration: none;
+        }
       }
     }
+
 
     &__login {
       height: 700px;
