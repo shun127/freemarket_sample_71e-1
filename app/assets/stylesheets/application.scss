@@ -6,8 +6,7 @@
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
 }
 
-@import "font-awesome-sprockets";
-@import "font-awesome";
+
 
 @import "items";
 @import "new";
@@ -19,4 +18,6 @@
 @import "footer";
 @import "item-header";
 @import "item-footer";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
