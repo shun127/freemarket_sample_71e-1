@@ -1,0 +1,14 @@
+.footer
+  .footer__list
+    %ul 
+      %li
+        = link_to "プライバシーポリシー" 
+      %li
+        = link_to "フリマ利用規約" 
+      %li
+        = link_to "特定商取引に関する表記" 
+  .footer__logo
+    = link_to root_path do
+      .footer__img
+        = image_tag "material/logo/logo-white.png", size: "115x30"
+    %p © Furima, Inc.

@@ -1,0 +1,15 @@
+.header {
+  background-color:rgb(245, 245, 245);
+  height: 128px;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  &__img {
+    display: block;
+    width: 185px;
+    height: 49px;
+    line-height: 49px;
+    margin: 0 auto;
+  }
+}

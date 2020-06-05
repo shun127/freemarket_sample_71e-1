@@ -1,8 +1,8 @@
 .main {
   background-color:rgb(245, 245, 245);
-  height: 1450px;
+  //height: 1450px; フッターの部分テンプレートを入れたため削除 6/4山中
   width: 100%;
-  padding-top: 200px;
+  //padding-top: 200px; ヘッダーの部分テンプレートを入れたため削除 6/4山中
   color:#333333;
   &__body { 
     width: 700px;
