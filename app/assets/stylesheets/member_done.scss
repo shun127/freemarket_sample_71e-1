@@ -69,16 +69,21 @@
       &__next_button {
         height: 60px;
         width: 300px;
-        background-color: #ea352d;
+        background-color:  rgb(41, 167, 172);
         margin-left: auto;
         margin-right: auto;
         margin-top: 40px;
-        text-align: center;        
-        line-height: 60px;
-        font-size: 15px;        
-        font-weight: bolder;
-        color: white;
         border-radius: 5px;
+        text-align: center; 
+        
+
+        &__text {              
+          line-height: 60px;
+          font-size: 15px;        
+          font-weight: bolder;
+          color: white;
+          text-decoration: none;
+        }
       }
     }  
   }

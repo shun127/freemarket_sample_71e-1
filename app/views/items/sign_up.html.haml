@@ -125,7 +125,9 @@
       .main__box__bottom__text
         「次へ進む」のボタンを押すことにより、利用規約に<br>同意したものとみなします
       .main__box__bottom__next_button
-        次へ進む
+        -# ここのリンクは仮ルーティング木下6/5
+        = link_to member_done_items_path, class:"main__box__bottom__next_button__text" do
+          次へ進む
 
 .wrapper
   = render 'item-footer'

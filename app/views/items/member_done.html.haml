@@ -15,7 +15,8 @@
       .done_main__box__bottom__text
         ありがとうございます。会員登録が完了しました。
       .done_main__box__bottom__next_button
-        FURIMAを始める
+        = link_to root_path, class:"done_main__box__bottom__next_button__text" do
+          FURIMAを利用する
 
 .wrapper
   = render 'item-footer'

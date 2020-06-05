@@ -13,7 +13,8 @@
       %input{type: "text", class: "top__body__login__mail" , placeholder: "メールアドレス"}
       %input{type: "text", class: "top__body__login__password" , placeholder: "パスワード"}     
       .top__body__login__box  
-        ログイン
+        = link_to root_path, class:"top__body__login__box__text" do
+          ログイン
 
 .wrapper
   = render 'item-footer'
