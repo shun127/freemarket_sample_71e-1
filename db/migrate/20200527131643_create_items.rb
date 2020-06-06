@@ -5,8 +5,8 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :price,                        null:false
       t.text   :item_introduction,            null:false
       t.string   :condition,                  null:false
-      t.references :seller,                   null:false,foreign_key:true
-      t.references :buyer,                    foreign_key:true
+      t.references :seller,                   null:false,foreign_key:{to_table: :users}
+      t.references :buyer,                    foreign_key:{to_table: :users}
       t.references :category,                 null:false,foreign_key:true
       t.references :brand,                    null:false,foreign_key:true
       t.references :postage_payers,           null:false,foreign_key:true
