@@ -22,7 +22,7 @@
 |item_introduction|text|null: false|
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
-|condition|enum|null: false|
+|condition|string|null: false|
 |item_imageas_id|references|null: false, foreign_key: true|
 |postage_payers_id|references|null:false, foreign_key: true|
 |preparation_period_id|references|null: false, foreign_key: true|
@@ -151,3 +151,5 @@ belongs_to :user
 ### Association
 - belongs_to :user
 - belongs_to :item
+
+ 
