@@ -6,14 +6,19 @@
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
 }
 
+
+
 @import "items";
 @import "new";
 @import "purchase_temporary";
+@import "login";
+@import "sign_up";
+@import "member_done";
 
-// .scssを削除しました
 @import "header";
 @import "footer";
 @import "item-header";
 @import "item-footer";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
