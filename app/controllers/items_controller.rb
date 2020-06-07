@@ -33,6 +33,9 @@ class ItemsController < ApplicationController
   def purchase_temporary
   end
 
+  def item_details
+  end
+
   def login
   end
 
