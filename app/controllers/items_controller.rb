@@ -36,4 +36,12 @@ class ItemsController < ApplicationController
   def item_details
   end
 
+  def login
+  end
+
+  def sign_up
+  end
+
+  def member_done
+  end
 end
