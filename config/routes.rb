@@ -9,11 +9,10 @@ Rails.application.routes.draw do
 
       #商品購入のフロント実装コードレビュー確認のための仮ルーティングです。木下6/3
       get  'purchase_temporary'
-      #商品詳細ページのフロント実装コードレビュー確認のための仮ルーティングです。伊藤6/4
-      get  'item_details'
       get  'login'
       get  'sign_up'
       get  'member_done'
+    
     end
   end
 
