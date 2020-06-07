@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_033805) do
     t.bigint "seller_id", null: false
     t.bigint "buyer_id"
     t.bigint "category_id", null: false
-    t.bigint "brand_id", null: false
+    t.bigint "brand_id"
     t.bigint "postage_payers_id", null: false
     t.bigint "preparation_period_id", null: false
     t.string "trading_status", null: false

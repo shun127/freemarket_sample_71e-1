@@ -1,7 +1,7 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
+|nickname|string|null: false,unique: true|
 |password|string|null: false|
 |email|string|null: false, unique: true|
 
@@ -21,7 +21,7 @@
 |price|string|null: false|
 |item_introduction|text|null: false|
 |category_id|references|null: false, foreign_key: true|
-|brand_id|references|null: false, foreign_key: true|
+|brand_id|references|foreign_key: true|
 |condition|string|null: false|
 |item_imageas_id|references|null: false, foreign_key: true|
 |postage_payers_id|references|null:false, foreign_key: true|
