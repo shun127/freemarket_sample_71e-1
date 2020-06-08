@@ -34,7 +34,7 @@
   }
 }
 
-.footer { 
+.footer-part { 
   $white: #ffffff;
   $black: #272727;
   padding: 60px 0;
@@ -70,12 +70,12 @@
       }
     }
   }
-  .footer__logo {
+  .footer-part__logo {
     max-width: 160px;
     width: 100%;
     margin: 0 auto;
   }
-  &__log {
+  &__logotitle {
     font-size: 14px;
   }
 }
