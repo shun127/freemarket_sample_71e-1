@@ -14,7 +14,11 @@ Rails.application.routes.draw do
       get  'mypage'
       get  'creditregistration'
       get  'logout'
-
+      #商品詳細ページのフロント実装コードレビュー確認のための仮ルーティングです。伊藤6/4
+      get  'item_details'
+      get  'login'
+      get  'sign_up'
+      get  'member_done'
     end
   end
 

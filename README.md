@@ -1,7 +1,7 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
+|nickname|string|null: false,unique: true|
 |password|string|null: false|
 |email|string|null: false, unique: true|
 
@@ -21,19 +21,21 @@
 |price|string|null: false|
 |item_introduction|text|null: false|
 |category_id|references|null: false, foreign_key: true|
-|brand_id|references|null: false, foreign_key: true|
-|item_condition_id|references|null: false, foreign_key: true|
+|brand_id|references|foreign_key: true|
+|condition|string|null: false|
+|item_imageas_id|references|null: false, foreign_key: true|
 |postage_payers_id|references|null:false, foreign_key: true|
 |preparation_period_id|references|null: false, foreign_key: true|
-|trading_status|string|null: false|
 |deal_closed_data|string| -|
+|seller_id|references|null: false, foreign_key: true|
+|buyer_id|references|foreign_key: true|
+
 
 ### Association
-- has_many :itemimages,dependent: :destroy
+- has_many :item_images,dependent: :destroy
 - has_many :comments,dependent: :destroy
 - has_many :favorites,dependent: :destroy
 - belongs_to :category
-- belongs_to :item_condition,dependent: :destroy
 - belongs_to :brand
 - belongs_to :postage_payer,dependent: :destroy
 - belongs_to :preparation_period,dependent: :destroy
@@ -90,7 +92,7 @@ belongs_to :user
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|string|null:false|
+|ancestry|string|
 
 ### Association
 - has_many :items
@@ -99,14 +101,6 @@ belongs_to :user
 |Column|Type|Options|
 |------|----|-------|
 |name|string| -|
-
-### Association
-- has_many :items
-
-## item_conditionテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_condition|string|null: false|
 
 ### Association
 - has_many :items
@@ -127,7 +121,7 @@ belongs_to :user
 ### Association
 - has_many :items
 
-## itemimagesテーブル
+## item_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null:false, foreign_key:true|
@@ -157,3 +151,5 @@ belongs_to :user
 ### Association
 - belongs_to :user
 - belongs_to :item
+
+ 

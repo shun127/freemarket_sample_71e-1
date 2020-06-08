@@ -1,0 +1,22 @@
+.done_header
+  .done_header__body
+    = image_tag('material/logo/logo.png', class:"header__body__icon")
+    .done_header__body__bar   
+      .done_header__body__bar__left
+        会員情報   
+      .done_header__body__bar__right   
+        ▶︎▶︎▶︎▶︎▶︎▶︎ 登録完了    
+
+.done_main
+  .done_main__box
+    .done_main__box__top
+      会員登録完了  
+    .done_main__box__bottom
+      .done_main__box__bottom__text
+        ありがとうございます。会員登録が完了しました。
+      .done_main__box__bottom__next_button
+        = link_to root_path, class:"done_main__box__bottom__next_button__text" do
+          FURIMAを利用する
+
+.wrapper
+  = render 'item-footer'
