@@ -1,16 +1,16 @@
-.header
-  .box
-    .box__upper
-      .box__upper__icon
+.header-part
+  .box-part
+    .box-part__upper
+      .box-part__upper__icon
         = link_to root_path do
-          =image_tag "material/logo/logo.png", class: "header-image"
-      .box__upper__search
-        %input{type: "text", class: "box__upper__search__input", placeholder: " キーワードから探す"}
-        .box__upper__search__btn
+          =image_tag "material/logo/logo.png", class: "header-part-image"
+      .box-part__upper__search
+        %input{type: "text", class: "box-part__upper__search__input", placeholder: " キーワードから探す"}
+        .box-part__upper__search__btn
           =image_tag "material/icon/icon-search 1.png", class: "search-icon"
-    .box__select
-      .box__select__left
-        .box__select__left__category
+    .box-part__select
+      .box-part__select__left
+        .box-part__select__left__category
           %select{name: "category"}
             %option{value: ""} カテゴリー
             %option{value: "0"} レディース
@@ -24,17 +24,17 @@
             %option{value: "8"} チケット
             %option{value: "9"} 自動車・オートバイ
             %option{value: "10"} その他
-        =link_to "#" , class:"box__select__left__brand" do
+        =link_to "#" , class:"box-part__select__left__brand" do
           ブランド
-      .box__navi__right
+      .box-part__navi__right
         - if user_signed_in?         
-          = link_to "#", class: "box__select__right__new" do
+          = link_to "#", class: "box-part__select__right__new" do
             マイページ
-          = link_to "#", method: :delete, class: "box__select__right__new" do
+          = link_to "#", method: :delete, class: "box-part__select__right__new" do
             ログアウト
         - else
           -# ここのリンクは仮ルーティング木下6/5
-          = link_to login_items_path, class:"box__select__right__login" do
+          = link_to login_items_path, class:"box-part__select__right__login" do
             ログイン
-          = link_to sign_up_items_path, class:"box__select__right__new" do
+          = link_to sign_up_items_path, class:"box-part__select__right__new" do
             新規会員登録
