@@ -1,23 +1,26 @@
-.mypage
+.wrapper
   = render 'header'
-      
-  .container
+
+= link_to root_path, class:"sell-btn" do
+
+  .sell-btn__text
+    出品する
+  = image_tag('material/icon/icon_camera.png', class:"sell-btn__image")
+
+.mypage
+  .mypage__container
     = render 'mypage-side'
 
-    .container__main
-      .container__main__chapter
-        %h2.container__main__chapter__head
+    .mypage__container__main
+      .mypage__container__main__chapter
+        %h2.mypage__container__main__chapter__head
           支払い方法
-        .container__main__chapter__inner
-          .container__main__chapter__inner__settings-add-card
-            .container__main__chapter__inner__settings-add-card__single-content
+        .mypage__container__main__chapter__inner
+          .mypage__container__main__chapter__inner__settings-add-card
+            .mypage__container__main__chapter__inner__settings-add-card__single-content
             =link_to "#", class: "btn" do
               = icon("far", "credit-card", class: "btn--icon")
               %span<>
               クレジットカードを追加する
 
   = render 'footer'
-
-  %a.footer-sell-btn
-    %div 出品
-    = image_tag "material/icon/icon_camera.png"

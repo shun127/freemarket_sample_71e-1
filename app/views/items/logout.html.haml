@@ -1,12 +1,19 @@
-.mypage
+.wrapper
   = render 'header'
-  
-  .container
+
+= link_to root_path, class:"sell-btn" do
+
+  .sell-btn__text
+    出品する
+  = image_tag('material/icon/icon_camera.png', class:"sell-btn__image")
+
+.mypage
+  .mypage__container
     = render 'mypage-side'
 
-    .container__main
-      .container__main__chapter
-        .container__main__chapter__inner
+    .mypage__container__main
+      .mypage__container__main__chapter
+        .mypage__container__main__chapter__inner
           .single-content
           =link_to "#", class: "btn" do
             ログアウト

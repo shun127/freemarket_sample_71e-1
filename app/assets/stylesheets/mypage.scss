@@ -1,22 +1,49 @@
+.sell-btn{
+  position: fixed;
+  z-index: 1;
+  bottom: 50px;
+  right: 50px;
+  height: 130px;
+  width: 130px;
+  background-color: #3CCACE;
+  border-radius: 5px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  &__text{
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  &__image{
+    height: 60%;
+    width: 60%;
+  }
+}
+
 .mypage {
   background-color: #f2f2f2;
   color: #333;
 
-  .container {
-    margin: 40px auto;
+  &__container {
+    margin: 0 auto;
+    padding: 40px 0;
     width: 1020px;
     display: flex;
 
     &__main{
       float: right;
-      .mypage-user-icon{
+      &__user-icon{
         height: 200px;
         width: 700px;
         background-color: #fff;
         position: relative;
         padding: 20px;
         text-align: center;
-        .mypage-user-icon__user {
+        &__user {
           position: absolute;
           top: 50%;
           left: 0;
@@ -25,7 +52,7 @@
           color: #333;
           width: 700px;
           height: 110px;
-          .mypage-user-icon__user__image {
+          &__image {
             overflow: hidden;
             width: 60px;
             height: 60px;
@@ -36,7 +63,7 @@
               height: 60px;
             }
           }
-          .mypage-user-icon__user__name {
+          &__name {
             margin: 8px 0 0;
             font-size: 14px;
           }
@@ -44,26 +71,20 @@
       }
     }
 
-    &__side{
+    &__side {
       float: left;
       margin: 0 40px 0 0;
       width: 280px;
       padding: 0;
       border-style: solid;
       border-width: 0;
-      &__mypage-nav {
+      &__nav {
         margin: 0;
         padding: 0;
-        &__head {
-          margin: 0;
-          font-size: 16px;
-          border-style: solid;
-          border-width: 0;
-        }
         ul {
           li {
             border-top: 1px solid #eee;
-            .mypage-nav-list-item {
+            .mypage__container__side__nav__list__item {
               position: relative;
               display: block;
               min-height: 48px;
@@ -83,30 +104,6 @@
           }
         }
       }
-    }
-  }
-
-  .footer-sell-btn {
-    bottom: 32px;
-    right: 32px;
-    width: 160px;
-    font-size: 22px;
-    position: fixed;
-    z-index: 1000;
-    border-radius: 50%;
-    background-color: #3CCACE;
-    color: #fff;
-    text-align: center;
-    div {
-      margin: 32px 0 0;
-      border-style: solid;
-      border-width: 0;
-    }
-    img {
-      margin: 8px 0 0;
-      font-size: 54px;
-      height: 54px;
-      width: 60px;
     }
   }
 }
