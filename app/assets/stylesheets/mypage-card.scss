@@ -1,0 +1,29 @@
+.mypage__container__main {
+  &__mypage-tab-container {
+    margin: 0;
+    padding: 0;
+    &__head {
+      padding: 0 16px;
+      display: block;
+      background: #fff;
+      font-size: 16px;
+      line-height: 72px;
+    }
+    &__listing-tabs {
+      border: 0;
+      background: #eee;
+      border-style: solid;
+      border-width: 0;
+      letter-spacing: -1rem;
+      white-space: nowrap;
+      &__list {
+        display: inline-block;
+        width: 33.3%;
+        text-align: center;
+        letter-spacing: normal;
+        white-space: normal;
+        vertical-align: top;
+      }
+    }
+  }
+}

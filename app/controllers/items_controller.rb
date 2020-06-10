@@ -44,4 +44,17 @@ class ItemsController < ApplicationController
 
   def member_done
   end
+
+  #マイページフロント実装コードレビュー確認のための仮です。皆川6/10
+  def mypage_exhibiting
+  end
+  #マイページフロント実装コードレビュー確認のための仮です。皆川6/10
+  def mypage_logout
+  end
+  #マイページフロント実装コードレビュー確認のための仮です。皆川6/10
+  def mypage_card
+  end
+  #マイページフロント実装コードレビュー確認のための仮です。皆川6/10
+  def mypage_card_create
+  end
 end

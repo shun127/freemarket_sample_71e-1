@@ -1,0 +1,83 @@
+.wrapper
+  = render 'header'
+
+= link_to root_path, class:"sell-btn" do
+
+  .sell-btn__text
+    出品する
+  = image_tag('material/icon/icon_camera.png', class:"sell-btn__image")
+
+.mypage
+  .mypage__container
+    = render 'mypage-side'
+
+    .mypage__container__main
+      .mypage__container__main__chapter
+        %h2.mypage__container__main__chapter__head
+          クレジットカード情報入力
+        .mypage__container__main__chapter__card-registraition
+          .mypage__container__main__chapter__card-registraition__content
+            .mypage__container__main__chapter__card-registraition__content__form-group-card-namber
+              %a カード番号
+              %span.form-require 必須
+              %input{type: "text", class: "input-default", placeholder: " 半角数字のみ"}
+              %ul.signup-card-list
+                %li.first
+                  = image_tag src="material/logo/card-logo-visa.png",width: "35", height: "20"
+                %li
+                  = image_tag src="material/logo/card-logo-mastercard.png",width: "35", height: "20"
+                %li
+                  = image_tag src="material/logo/card-logo-saisoncard.gif",width: "35", height: "20"
+                %li
+                  = image_tag src="material/logo/card-logo-JCB.gif",width: "35", height: "20"
+                %li
+                  = image_tag src="material/logo/card-logo-americanexpress.gif",width: "35", height: "20"
+                %li
+                  = image_tag src="material/logo/card-logo-dinersclub.gif",width: "35", height: "20"
+                %li
+                  = image_tag src="material/logo/card-logo-discover.gif",width: "35", height: "20"
+
+            .mypage__container__main__chapter__card-registraition__content__form-group-expire
+              %a 有効期限
+              %span.form-require 必須
+              %br
+              .mypage__container__main__chapter__card-registraition__content__form-group-expire__select-wrap
+                %select{id: "card-expire-mm", class: "select-default"}
+                  %option(value="01")01
+                  %option(value="02")02
+                  %option(value="03")03
+                  %option(value="04")04
+                  %option(value="05")05
+                  %option(value="06")06
+                  %option(value="07")07
+                  %option(value="08")08
+                  %option(value="09")09
+                  %option(value="10")10
+                  %option(value="11")11
+                  %option(value="12")12
+                %span 月
+              .mypage__container__main__chapter__card-registraition__content__form-group-expire__select-wrap
+                %select{id: "card-expire-yy", class: "select-default"}
+                  %option(value="20")20
+                  %option(value="21")21
+                  %option(value="22")22
+                  %option(value="23")23
+                  %option(value="24")24
+                  %option(value="25")25
+                  %option(value="26")26
+                  %option(value="27")27
+                  %option(value="28")28
+                  %option(value="29")29
+                  %option(value="30")30
+                %span 年
+
+            .mypage__container__main__chapter__card-registraition__content__form-group-security-code
+              %a セキュリティコード
+              %span.form-require 必須
+              %input{type: "text", class: "input-default", placeholder: " カード背面4桁もしくは3桁の番号"}
+
+            %button{type: "button", class: "btn-card-create"}
+              追加する
+
+.wrapper
+  = render 'footer'

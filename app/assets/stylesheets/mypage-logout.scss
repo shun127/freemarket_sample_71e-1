@@ -1,0 +1,48 @@
+.btn {
+  margin: 0 126px;
+  background: #ea352d;
+  color: #fff;
+  display: block;
+  line-height: 48px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 2px;
+  &--icon {
+    margin: 16px;
+  }
+}
+
+.mypage__container {
+  &__main{
+    float: right;
+    width: 700px;
+    margin: 0;
+    padding: 0;
+    border-style: solid;
+    border-width: 0;
+    display: block;
+    &__chapter {
+      background: #fff;
+      &__head {
+        font-size: 24px;
+        font-weight: bold;
+        padding: 8px 24px;
+        border-bottom: 1px solid #f5f5f5;
+        text-align: center;
+        line-height: 1.4;
+      }
+      &__inner {
+        padding: 64px;
+        border-top: 1px solid #f5f5f5;
+        &__settings-add-card {
+          padding: 24px;
+          border-bottom: 1px solid #eee;
+          &__single-content {
+            max-width: 320px;
+          }
+        }
+      }
+    }
+  }
+}
