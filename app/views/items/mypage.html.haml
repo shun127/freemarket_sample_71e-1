@@ -11,6 +11,12 @@
   .mypage__container
     = render 'mypage-side'
 
-    = render 'mypage-exhibiting'
+    .mypage__container__main
+      .mypage__container__main__user-icon
+        .mypage__container__main__user-icon__user
+          .mypage__container__main__user-icon__user__image
+            = image_tag "material/icon/member_photo_noimage_thumb.png"
+          %h2.mypage__container__main__user-icon__user__name
+            ユーザー名
 
   = render 'footer'
