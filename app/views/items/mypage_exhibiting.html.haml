@@ -1,0 +1,24 @@
+.wrapper
+  = render 'header'
+
+= link_to root_path, class:"sell-btn" do
+
+  .sell-btn__text
+    出品する
+  = image_tag('material/icon/icon_camera.png', class:"sell-btn__image")
+
+.mypage
+  .mypage__container
+    = render 'mypage-side'
+    .mypage__container__main
+      .mypage__container__main__mypage-tab-container
+        %h3.mypage__container__main__mypage-tab-container__head
+          出品した商品
+        %ul.mypage__container__main__mypage-tab-container__listing-tabs
+          %li.mypage__container__main__mypage-tab-container__listing-tabs__list
+            %h4 出品中
+          %li.mypage__container__main__mypage-tab-container__listing-tabs__list
+            %h4 取引中
+          %li.mypage__container__main__mypage-tab-container__listing-tabs__list
+            %h4 売却済み
+        .mypage__container__main__mypage-tab-container__tab-content

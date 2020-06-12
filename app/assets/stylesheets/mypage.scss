@@ -1,0 +1,109 @@
+.sell-btn{
+  position: fixed;
+  z-index: 1;
+  bottom: 50px;
+  right: 50px;
+  height: 130px;
+  width: 130px;
+  background-color: #3CCACE;
+  border-radius: 5px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  &__text{
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  &__image{
+    height: 60%;
+    width: 60%;
+  }
+}
+
+.mypage {
+  background-color: #f2f2f2;
+  color: #333;
+
+  &__container {
+    margin: 0 auto;
+    padding: 40px 0;
+    width: 1020px;
+    display: flex;
+
+    &__main{
+      float: right;
+      &__user-icon{
+        height: 200px;
+        width: 700px;
+        background-color: #fff;
+        position: relative;
+        padding: 20px;
+        text-align: center;
+        &__user {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          right: 0;
+          transform: translate(0, -50%);
+          color: #333;
+          width: 700px;
+          height: 110px;
+          &__image {
+            overflow: hidden;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+            border-radius: 50%;
+            img {
+              width: 60px;
+              height: 60px;
+            }
+          }
+          &__name {
+            margin: 8px 0 0;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    &__side {
+      float: left;
+      margin: 0 40px 0 0;
+      width: 280px;
+      padding: 0;
+      border-style: solid;
+      border-width: 0;
+      &__nav {
+        margin: 0;
+        padding: 0;
+        ul {
+          li {
+            border-top: 1px solid #eee;
+            .mypage__container__side__nav__list__item {
+              position: relative;
+              display: block;
+              min-height: 48px;
+              padding: 16px;
+              background: #fff;
+              font-size: 14px;
+              color: #333;
+              text-decoration: none;
+              .icon-angle-right {
+                color: #ccc;
+                position: absolute;
+                top: 50%;
+                right: 16px;
+                transform: translate(0 -50%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.wrapper
+  = render 'header'
+
+= link_to root_path, class:"sell-btn" do
+
+  .sell-btn__text
+    出品する
+  = image_tag('material/icon/icon_camera.png', class:"sell-btn__image")
+
+.mypage
+  .mypage__container
+    = render 'mypage-side'
+
+    .mypage__container__main
+      .mypage__container__main__user-icon
+        .mypage__container__main__user-icon__user
+          .mypage__container__main__user-icon__user__image
+            = image_tag "material/icon/member_photo_noimage_thumb.png"
+          %h2.mypage__container__main__user-icon__user__name
+            ユーザー名
+
+.wrapper
+  = render 'footer'
