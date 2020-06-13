@@ -207,11 +207,15 @@
       display: block;
       color: #3CCACE;
       margin-bottom: 20px;
+    
     }
     &__items{
       display: flex;
-      justify-content: center;
+      // justify-content: center;
       margin-top: 10px;
+      flex-wrap: wrap;
+      width: 210px;
+      height: 290px;
       &__item{
         margin: 10px;
         width: 200px;

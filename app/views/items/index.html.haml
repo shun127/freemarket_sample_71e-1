@@ -92,25 +92,17 @@
       新着アイテム
     = link_to "#", class:"link" do
       もっと見る
-    - for i in 1..3
-      .top-main__new__items
-        - for j in 1..5
-          -# %a.top-main__new__items__item
-          = link_to item_details_items_path, class:"top-main__new__items__item" do
-            -# = image_tag "gift.jpeg"
-            = image_tag "material/pict/pict-reason-01.jpg"
-            .top-main__new__items__item__info
-              .top__category__1__main__item
-                = link_to item_path(item) do
-                  .top__category__1__main__item__box   
-                    .top__category__1__main__item__box__image
-                      = image_tag "#{item.images[0].image}",size:"185x189"
-                      .top__category__1__main__item__box__image__price
-                        ¥ 
-                .top-main__new__items__item__info__name
-                 
-              .top-main__new__items__item__info__favorite
-                ★0
+    -@items.each do |item|
+      %li.top-main__new__items
+        = link_to "/", class:"top-main__new__items__item" do
+          = image_tag "material/pict/pict-reason-01.jpg"
+          .top-main__new__items__item__info
+            .top-main__new__items__item__info__price
+              =item.name
+              ¥
+              =item.price
+              (税込み)
+              .top-main__new__items__item__info__name
 
 .wrapper
   = render 'footer'

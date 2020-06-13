@@ -58,4 +58,7 @@ class ItemsController < ApplicationController
   #マイページフロント実装コードレビュー確認のための仮です。皆川6/10
   def mypage_card_create
   end
+
+
+
 end
