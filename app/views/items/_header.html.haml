@@ -26,7 +26,21 @@
             %option{value: "10"} その他
         =link_to "#" , class:"box-part__select__left__brand" do
           ブランド
-      .box-part__navi__right
+      .box-part__select__right
+
+
+        - if user_signed_in?         
+          = link_to "#", class: "box__select__right__new" do
+            マイページ
+          = link_to destroy_user_session_path, method: :delete, class: "box__select__right__new" do
+            ログアウト
+        - else    
+          = link_to new_user_session_path, class:"box__select__right__login" do
+            ログイン
+          = link_to new_user_registration_path, class:"box__select__right__new" do
+            新規会員登録
+
+
         -# - if user_signed_in?         
         -#   = link_to "#", class: "box-part__select__right__new" do
         -#     マイページ
@@ -38,15 +52,3 @@
         -#     ログイン
         -#   = link_to sign_up_items_path, class:"box-part__select__right__new" do
         -#     新規会員登録
-
-        - if user_signed_in?         
-          = link_to "#", class: "box__select__right__new" do
-            マイページ
-          = link_to destroy_user_session_path, method: :delete, class: "box__select__right__new" do
-            ログアウト
-        - else
-          -# ここのリンクは仮ルーティング木下6/5
-          = link_to new_user_session_path, class:"box__select__right__login" do
-            ログイン
-          = link_to new_user_registration_path, class:"box__select__right__new" do
-            新規会員登録

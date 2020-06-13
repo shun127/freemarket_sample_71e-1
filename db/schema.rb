@@ -149,6 +149,13 @@ ActiveRecord::Schema.define(version: 2020_06_06_033805) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name", null: false
+    t.string "family_namename", null: false
+    t.string "first_name_kana", null: false
+    t.string "family_namename_kana", null: false
+    t.date "birth_year", null: false
+    t.date "birth_month", null: false
+    t.date "birth_day", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
