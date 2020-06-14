@@ -1,10 +1,12 @@
 class ApplicationController < ActionController::Base
   # Basic認証によるログインの要求を全てのコントローラーで行う
-  # ルーティング設定後にBasic認証のコードを改良します(5/18)。木下
   before_action :basic_auth, if: :production?
   
   # CSRF対策
   protect_from_forgery with: :exception
+
+  # sign_upアクションに対して「nickname」キーをパラメーターで許可する6/14木下
+  before_action :configure_permitted_parameters, if: :devise_controller?
   
   private
 
@@ -18,6 +20,12 @@ class ApplicationController < ActionController::Base
     authenticate_or_request_with_http_basic do |username, password|
       username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
     end
+  end
+
+  # sign_upアクションに対して各キーをパラメーターで許可する6/14木下
+  protected
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name,:family_name, :first_name_kana, :family_name_kana, :birth_year, :birth_month, :birth_day, :post_code, :prefecture_code, :city, :house_number, :building_name, :phone_number])
   end
 
 end

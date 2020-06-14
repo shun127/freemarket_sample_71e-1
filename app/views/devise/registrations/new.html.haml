@@ -1,59 +1,119 @@
-.contents.row
-  .container
-    %h2 Sign up
-    = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
-      = devise_error_messages!
-      .field
-        = f.label :nickname
-        %em (6 characters maximum)
-        %br/
-        = f.text_field :nickname, autofocus: true, maxlength: "6"
-      .field
-        = f.label :email
-        %br/
-        = f.email_field :email
-      .field
-        = f.label :password
-        - if @validatable
-          %em
-            (#{@minimum_password_length} characters minimum)
-        %br/
-        = f.password_field :password, autocomplete: "off"
-      .field
-        = f.label :password_confirmation
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "off"
-      .actions
-        = f.submit "Sign up"
+
+.header
+  .header__body
+    = image_tag('material/logo/logo.png', class:"header__body__icon")
+    .header__body__bar   
+      .header__body__bar__left
+        会員情報   
+      .header__body__bar__right   
+        ▶︎▶︎▶︎▶︎▶︎▶︎ 登録完了    
 
 
 
--# %h2 Sign up
--# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
--#   = render "devise/shared/error_messages", resource: resource
--#   .field
--#     = f.label :email
--#     %br/
--#     = f.email_field :email, autofocus: true, autocomplete: "email"
--#   .field
--#     = f.label :password
--#     - if @minimum_password_length
--#       %em
--#         (#{@minimum_password_length} characters minimum)
--#     %br/
--#     = f.password_field :password, autocomplete: "new-password"
--#   .field
--#     = f.label :password_confirmation
--#     %br/
--#     = f.password_field :password_confirmation, autocomplete: "new-password"
--#   .actions
--#     = f.submit "Sign up"
--# = render "devise/shared/links"
+.main
+  .main__box
+    .main__box__top
+      新規会員登録  
+    .main__box__member_information
+      .main__box__member_information__nickname__text
+        会員情報入力  
+    
+      = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'main__box__member_information', local: true do |f|
+        = devise_error_messages!
+        .field
+          = f.label :ニックネーム（必須）
+          %em (6文字以下)
+          %br/
+          = f.text_field :nickname, autofocus: true, maxlength: "6"
+        .field
+          = f.label :メールアドレス（必須）
+          %br/
+          = f.email_field :email
+        .field
+          = f.label :パスワード（必須）7文字以上
+          - if @validatable
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "off"
+        .field
+          = f.label :パスワード確認用（必須）7文字以上
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "off"
 
--# ****************
 
--# .field
--#   = f.label :nickname
--#   %em (6 characters maximum)
--#   %br/
--#   = f.text_field :nickname, autofocus: true, maxlength: "6"
+
+
+        .field 
+          = f.label :苗字（必須）※全角
+          %br/
+          = f.text_field :family_name
+
+        .field 
+          = f.label :名前（必須）※全角
+          %br/
+          = f.text_field :first_name
+
+        
+
+        .field 
+          = f.label :ミョウジ（必須）※全角カタカナ
+          %br/
+          = f.text_field :family_name_kana
+        
+        .field 
+          = f.label :ナマエ（必須）※全角カタカナ
+          %br/
+          = f.text_field :first_name_kana
+        
+
+
+        .field 
+          = f.label :生まれ年（必須）
+          %br/
+          = f.text_field :birth_year
+
+        .field 
+          = f.label :月（必須）
+          %br/
+          = f.text_field :birth_month
+
+        .field 
+          = f.label :日（必須）
+          %br/
+          = f.text_field :birth_day
+        
+
+
+        .field 
+          = f.label :郵便番号（必須）
+          %br/
+          = f.text_field :post_code
+        
+        .field 
+          = f.label :県（必須）
+          %br/
+          = f.text_field :prefecture_code
+
+        .field 
+          = f.label :住所（必須）
+          %br/
+          = f.text_field :city
+
+        .field 
+          = f.label :番地（必須）
+          %br/
+          = f.text_field :house_number
+
+        .field 
+          = f.label :建物名
+          %br/
+          = f.text_field :building_name
+
+        .field 
+          = f.label :電話番号
+          %br/
+          = f.text_field :phone_number
+
+        .actions
+          = f.submit "Sign up"

@@ -30,7 +30,7 @@
 
 
         - if user_signed_in?         
-          = link_to "#", class: "box__select__right__new" do
+          = link_to mypage_items_path, class: "box__select__right__new" do
             マイページ
           = link_to destroy_user_session_path, method: :delete, class: "box__select__right__new" do
             ログアウト

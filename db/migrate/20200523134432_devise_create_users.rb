@@ -4,6 +4,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
       ## Database authenticatable
+
+
       t.string :nickname,           null: false, unique: true
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -33,8 +35,31 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-
+      
       t.timestamps null: false
+
+
+      # profilesから移動6/14木下
+      t.string :first_name,                         null:false
+      t.string :family_name,                        null:false
+      t.string :first_name_kana,                    null:false
+      t.string :family_name_kana,                   null:false
+
+      # 生年月日ですが、dateにするとカラムごとに0000/00/00の形しか受け付けないためinteger（整数）と修正（ユーザーはリストから選ぶ形式にしています）木下6/15。
+      t.integer :birth_year,                           null:false
+      t.integer :birth_month,                          null:false
+      t.integer :birth_day,                            null:false
+
+      # destinationsから移動6/14木下
+      t.string :post_code,            null:false
+      t.string :prefecture_code,      null:false
+      t.string :city,                 null:false
+      t.string :house_number,         null:false
+      t.string :building_name
+
+      ### お届け先の電話番号は任意というカリキュラム指定のため、電話番号はnullfalseをとる木下6/15
+      t.string :phone_number
+
     end
 
     add_index :users, :email,                unique: true
