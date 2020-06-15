@@ -19,8 +19,6 @@
 |phone_number|string|
 
 ### Association
-- has_one :profil,dependent: :destroy
-- has_one :destination,dependent: :destroy
 - has_one :credit_card,dependent: :destroy
 - has_many :comments,dependent: :destroy
 - has_many :favorites,dependent: :destroy
