@@ -1,4 +1,4 @@
-## devise_create_usersテーブル
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false,unique: true|
