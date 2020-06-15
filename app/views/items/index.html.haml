@@ -96,14 +96,13 @@
       -@items.each do |item|
         %li.top-main__new__items
           = link_to "/", class:"top-main__new__items__item" do
-            = image_tag "material/pict/pict-reason-01.jpg"
+            =items_imaege.url
             .top-main__new__items__item__info
               .top-main__new__items__item__info__price
                 =item.name
                 ¥
                 =item.price
                 (税込み)
-                .top-main__new__items__item__info__name
 
 .wrapper
   = render 'footer'
