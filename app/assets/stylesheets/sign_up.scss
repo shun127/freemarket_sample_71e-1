@@ -53,7 +53,7 @@
 
   &__box{
     background-color: white;
-    height: 1800px;
+    height: 1700px;
     width: 600px;    
     margin-left: auto;
     margin-right: auto; 
@@ -87,42 +87,6 @@
       }
 
       
-      .field_mini{
-        background-color: yellow;
-        display: flex;
-        &__box{
-          
-          &__title{
-            font-weight: bolder;
-            background-color: pink;
-          }
-          &__must{
-            height: 20px;
-            width: 35px;
-            background-color: blue;
-            font-size: 12px;
-            text-align: center;
-            color: white;
-            line-height: 1.5;
-            border-radius: 3px;
-            margin-left: 4px;
-            margin-right: 4px;
-          }
-          &__text{
-            font-size: 13px;
-          }
-          &__box{
- 
-            height: 40px;
-            width: 83px;
-            padding-left: 10px;
-            margin-bottom: 15px;
-            margin-right: 20px;
-          
-          }
-        }  
-
-      }
 
       .field{
         // background-color:peachpuff;
@@ -170,6 +134,45 @@
 
                 
       }
+ 
+      
+      .field_mini{     
+        display: flex;
+        &__box{
+          display: flex;
+          &__title{
+            font-weight: bolder;
+   
+          }
+          &__must{
+            height: 20px;
+            width: 35px;
+            background-color:#ea352d;
+            font-size: 12px;
+            text-align: center;
+            color: white;
+            line-height: 1.5;
+            border-radius: 3px;
+            margin-left: 4px;
+            margin-right: 4px;
+          }
+          &__text{
+            font-size: 13px;
+          }
+          &__form{
+ 
+            height: 40px;
+            width: 83px;
+            padding-left: 10px;
+            margin-bottom: 15px;          
+          
+          }
+          &__label {
+            line-height: 40px;
+          }
+        }  
+      }
+ 
 
     }
   }

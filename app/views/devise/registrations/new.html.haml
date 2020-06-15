@@ -86,18 +86,23 @@
           = f.label :生年月日,class:"field_mini__box__title"
           %span.field_mini__box__must 必須
           .field_mini
-            .field_mini__box   
-              %br/
-              = f.text_field :birth_year,placeholder: "年", class:  "field_mini__box__box"
+            .field_mini__box                
+              = f.number_field :birth_year,placeholder: "-", class:  "field_mini__box__form",min: 1900, max: 2020
+              .field_mini__box__label
+                年
+              
+            .field_mini__box         
+              = f.number_field :birth_month,placeholder: "-", class:  "field_mini__box__form" ,min: 1, max: 12
+              .field_mini__box__label 
+                月
 
-            .field_mini__box 
-              %br/
-              = f.text_field :birth_month,placeholder: "月", class:  "field_mini__box__box"
-
-            .field_mini__box 
-              %br/
-              = f.text_field :birth_day,placeholder: "日", class:  "field_mini__box__box"
+            .field_mini__box           
+              = f.number_field :birth_day,placeholder: "-", class:  "field_mini__box__form",min: 1, max: 31
+              .field_mini__box__label
+                日
           
+
+
 
           
           .field 
@@ -121,6 +126,8 @@
           .field 
             = f.label :番地,class:"field__title"
             %span.field__must 必須
+            %span.field__text 全角
+
             %br/
             = f.text_field :house_number,placeholder: "1ー1ー1", class:  "field__box"
 
