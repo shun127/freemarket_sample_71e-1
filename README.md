@@ -1,9 +1,22 @@
-## usersテーブル
+## devise_create_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false,unique: true|
 |password|string|null: false|
 |email|string|null: false, unique: true|
+|first_name|string|null: false|
+|family_name|string|null: false|
+|first_name_kana|string|null: false|
+|family_name_kana|string|null: false|
+|birth_year|integer|null: false|
+|birth_month|integer|null: false|
+|birth_day|integer|null: false|
+|post_code|string|null: false|
+|prefecture_code|string|null: false|
+|city|string|null: false|
+|house_number|string|null:false|
+|building_name|string| -|
+|phone_number|string|
 
 ### Association
 - has_one :profil,dependent: :destroy
@@ -49,40 +62,6 @@
 |customer_id|string|null: false|
 |card_id|string|null: false|
 |user_id|references|null: false, foreign_key: true|
-
-### Association
-belongs_to :user
-
-## destinationsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|first_name|string|null: false|
-|family_name|string|null: false|
-|first_name_kana|string|null: false|
-|family_name_kana|string|null: false|
-|post_code|integer|null: false|
-|prefecture_code|string|null: false|
-|city|string|null: false|
-|house_number|string|null:false|
-|building_name|string| -|
-|phone_number|integer|null: false|
-|user_id|references|null:false, foreign_key: true|
-
-### Association
-belongs_to :user
-
-## profilesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|first_name|string|null: false|
-|family_name|string|null: false|
-|first_name_kana|string|null: false|
-|family_name_kana|string|null: false|
-|birth_year|date|null: false|
-|birth_month|date|null: false|
-|birth_day|date|null: false|
-|user_id|references|null:false, foreign_key: true|
-|introduction|text|
 
 ### Association
 belongs_to :user
