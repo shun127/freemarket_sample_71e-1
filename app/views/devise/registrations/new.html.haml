@@ -1,119 +1,145 @@
 
-.header
-  .header__body
-    = image_tag('material/logo/logo.png', class:"header__body__icon")
-    .header__body__bar   
-      .header__body__bar__left
-        会員情報   
-      .header__body__bar__right   
-        ▶︎▶︎▶︎▶︎▶︎▶︎ 登録完了    
+.wrapper
+  = render 'items/item-header'
 
 
 
 .main
   .main__box
     .main__box__top
-      新規会員登録  
-    .main__box__member_information
-      .main__box__member_information__nickname__text
-        会員情報入力  
-    
-      = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'main__box__member_information', local: true do |f|
-        = devise_error_messages!
-        .field
-          = f.label :ニックネーム（必須）
-          %em (6文字以下)
-          %br/
-          = f.text_field :nickname, autofocus: true, maxlength: "6"
-        .field
-          = f.label :メールアドレス（必須）
-          %br/
-          = f.email_field :email
-        .field
-          = f.label :パスワード（必須）7文字以上
-          - if @validatable
-            %em
-              (#{@minimum_password_length} characters minimum)
-          %br/
-          = f.password_field :password, autocomplete: "off"
-        .field
-          = f.label :パスワード確認用（必須）7文字以上
-          %br/
-          = f.password_field :password_confirmation, autocomplete: "off"
-
-
-
-
-        .field 
-          = f.label :苗字（必須）※全角
-          %br/
-          = f.text_field :family_name
-
-        .field 
-          = f.label :名前（必須）※全角
-          %br/
-          = f.text_field :first_name
-
+      新規会員登録
+    .main__box__information  
+      .main__box__information__body        
+        .main__box__information__body__top
+          会員情報入力 
         
+        = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+          = devise_error_messages!
+      
+          .field
+            = f.label :ニックネーム , class:"field__title"
+            %span.field__must 必須
+            %span.field__text 6文字以下
+            %br/
+            = f.text_field :nickname, autofocus: true, maxlength: "6",placeholder: "フリマ太郎", class:  "field__box"
+       
+          .field
+            = f.label :メールアドレス,class:"field__title"
+            %span.field__must 必須
+            %br/
+            = f.email_field :email,placeholder: "xxx@ppp.com", class:  "field__box"
+         
+          .field
+            = f.label :パスワード,class:"field__title"
+            %span.field__must 必須
+            %span.field__text 7文字以上
+            - if @validatable
+              %em
+                (#{@minimum_password_length} characters minimum)
+            %br/
+            = f.password_field :password, class:  "field__box", autocomplete: "off"
+          
+          .field
+            = f.label :パスワード確認用,class:"field__title"
+            %span.field__must 必須
+            %span.field__text 7文字以上
+            %br/
+            = f.password_field :password_confirmation, class:  "field__box", autocomplete: "off"
 
-        .field 
-          = f.label :ミョウジ（必須）※全角カタカナ
-          %br/
-          = f.text_field :family_name_kana
-        
-        .field 
-          = f.label :ナマエ（必須）※全角カタカナ
-          %br/
-          = f.text_field :first_name_kana
-        
+
+          %h1 本人確認
+          %li 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          
+          .field 
+            = f.label :苗字 ,class:"field__title"
+            %span.field__must 必須
+            %span.field__text 全角
+            %br/
+            = f.text_field :family_name, class:  "field__box"
+
+          .field 
+            = f.label :名前,class:"field__title"
+            %span.field__must 必須
+            %span.field__text 全角
+            %br/
+            = f.text_field :first_name, class:  "field__box"
+
+          
+
+          .field 
+            = f.label :ミョウジ,class:"field__title"
+            %span.field__must 必須
+            %span.field__text 全角カタカナ
+            %br/
+            = f.text_field :family_name_kana,class:  "field__box"
+          
+          .field 
+            = f.label :ナマエ ,class:"field__title"
+            %span.field__must 必須
+            %span.field__text 全角カタカナ
+            %br/
+            = f.text_field :first_name_kana, class:  "field__box"
+          
 
 
-        .field 
-          = f.label :生まれ年（必須）
-          %br/
-          = f.text_field :birth_year
 
-        .field 
-          = f.label :月（必須）
-          %br/
-          = f.text_field :birth_month
+          = f.label :生年月日,class:"field_mini__box__title"
+          %span.field_mini__box__must 必須
+          .field_mini
+            .field_mini__box   
+              %br/
+              = f.text_field :birth_year,placeholder: "年", class:  "field_mini__box__box"
 
-        .field 
-          = f.label :日（必須）
-          %br/
-          = f.text_field :birth_day
-        
+            .field_mini__box 
+              %br/
+              = f.text_field :birth_month,placeholder: "月", class:  "field_mini__box__box"
+
+            .field_mini__box 
+              %br/
+              = f.text_field :birth_day,placeholder: "日", class:  "field_mini__box__box"
+          
+
+          
+          .field 
+            = f.label :郵便番号,class:"field__title"
+            %span.field__must 必須
+            %br/
+            = f.text_field :post_code,placeholder: "xxx-xxxx", class:  "field__box"
+          
+          .field 
+            = f.label :県,class:"field__title"
+            %span.field__must 必須
+            %br/
+            = f.text_field :prefecture_code,placeholder: "東京都", class:  "field__box"
+
+          .field 
+            = f.label :住所,class:"field__title"
+            %span.field__must 必須
+            %br/
+            = f.text_field :city,placeholder: "渋谷区渋谷町", class:  "field__box"
+
+          .field 
+            = f.label :番地,class:"field__title"
+            %span.field__must 必須
+            %br/
+            = f.text_field :house_number,placeholder: "1ー1ー1", class:  "field__box"
+
+          .field 
+            = f.label :建物名,class:"field__title"
+            %br/
+            = f.text_field :building_name,placeholder: "シブヤビル", class:  "field__box"
+
+          .field 
+            = f.label :電話番号,class:"field__title"
+            %br/
+            = f.text_field :phone_number,placeholder: "000-0000-0000", class:  "field__box"
+
+          .actions
+            %h2 クリックすると会員登録が完了します。
+            = f.submit "新規登録する", class:"next_button" 
+              
+.wrapper
+  = render 'items/item-footer'
 
 
-        .field 
-          = f.label :郵便番号（必須）
-          %br/
-          = f.text_field :post_code
-        
-        .field 
-          = f.label :県（必須）
-          %br/
-          = f.text_field :prefecture_code
 
-        .field 
-          = f.label :住所（必須）
-          %br/
-          = f.text_field :city
-
-        .field 
-          = f.label :番地（必須）
-          %br/
-          = f.text_field :house_number
-
-        .field 
-          = f.label :建物名
-          %br/
-          = f.text_field :building_name
-
-        .field 
-          = f.label :電話番号
-          %br/
-          = f.text_field :phone_number
-
-        .actions
-          = f.submit "Sign up"
