@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  # 未ログインのユーザーをリダイレクトさせる。（下記before actionも参照）、サーバーサイド全て完了したらコメントアウト外す。6/15木下
+  # before_action :move_to_index, except: [:index, :show]
 
   def index
     @items = Item.all
@@ -37,12 +39,6 @@ class ItemsController < ApplicationController
   def item_details
   end
 
-  def login
-  end
-
-  def sign_up
-  end
-
   def member_done
   end
 
@@ -58,6 +54,11 @@ class ItemsController < ApplicationController
   #マイページフロント実装コードレビュー確認のための仮です。皆川6/10
   def mypage_card_create
   end
+  # 'login''sign_up'は削除しました（deviseディレクトリに移動）木下6/15
 
 
+  # 未ログインのユーザーをリダイレクトさせる。（下記before actionも参照）、サーバーサイド「全て完了した」らコメントアウト外す。6/15木下
+  # def move_to_index
+  #   redirect_to action: :index unless user_signed_in?
+  # end
 end
