@@ -85,21 +85,22 @@
       &__right{
         margin-left: auto;
         display: flex;
-        &__login{
-          color: #333;
+        
+        a{
           text-decoration: none;
+          color: #333;
           line-height: 32px;
+          padding-left: 30px;
+          
+        }
+       
+        &__login{                   
           background-position: center right;
           background-repeat: no-repeat;
           background-size: 18px;
-          padding-right: 30px;
-
         }
 
         &__new{
-          color: #333;
-          text-decoration: none;
-          line-height: 32px;
           background-position: center right;
           background-repeat: no-repeat;
           background-size: 18px;
