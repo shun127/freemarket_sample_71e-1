@@ -21,7 +21,9 @@
             %span.field__must 必須
             %span.field__text 6文字以下
             %br/
-            = f.text_field :nickname, autofocus: true, maxlength: "6",placeholder: "フリマ太郎", class:  "field__box"
+            -# テストコード記述のため maxlength: "6"を削除6/18木下
+            -# = f.text_field :nickname, autofocus: true, maxlength: "6",placeholder: "フリマ太郎", class:  "field__box"
+            = f.text_field :nickname, autofocus: true,placeholder: "フリマ太郎", class:  "field__box"
        
           .field
             = f.label :メールアドレス,class:"field__title"

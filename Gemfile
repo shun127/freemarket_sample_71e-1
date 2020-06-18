@@ -46,6 +46,11 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+
+  # 単体テストのためテストに特化した言語であるRSpexを導入します 6/18木下
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+
 end
 
 group :development do
@@ -78,3 +83,4 @@ gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'pry-rails'
 gem 'devise'
+

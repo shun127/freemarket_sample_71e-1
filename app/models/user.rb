@@ -15,6 +15,7 @@ class User < ApplicationRecord
   # メールアドレス@以降のドメイン必須 6/15木下
   validates :email, format: {with: /\A\S+@\S+\.\S+\z/ }
 
-
+  # テストコード記述のため、app/views/devise/registrations/new.html.erbのmaxlength: 6記述を削除し、以下を追加6/18木下
+  validates :nickname, presence: true, length: { maximum: 6 }
   
 end
