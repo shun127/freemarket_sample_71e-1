@@ -9,11 +9,25 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+    @images = @item.item_images.build
+
+    @category_parent_array = ["---"]
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+      end
   end
 
   def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      @item.item_images.new if @item.item_images.empty?
+      render :new
+    end
   end
-
+  
   def edit
   end
 
@@ -61,4 +75,25 @@ class ItemsController < ApplicationController
   # def move_to_index
   #   redirect_to action: :index unless user_signed_in?
   # end
+
+  private
+
+  def item_params
+    params.require(:item).permit(
+      :name, 
+      :price, 
+      :item_introduction, 
+      :condition,
+      :seller_id,
+      :category_id,
+      :brand_id,
+      :postage_payers_id,
+      :preparation_period_id,
+      :trading_status,
+      item_images_attributes: [:item, :url]
+#    ).merge(
+#      seller_id: current_user.id, 
+    )
+  end
+
 end
