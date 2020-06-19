@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get  'done'=>      'items#done', as: 'done'
 
       #商品購入のフロント実装コードレビュー確認のための仮ルーティングです。木下6/3
+      # 'login''sign_up'は削除しました（deviseディレクトリに移動）木下6/15
       get  'purchase_temporary'
 
       #マイページフロント実装コードレビュー確認のための仮ルーティングです。皆川6/10
@@ -16,10 +17,9 @@ Rails.application.routes.draw do
       get  'mypage_logout'
       get  'mypage_exhibiting'
       get  'mypage_card_create'
+
       #商品詳細ページのフロント実装コードレビュー確認のための仮ルーティングです。伊藤6/4
       get  'item_details'
-      get  'login'
-      get  'sign_up'
       get  'member_done'
     end
   end
