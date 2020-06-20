@@ -1,7 +1,6 @@
 class Item < ApplicationRecord
-  belongs_to user, foreign_key: 'seller_id'
-  belongs_to user, foreign_key: 'buyer_id'
-  has_many :item_images,dependent: :destroy
+  has_many :item_images, dependent: :destroy 
+  accepts_nested_attributes_for :item_images, allow_destroy: true
   has_many :comments,dependent: :destroy
   has_many :favorites,dependent: :destroy
   belongs_to :category
