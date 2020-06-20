@@ -15,7 +15,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :deal_closed_data
       t.timestamps
 
-      mount_uploader :image, ImageUploader
     end
   end
 end

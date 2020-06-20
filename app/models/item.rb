@@ -9,5 +9,5 @@ class Item < ApplicationRecord
   belongs_to :seller_item,class_name:"User"
   belongs_to :buyer_item,class_name:"User"
 
-  
+  mount_uploader :url, ImageUploader
 end
