@@ -1,0 +1,26 @@
+.wrapper
+  = render 'items/header'
+
+.wrapper
+  = render 'items/sell-btn'
+
+.box__select
+  .box__select__categories
+    .box__select__categories__title カテゴリー一覧
+    .parents-categories
+      - @parents.each do |parent|
+        .parents-category
+          = link_to "#{parent.name}", { anchor: "category-#{parent.id}" }
+    - @parents.each do |parent|
+      .children-categories
+        = link_to "#{parent.name}", category_path(parent), class:"main-title", id:"category-#{parent.id}"
+        - parent.children.each do |child|
+          .children-category
+            .child-category
+              = link_to "#{child.name}", category_path(child), class:"sub-title"
+            .grandchildren-categories
+              -child.children.each do |grandchild|
+                .grandchildren-category
+                  = link_to "#{grandchild.name}", category_path(grandchild), class:"grandchildren-title"
+.wrapper
+  = render 'items/footer'
