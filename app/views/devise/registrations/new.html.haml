@@ -3,7 +3,6 @@
   = render 'items/item-header'
 
 
-
 .main
   .main__box
     .main__box__top
@@ -20,9 +19,6 @@
             = f.label :ニックネーム , class:"field__title"
             %span.field__must 必須
             %span.field__text 6文字以下
-            %br/
-            -# テストコード記述のため maxlength: "6"を削除6/18木下
-            -# = f.text_field :nickname, autofocus: true, maxlength: "6",placeholder: "フリマ太郎", class:  "field__box"
             = f.text_field :nickname, autofocus: true,placeholder: "フリマ太郎", class:  "field__box"
        
           .field
@@ -80,8 +76,7 @@
             %span.field__must 必須
             %span.field__text 全角カタカナ
             %br/
-            = f.text_field :first_name_kana, class:  "field__box"
-          
+            = f.text_field :first_name_kana, class:  "field__box"         
 
 
 
@@ -101,10 +96,7 @@
             .field_mini__box           
               = f.number_field :birth_day,placeholder: "-", class:  "field_mini__box__form",min: 1, max: 31
               .field_mini__box__label
-                日
-          
-
-
+                日      
 
           
           .field 

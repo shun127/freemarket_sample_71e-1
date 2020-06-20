@@ -21,8 +21,3 @@ FactoryBot.define do
   end
 
 end
-
-
-# **************
-# house_number
-# building_name
