@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @images = @item.item_images.build
-    @item.images.new
+    @item.item_images.new
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name

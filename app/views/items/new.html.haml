@@ -18,6 +18,7 @@
                 = image_tag "material/icon/icon_camera.png", size: "20x18"
               .box-new__pic__inf ドラッグアンドドロップ
               .box-new__pic__inf またはクリックしてファイルをアップロード<br>
+
         .box-new
           .box-new__title
             %label 商品名
@@ -39,19 +40,6 @@
 
           = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択してください"}, {class: "select-category", id: "parent-category"}
 
-          %select{name: "category"}
-            %option{value: ""} 選択してください
-            %option{value: "0"} レディース
-            %option{value: "1"} メンズ
-            %option{value: "2"} ベビー・キッズ
-            %option{value: "3"} インテリア・住まい・小物
-            %option{value: "4"} 本・音楽・ゲーム
-            %option{value: "5"} 家電・スマホ・カメラ
-            %option{value: "6"} スポーツ・レジャー
-            %option{value: "7"} ハンドメイド
-            %option{value: "8"} チケット
-            %option{value: "9"} 自動車・オートバイ
-            %option{value: "10"} その他
         .box-new
           .box-new__title
             %label ブランド
@@ -78,7 +66,7 @@
             %label 発送元の地域
             %span.box-new__title__must 必須
           = f.collection_select :preparation_period_id, PreparationPeriod.all, :id, :preparation_period, {prompt: '選択してください'}
-
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--", class: 'input'
         .box-new
           .box-new__title
             %label 発送までに日数
