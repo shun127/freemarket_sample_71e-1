@@ -20,14 +20,20 @@
         background-color: #ffffff;
         border-radius: 4px;
         box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
-        padding: 0 30px;
         margin: 5px;
         a {
+          display:block;
+          border-radius: 4px;
+          padding: 0 30px;
           line-height: 40px;
-          min-width: 80px;
           text-align: center;
           color: #333;
           text-decoration: none;
+          &:hover {
+            outline:0;
+            background-color: #3CCACE;
+            color: #ffffff;
+          }
         }
       }
     }
@@ -41,7 +47,7 @@
         display: block;
         border-radius: 5px 5px 0 0;
         padding: 16px 10px 8px;
-        background-color: #ea352d;
+        background-color: #3CCACE;
         color: #fff;
         text-align: left;
         font-weight: bold;
@@ -52,27 +58,33 @@
         height: 40px;
       }
       .children-category {
-        padding: 16px;
+        padding: 24px 30px 10px 30px;
         .child-category {
-          .sub-title {
+          a.sub-title {
             font-size: 14px;
             color: #333;
             font-weight: bold;
-            text-decoration: none;
+            text-decoration: none; 
           }
         }
       }
       .grandchildren-categories {
-        padding: 0 0 0 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 10px;
         display: flex;
         flex-wrap: wrap;
         .grandchildren-category {
-          margin: 8px 0;
+          margin: 4px 0;
           display: inline-block;
           width: calc(100% / 2);
           .grandchildren-title {
             color: #0099e8;
             text-decoration: none;
+            &:hover {
+              opacity: 0.7;
+              text-decoration: underline;
+            }
           }
         }
       }

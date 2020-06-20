@@ -14,11 +14,6 @@
         .box-part__select__left__category
           =link_to categories_path , class:"box-part__select__left__category" do
             カテゴリー
-          - @parents.each do |parent|
-            .box-part__select__left__category__item
-              = link_to "#{parent.name}", url="#",class: "parent_category",id: "#{parent.id}"
-          .box-part__select__left__children
-          .box-part__select__left__grand_children
         =link_to "#" , class:"box-part__select__left__brand" do
           ブランド
 
