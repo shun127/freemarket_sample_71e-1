@@ -72,13 +72,14 @@ ActiveRecord::Schema.define(version: 2020_06_06_033805) do
     t.bigint "brand_id"
     t.bigint "postage_payers_id", null: false
     t.bigint "preparation_period_id", null: false
-    t.string "trading_status", null: false
-    t.string "deal_closed_data"
+    t.integer "prefecture_code", null: false
+    t.bigint "item_imageas_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["item_imageas_id"], name: "index_items_on_item_imageas_id"
     t.index ["postage_payers_id"], name: "index_items_on_postage_payers_id"
     t.index ["preparation_period_id"], name: "index_items_on_preparation_period_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
@@ -86,6 +87,12 @@ ActiveRecord::Schema.define(version: 2020_06_06_033805) do
 
   create_table "postage_payers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postage_payers", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prefecture_codes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "prefecture_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -130,8 +137,6 @@ ActiveRecord::Schema.define(version: 2020_06_06_033805) do
   add_foreign_key "item_images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "postage_payers", column: "postage_payers_id"
-  add_foreign_key "items", "preparation_periods"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
 end

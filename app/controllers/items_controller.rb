@@ -12,10 +12,27 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @images = @item.item_images.build
-    @item.item_images.new
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
+    @category_parent_array << parent.name
+    end
+  end
+
+  def get_category_children
+    respond_to do |format|
+      format.html
+      format.json do
+        @children = Category.find(params[:parent_id]).children
+      end
+    end
+  end
+
+  def get_category_grandchildren
+    respond_to do |format|
+      format.html
+      format.json do
+        @grandchildren = Category.find("#{params[:child_id]}").children
+      end
     end
   end
 
@@ -38,23 +55,7 @@ class ItemsController < ApplicationController
   def destroy
   end
 
-  def get_category_children
-    respond_to do |format|
-      format.html
-      format.json do
-        @children = Category.find(params[:parent_id]).children
-      end
-    end
-  end
-
-  def get_category_grandchildren
-    respond_to do |format|
-      format.html
-      format.json do
-        @grandchildren = Category.find("#{params[:child_id]}").children
-      end
-    end
-  end
+  
 
   def purchase
   end
@@ -103,12 +104,12 @@ class ItemsController < ApplicationController
       :price, 
       :item_introduction, 
       :condition,
-      :seller_id,
-      :category_id,
-      :brand_id,
-      :postage_payers_id,
-      :preparation_period_id,
-      :trading_status,
+      :seller,
+      :category,
+      :brand,
+      :postage_payers,
+      :preparation_period,
+      :city,
       item_images_attributes: [:item, :url]
 #    ).merge(
 #      seller_id: current_user.id, 
