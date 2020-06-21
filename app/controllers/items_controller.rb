@@ -3,9 +3,11 @@ class ItemsController < ApplicationController
   # before_action :move_to_index, except: [:index, :show]
 
   def index
+
   end
 
   def show
+    @items = Item.all
   end
 
   def new
@@ -36,6 +38,7 @@ class ItemsController < ApplicationController
   end
 
   def item_details
+    @items = Item.all
   end
 
   def member_done
