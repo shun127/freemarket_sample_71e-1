@@ -46,6 +46,11 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+
+  # 単体テストのためテストに特化した言語であるRSpexを導入します 6/18木下
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+
 end
 
 group :development do
@@ -63,8 +68,12 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  # デフォルトのgemで'chromedriver-helper'は入っていたようだが、「bundle exec rspe」cの際非推奨とあったのでwebdriversに書き換え6/19木下
+  # gem 'chromedriver-helper'
+  gem 'webdrivers'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
