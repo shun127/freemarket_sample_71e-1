@@ -12,7 +12,8 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.references :postage_payers,           null:false,foreign_key:true
       t.references :preparation_period,       null:false,foreign_key:true
       t.string :trading_status,               null:false
-      t.references :item_imageas,             null: false,foreign_key: true
+      # エラーが起こるのでいったんコメントアウトしております。木下6/20
+      # t.references :item_imageas,            null: false,foreign_key: true
       t.string :deal_closed_data
       t.timestamps
     end
