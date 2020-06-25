@@ -59,8 +59,18 @@
           border-style: dashed;
           border-color: rgb(204, 204, 204);
           &__picfile {
-            display: inline-block;
-            fill: rgb(34, 34, 34);
+            input {
+              justify-content: flex-start;
+              height: 100%;
+              width: 80px;
+              outline: none;
+              position: relative;
+              top: 0;
+              left: 0;
+              z-index: 1;
+              //opacity: 0;
+              fill: rgb(34, 34, 34);
+            }
           }
           .icon-new {
             margin-bottom: 8px;

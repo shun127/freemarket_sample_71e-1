@@ -37,15 +37,17 @@ class ItemsController < ApplicationController
   end
 
   def create
+#    binding.pry
     @item = Item.new(item_params)
-    if @item.save
+    if @item.save!
+      flash[:success] = "出品が完了しました！"
       redirect_to root_path
     else
-      @item.item_images.new if @item.item_images.empty?
-      render :new
+      flash[:alert] = "入力に誤りがあります。もう一度入力してください。"
+      redirect_to new_item_path
     end
   end
-  
+
   def edit
   end
 
@@ -105,15 +107,15 @@ class ItemsController < ApplicationController
       :item_introduction, 
       :condition,
       :seller,
-      :category,
-      :brand,
+      :category_id,
+      :brand_id,
       :postage_payers,
       :preparation_period,
-      :city,
-      item_images_attributes: [:item, :url]
-#    ).merge(
-#      seller_id: current_user.id, 
+      :prefecture_id,
+#      brands_attributes: [:id, :name],
+#      categories_attributes: [:id, :name],
+      item_images_attributes: [:id, :item_id, :src],
     )
+    .merge(seller_id: current_user.id, )
   end
-
 end

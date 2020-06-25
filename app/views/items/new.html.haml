@@ -4,6 +4,7 @@
   .main-new
     .content-new
       = form_for @item do |f|
+
         .box-new
           .box-new__title
             %label 出品画像
@@ -12,12 +13,12 @@
             最大10枚までアップロードできます
           .box-new__pic
             = f.fields_for :item_images do |i|
-              =i.file_field :url, name: "item[item_images_attributes][][url]", class: "box-new__picfile", style: "display: none;"
+              = i.file_field :src, type: 'file', class: "box-new__pic__picfile", id: "img"#, name: "item[item_images_attributes][][src]", style: "display: none;"
 
-              .icon-new
-                = image_tag "material/icon/icon_camera.png", size: "20x18"
-              .box-new__pic__inf ドラッグアンドドロップ
-              .box-new__pic__inf またはクリックしてファイルをアップロード<br>
+            .icon-new
+              = image_tag "material/icon/icon_camera.png", size: "20x18"
+            .box-new__pic__inf ドラッグアンドドロップ
+            .box-new__pic__inf またはクリックしてファイルをアップロード<br>
 
         .box-new
           .box-new__title
@@ -44,8 +45,7 @@
           .box-new__title
             %label ブランド
             %span.box-new__title__opt 任意
-
-          %input.box-new__input{placeholder: "例）シャネル"}
+          = f.collection_select :brand_id, Brand.all, :id, :name, {prompt: '選択して下さい'}
 
         .box-new
           .box-new__title
@@ -59,19 +59,19 @@
           .box-new__title
             %label 配送料の負担
             %span.box-new__title__must 必須
-          = f.select :postage_payers_id, [["送料込み（配送者負担）","送料込み（配送者負担）"], ["着払い（購入者負担）","着払い（購入者負担）"]], prompt: '選択してください'
+          = f.select :postage_payers, [["送料込み（配送者負担）","送料込み（配送者負担）"], ["着払い（購入者負担）","着払い（購入者負担）"]], prompt: '選択してください'
           
         .box-new
           .box-new__title
             %label 発送元の地域
             %span.box-new__title__must 必須
-          = f.collection_select :pre, PreparationPeriod.all, :id, :preparation_period, {prompt: '選択してください'}
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '選択して下さい'}
           
         .box-new
           .box-new__title
             %label 発送までの日数
             %span.box-new__title__must 必須
-          =f.select :preparation_period_id, [["1~2日で発送","1~2日で発送"], ["3~4日で発送","3~4日で発送"], ["4~7日で発送","4~7日で発送"]], prompt: '選択してください'
+          =f.select :preparation_period, [["1~2日で発送","1~2日で発送"], ["3~4日で発送","3~4日で発送"], ["4~7日で発送","4~7日で発送"]], prompt: '選択してください'
 
         .box-new
           .box-new__info-2
@@ -80,7 +80,7 @@
             .box-new__price__title
               %label 販売価格
               %span.box-new__price__title__must 必須
-            .box-new__price__input 
+            .box-new__price__input
               %span.yen ￥
               = f.text_field :price, class: "pricebox", id: "pricebox-yen", placeholder: "0", min: 300, max: 9999999
           .box-new__sales
