@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -62,7 +63,7 @@ class ItemsController < ApplicationController
   end
 
   def item_details
-    # @item = Item.find(params[:id])
+   
   end
 
   def member_done
@@ -88,8 +89,8 @@ class ItemsController < ApplicationController
   # def move_to_index
   #   redirect_to action: :index unless user_signed_in?
   # end
-  # private
-  # def item_params
-  #   params.require(:item).permit(:name, :price, :item_introduction, :condition, :category, :brand, :postage_payers, :preparation_period)
-  # end
+  private
+  def item_params
+    params.require(:item).permit(:name, :price, :item_introduction, :condition, :category, :brand, :postage_payers, :preparation_period)
+  end
 end

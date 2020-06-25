@@ -26,13 +26,16 @@
       %table.main__informations__information
         %tr
           %th.main__informations__information__item     出品者
-          %td.main__informations__information__breakdown  伊藤
+          %td.main__informations__information__breakdown  
+            =@item.name
         %tr
           %th.main__informations__information__item カテゴリー
-          %td.main__informations__information__breakdown  メンズ
+          %td.main__informations__information__breakdown
+            =@item.category_id
         %tr
           %th.main__informations__information__item  ブランド
-          %td.main__informations__information__breakdown  GANZO
+          %td.main__informations__information__breakdown
+            =@item.brand_id
         %tr
           %th.main__informations__information__item 商品のサイズ
           %td.main__informations__information__breakdown  ちょい大きめ
@@ -58,57 +61,6 @@
     .main__buy-button
       = link_to('購入画面に進む',purchase_temporary_items_path,class: "button")
     .main__messages
-      ☑ブランド
-      adidas
-      
-      ☑カラー
-      グリーン
-
-      ☑状態
-      古着ですが状態も良く、これからもたくさん着て頂けます。
-
-      ☑サイズ表記
-      メンズSですがレディースL~XL のサイズ感ですのでレディースで出品しています。
-
-      ↓下記実寸をご参考ください↓
-      着丈→63cm
-      肩幅→37cm
-      身幅→42cm
-      
-      ⚠素人の採寸ですので、若干のズレがある可能性もあります。
-      ご了承ください。
-
-      *・゜゜・*:.。
-
-      ○POINT○
-      古着SNSなどでも大人気カラーのグリーンです(∩ˊᵕˋ∩)・*
-
-      パンサーのプリントもカコイイですね。
-
-      この夏活躍間違いなしのアイテムです。
-
-      メンズ表記ですがユニセックスアイテムですので、今回レディースとして出品しています。
-
-
-      ◯その他
-
-      発送］なるべくリーズナブルにお譲りしたいと思っています。そのため、極力コンパクトにおさて発送するので、折りシワが付いてしまうことにご理解いただけると嬉しいです。
-
-    ［お願い］古着ですので小さな汚れやほつれ、シワがある場合があります。古着理解のある方のみご購入ください。
-
-
-    手洗いクリーニング済です。
-
-    非喫煙者です。
-
-    ペットは飼っておりません。
-
-
-    古着 #古着男子 #古着女子 #フルダン #フルジョ #90s 
-
-    カーハート #adidas   #Nike  #ラルフローレン #バーバリー
-
-    ノーティカ  #ノースフェイス #ビッグシルエット #オーバーサイズ
       
   .wrapper
   = render 'footer'
