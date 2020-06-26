@@ -13,14 +13,40 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.images.new
+    @images = @item.item_images.build
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
+    @category_parent_array << parent.name
+    end
+  end
+
+  def get_category_children
+    respond_to do |format|
+      format.html
+      format.json do
+        @children = Category.find(params[:parent_id]).children
+      end
+    end
+  end
+
+  def get_category_grandchildren
+    respond_to do |format|
+      format.html
+      format.json do
+        @grandchildren = Category.find("#{params[:child_id]}").children
+      end
     end
   end
 
   def create
+    @item = Item.new(item_params)
+    if @item.save!
+      flash[:success] = "出品が完了しました！"
+      redirect_to root_path
+    else
+      flash[:alert] = "入力に誤りがあります。もう一度入力してください。"
+      redirect_to new_item_path
+    end
   end
 
   def edit
@@ -31,6 +57,7 @@ class ItemsController < ApplicationController
   
   def destroy
   end
+
 
   def get_category_children
     respond_to do |format|
@@ -89,8 +116,25 @@ class ItemsController < ApplicationController
   # def move_to_index
   #   redirect_to action: :index unless user_signed_in?
   # end
+
+
   private
+
   def item_params
-    params.require(:item).permit(:name, :price, :item_introduction, :condition, :category, :brand, :postage_payers, :preparation_period)
+    params.require(:item).permit(
+      :name, 
+      :price, 
+      :item_introduction, 
+      :condition,
+      :seller,
+      :category_id,
+      :brand_id,
+      :postage_payers,
+      :preparation_period,
+      :prefecture_id,
+      item_images_attributes: [:id, :item_id, :src],
+    )
+    .merge(seller_id: current_user.id, )
   end
 end
+

@@ -4,17 +4,14 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :name,                         null:false
       t.string :price,                        null:false
       t.text   :item_introduction,            null:false
-      t.string   :condition,                  null:false
+      t.string :condition,                    null:false
       t.references :seller,                   null:false,foreign_key:{to_table: :users}
       t.references :buyer,                    foreign_key:{to_table: :users}
-      t.references :category,                 null:false,foreign_key:true
-      t.references :brand,                    foreign_key:true
-      t.references :postage_payers,           null:false,foreign_key:true
-      t.references :preparation_period,       null:false,foreign_key:true
-      t.string :trading_status,               null:false
-      # エラーが起こるのでいったんコメントアウトしております。木下6/20
-      # t.references :item_imageas,            null: false,foreign_key: true
-      t.string :deal_closed_data
+      t.string :category_id,                  null:false,foreign_key:true
+      t.string :brand_id,                     foreign_key:true
+      t.string :postage_payers,               null:false
+      t.string :prefecture_id,                null:false,foreign_key:true
+      t.string :preparation_period,           null:false
       t.timestamps
     end
   end
