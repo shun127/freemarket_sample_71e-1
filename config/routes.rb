@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root "items#index"
   resources :items do
     collection do
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
       get  'purchase/:id'=>  'items#purchase', as: 'purchase'
       post 'pay/:id'=>   'items#pay', as: 'pay'
       get  'done'=>      'items#done', as: 'done'
@@ -21,6 +23,13 @@ Rails.application.routes.draw do
       #商品詳細ページのフロント実装コードレビュー確認のための仮ルーティングです。伊藤6/4
       get  'item_details'
       get  'member_done'
+    end
+  end
+
+  resources :categories, only: [:index, :show] do
+    collection do
+      get 'child_category'
+      get 'grandchild_category'
     end
   end
 

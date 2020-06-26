@@ -1,0 +1,11 @@
+.sell-botton
+  - if user_signed_in?
+    = link_to new_item_path, class:"sell-btn" do
+      .sell-btn__text
+        出品する
+      = image_tag('material/icon/icon_camera.png', class:"sell-btn__image")
+  - else
+    = link_to new_user_session_path, class:"sell-btn" do
+      .sell-btn__text
+        出品する
+      = image_tag('material/icon/icon_camera.png', class:"sell-btn__image")
