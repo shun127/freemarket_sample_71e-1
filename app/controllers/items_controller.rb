@@ -3,8 +3,7 @@ class ItemsController < ApplicationController
   # before_action :move_to_index, except: [:index, :show]
 
   def index
-    # @items = Item.all
-    @items = Item.includes(:item_images)
+    @items = Item.all.includes(:item_images)
     @parents = Category.where(ancestry: nil)
   end
 
