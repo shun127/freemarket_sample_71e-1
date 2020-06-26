@@ -33,7 +33,6 @@ class ItemsController < ApplicationController
       format.json do
         @grandchildren = Category.find("#{params[:child_id]}").children
       end
-    end
   end
 
   def create
@@ -56,7 +55,24 @@ class ItemsController < ApplicationController
   def destroy
   end
 
-  
+
+  def get_category_children
+    respond_to do |format|
+      format.html
+      format.json do
+        @children = Category.find(params[:parent_id]).children
+      end
+    end
+  end
+
+  def get_category_grandchildren
+    respond_to do |format|
+      format.html
+      format.json do
+        @grandchildren = Category.find("#{params[:child_id]}").children
+      end
+    end
+  end
 
   def purchase
   end
