@@ -37,7 +37,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-#    binding.pry
     @item = Item.new(item_params)
     if @item.save!
       flash[:success] = "出品が完了しました！"
@@ -112,8 +111,6 @@ class ItemsController < ApplicationController
       :postage_payers,
       :preparation_period,
       :prefecture_id,
-#      brands_attributes: [:id, :name],
-#      categories_attributes: [:id, :name],
       item_images_attributes: [:id, :item_id, :src],
     )
     .merge(seller_id: current_user.id, )
