@@ -33,6 +33,7 @@ class ItemsController < ApplicationController
       format.json do
         @grandchildren = Category.find("#{params[:child_id]}").children
       end
+    end
   end
 
   def create
