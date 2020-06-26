@@ -91,3 +91,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'ancestry'
 gem 'active_hash'
+
+# S3導入のため6/26木下
+gem 'fog-aws'
