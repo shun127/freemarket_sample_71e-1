@@ -4,9 +4,11 @@ class ItemsController < ApplicationController
 
   def index
     @parents = Category.where(ancestry: nil)
+    @items = Item.all
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -88,6 +90,7 @@ class ItemsController < ApplicationController
   end
 
   def item_details
+   
   end
 
   def member_done
@@ -114,6 +117,7 @@ class ItemsController < ApplicationController
   #   redirect_to action: :index unless user_signed_in?
   # end
 
+
   private
 
   def item_params
@@ -133,3 +137,4 @@ class ItemsController < ApplicationController
     .merge(seller_id: current_user.id, )
   end
 end
+
