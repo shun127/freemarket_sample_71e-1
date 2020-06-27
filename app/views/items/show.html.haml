@@ -3,7 +3,7 @@
 .body  
   .main
     .main__name
-      [一点物][adidas]チームロゴ、アニマルプリント
+      =@item.name
     .main__comment
       『[一点物][adidas]チームロゴ、アニマルプリント』は、130回の取引実績を持つジェコクマの古着屋フォロー割実施中さんから出品されました。Tシャツ/カットソー(半袖/袖なし)/レディースの商品で、京都府から1~2日で発送されます。
     .main__informations
@@ -27,30 +27,31 @@
         %tr
           %th.main__informations__information__item     出品者
           %td.main__informations__information__breakdown  
-            =@item.name
+            -# =@item.user.name
         %tr
           %th.main__informations__information__item カテゴリー
           %td.main__informations__information__breakdown
-            =@item.category_id
+            =@item.category.name
         %tr
           %th.main__informations__information__item  ブランド
           %td.main__informations__information__breakdown
-            =@item.brand_id
-        %tr
-          %th.main__informations__information__item 商品のサイズ
-          %td.main__informations__information__breakdown  ちょい大きめ
+            =@item.brand.name
         %tr
           %th.main__informations__information__item 商品の状態
-          %td.main__informations__information__breakdown  ボロボロ
+          %td.main__informations__information__breakdown
+            =@item.condition
         %tr
           %th.main__informations__information__item 配送料の負担
-          %td.main__informations__information__breakdown  出品者持ち
+          %td.main__informations__information__breakdown
+            =@item.postage_payers
         %tr
           %th.main__informations__information__item 配送元の地域
-          %td.main__informations__information__breakdown  北極
+          %td.main__informations__information__breakdown
+            =@item.prefecture.name
         %tr
           %th.main__informations__information__item 発送日までの目安
-          %td.main__informations__information__breakdown  1日〜２日
+          %td.main__informations__information__breakdown
+            =@item.preparation_period
     .main__price-box
       .main__price-box__item-price
         ¥1,500
@@ -61,6 +62,6 @@
     .main__buy-button
       = link_to('購入画面に進む',purchase_temporary_items_path,class: "button")
     .main__messages
-      
+      =@item.item_introduction
   .wrapper
   = render 'footer'
