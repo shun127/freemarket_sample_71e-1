@@ -14,5 +14,6 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture, dependent: :destroy
   belongs_to :brand, dependent: :destroy
+  belongs_to :user
 
 end
