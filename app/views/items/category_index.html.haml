@@ -1,0 +1,113 @@
+.wrapper
+  = render 'header'
+
+-# .wrapper
+-#   = render 'sell-btn'
+
+.top-main
+  -# .top-main__image
+  -#   .top-main__image__content
+      -# .top-main__image__content__subtitle
+      -#   フリマアプリ
+      -# .top-main__image__content__text
+      -#   FURIMAはだれでもかんたんに出品・購入できる
+      -#   %br 
+      -#     フリマアプリです
+      -# .top-main__image__content__btn
+  .top-main__info
+  -#   .top-main__info__subtitle
+  -#     FURIMAが選ばれる３つの理由
+  -#   %ul.top-main__info__lists
+  -#     %li.top-main__info__lists__list
+  -#       .top-main__info__lists__list__image
+  -#         %span.top-main__info__lists__list__image__number
+  -#           1
+  -#         = image_tag "material/pict/pict-reason-01.jpg"
+  -#       .top-main__info__lists__list__text
+  -#         %span
+  -#           3分
+  -#         ですぐに出品
+  -#       .top-main__info__lists__list__description
+  -#         スマホで入力するだけで簡単に出品できる！
+  -#     %li.top-main__info__lists__list
+  -#       .top-main__info__lists__list__image
+  -#         %span.top-main__info__lists__list__image__number
+  -#           2
+  -#         = image_tag "material/pict/pict-reason-02.jpg"
+  -#       .top-main__info__lists__list__text
+  -#         %span
+  -#           シンプル
+  -#         で使いやすい
+  -#       .top-main__info__lists__list__description
+  -#         めんどくさい入力は必要なく、検索も購入もスムーズ！
+  -#     %li.top-main__info__lists__list.top-main__info__lists__list--last
+  -#       .top-main__info__lists__list__image
+  -#         %span.top-main__info__lists__list__image__number
+  -#           3
+  -#         = image_tag "material/pict/pict-reason-03.jpg"
+  -#       .top-main__info__lists__list__text
+  -#         %span
+  -#           手数料
+  -#         業界最安
+  -#       .top-main__info__lists__list__description.top-main__info__lists__list__description-last
+  -#         最大3%でお得に出品&購入！
+  -# .top-main__middle-image
+  -#   .top-main__middle-image__content
+  -#     .top-main__middle-image__content__subtitle
+  -#       会員数日本一位
+  -#     .top-main__middle-image__content__text
+  -#       FURIMAは、フリマアプリで最も人気。
+  -#       %br 出品・購入回数も業界最多です！ 
+  -#       ほしかったあの商品に出会えるかもしれません。
+  -#     .top-main__middle-image__content__btn
+  -# .top-main__feature
+  -#   .top-main__feature__subtitle
+  -#     FURIMAの特徴
+  -#   %ul.top-main__feature__lists
+  -#     %li.top-main__feature__lists__list
+  -#       .top-main__feature__lists__list__image
+  -#         = image_tag "material/icon/icon-01.png"
+  -#       .top-main__feature__lists__list__text
+  -#         簡単に売り買いできる
+  -#       .top-main__feature__lists__list__description
+  -#         スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+  -#     %li.top-main__feature__lists__list
+  -#       .top-main__feature__lists__list__image
+  -#         = image_tag "material/icon/icon-03.png"
+  -#       .top-main__feature__lists__list__text
+  -#         売上金は即日振込みに対応
+  -#       .top-main__feature__lists__list__description
+  -#         午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+  -#     %li.top-main__feature__lists__list.list--last
+  -#       .top-main__feature__lists__list__image
+  -#         = image_tag "material/icon/icon-03.png"
+  -#       .top-main__feature__lists__list__text
+  -#         様々な支払いに対応
+  -#       .top-main__feature__lists__list__description
+  -#         お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  .top-main__new
+    .top-main__new__text 
+      カテゴリー名（孫）を入れる
+
+    - for i in 1..3
+      .top-main__new__items
+        - for j in 1..5
+          -# %a.top-main__new__items__item
+          = link_to item_details_items_path, class:"top-main__new__items__item" do
+            -# = image_tag "gift.jpeg"
+            = image_tag "material/pict/pict-reason-01.jpg"
+            .top-main__new__items__item__info
+              .top-main__new__items__item__info__price
+                item
+                %br 1000円
+                %span.tax
+                  (税込み)
+                .top-main__new__items__item__info__name
+                 
+              .top-main__new__items__item__info__favorite
+                ★0
+
+      -# カミナリのgem入れたい
+
+.wrapper
+  = render 'item-footer'
