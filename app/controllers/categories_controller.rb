@@ -6,8 +6,8 @@ class CategoriesController < ApplicationController
   def show
     # binding.pry
     @items = Item.all
-
-    @images = @item.item_images.build
+   
+    @items = Item.all.includes(:item_images)
     # @item = Item.find(params[:id])
     @category = Category.find(params[:id])
   end  
