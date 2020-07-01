@@ -2,13 +2,14 @@ class ItemsController < ApplicationController
   # 未ログインのユーザーをリダイレクトさせる。（下記before actionも参照）、サーバーサイド全て完了したらコメントアウト外す。6/15木下
   # before_action :move_to_index, except: [:index, :show]
 
+  before_action :set_item, only: [:show, :edit, :destroy]
+
   def index
     @items = Item.all.includes(:item_images)
     @parents = Category.where(ancestry: nil)
   end
 
   def show
-    @item =Item.find(params[:id])
   end
 
   def new
@@ -50,7 +51,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item =Item.find(params[:id])
   end
 
   def update
@@ -136,5 +136,9 @@ class ItemsController < ApplicationController
       item_images_attributes: [:id, :item_id, :src],
     )
     .merge(seller_id: current_user.id, )
+  end
+
+  def set_item
+    @item =Item.find(params[:id])
   end
 end
