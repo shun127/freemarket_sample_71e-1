@@ -1,0 +1,44 @@
+.wrapper
+  = render 'items/header'
+
+.top-main
+
+ 
+  
+  .top-main__new
+    .top-main__new__text 
+      カテゴリー名
+      = @item.name
+     
+
+    - for i in 1..3
+      .top-main__new__items
+        - for j in 1..5
+          -# %a.top-main__new__items__item
+          = link_to item_details_items_path, class:"top-main__new__items__item" do
+            -# = image_tag "gift.jpeg"
+            = image_tag "material/pict/pict-reason-01.jpg"
+            .top-main__new__items__item__info
+              .top-main__new__items__item__info__price
+                item
+                %br 1000円
+                %span.tax
+                  (税込み)
+                .top-main__new__items__item__info__name
+                 
+              .top-main__new__items__item__info__favorite
+                ★0
+
+      -# カミナリのgem入れたい
+
+.wrapper
+  = render 'items/item-footer'
+
+
+-# 伊藤さんの記述
+-#     %ul.top-main__box
+-#       -@items.each do |item|
+-#         %li.top-main__new__items
+-#           = link_to item_path(item.id), class:"top-main__new__items__item" do
+-#             = image_tag item.item_images[0].src.url
+
