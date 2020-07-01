@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   # before_action :move_to_index, except: [:index, :show]
 
   def index
+    @items = Item.all.includes(:item_images)
     @parents = Category.where(ancestry: nil)
   end
 
@@ -105,7 +106,6 @@ class ItemsController < ApplicationController
   #マイページフロント実装コードレビュー確認のための仮です。皆川6/10
   def mypage_card_create
   end
-
   # 'login''sign_up'は削除しました（deviseディレクトリに移動）木下6/15
 
 
