@@ -26,4 +26,5 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 public/uploads/*
-/assets/images/.DS_Store
+# 今回の件で追記した内容です。
+.DS_Store
