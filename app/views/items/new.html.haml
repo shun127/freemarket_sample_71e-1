@@ -38,9 +38,30 @@
           .box-new__title
             %label カテゴリー
             %span.box-new__title__must 必須
+            
+          .box-new__categories#category_box
+          
+            .pulldown#partent_box
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択してください"}, {class: "select-category", id: "parent-category"}
+              -#= f.select :category_id, @category_parent_array, {}, {class: 'select-category', id: 'parent_category'}
 
-          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択してください"}, {class: "select-category", id: "parent-category"}
+            .pulldown.box-new__categories__children#children_box
+              -#親カテゴリー選択によって子カテゴリー表示
+            .pulldown.box-new__categories__grandchildren#grandchildren_box
+              -#子カテゴリー選択によって孫カテゴリー表示
 
+          -#    -if @item.persisted
+          -# f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択してください"}, {class: "select-category", id: "parent-category"}
+          -# f.select :category_id, @category_parent_array, {}, {class: 'product_category', id: 'product_category'}
+          -# f.collection_select :category_id, Category.roots, :id, :name, {include_blank: "---", selected: @item.category&.root_id}, required: true, class: "select-category"
+          -#   %br.select-category
+          -#   -if @item.persisted?
+          -#     = f.collection_select :category_id, @item.category.root.children, :id , :name, {include_blank: "---", selected: @item.category.parent_id}, required: true, class: "select-category", id:"child_category"
+          -#     = f.collection_select :category_id, @item.category.siblings, :id , :name, {include_blank: "---", selected: @item.category_id}, required: true, class: "select-category", id:"grandchildren_wrapper"
+          -#= f.select :category_id, options_for_select(Category.where(ancestry: nil).map{|c|[c.name, c.id]}, ['---']), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'} 
+          -#= f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+
+        .form__item-brand
         .box-new
           .box-new__title
             %label ブランド

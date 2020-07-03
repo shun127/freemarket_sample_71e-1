@@ -12,28 +12,17 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @images = @item.item_images.build
-    @category_parent_array = ["---"]
+    @category_parent_array = ["選択してください"]
     Category.where(ancestry: nil).each do |parent|
     @category_parent_array << parent.name
     end
   end
 
-  def get_category_children
-    respond_to do |format|
-      format.html
-      format.json do
-        @children = Category.find(params[:parent_id]).children
-      end
-    end
+  def category_children
+    @category_children = Category.find(params[:parent_name]).children
   end
-
-  def get_category_grandchildren
-    respond_to do |format|
-      format.html
-      format.json do
-        @grandchildren = Category.find("#{params[:child_id]}").children
-      end
-    end
+  def category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
@@ -54,25 +43,6 @@ class ItemsController < ApplicationController
   end
   
   def destroy
-  end
-
-
-  def get_category_children
-    respond_to do |format|
-      format.html
-      format.json do
-        @children = Category.find(params[:parent_id]).children
-      end
-    end
-  end
-
-  def get_category_grandchildren
-    respond_to do |format|
-      format.html
-      format.json do
-        @grandchildren = Category.find("#{params[:child_id]}").children
-      end
-    end
   end
 
   def purchase
