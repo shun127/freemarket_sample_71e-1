@@ -96,3 +96,8 @@ gem 'jquery-turbolinks'
 
 # S3導入のため6/26木下
 gem 'fog-aws'
+# payjp導入のため6/27高松
+gem 'payjp'
+
+# jquery導入のため6/27高松
+gem "jquery-rails"
