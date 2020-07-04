@@ -4,14 +4,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    # binding.pry
-    @items = Item.all
-    @item_images = Item_image.all
-    # @items = Item.all.includes(:item_images)
-    # @item = Item.find(params[:id])
     @category = Category.find(params[:id])
+    @items = Item.where(category_id: @category.subtree.ids).order("created_at DESC").page(params[:page]).per(8)
   end  
 end
 
-
-    

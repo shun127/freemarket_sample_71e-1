@@ -1,170 +1,9 @@
+a {
+  text-decoration: none;
+  color: #0095ee;
+}
+
 .top-main{
-  &__image{
-    height: 550px;
-    width: 100%;
-    background-size: cover;
-    display: flex;
-    background-image: image_url("material/pict/bg-mainVisual-pict_pc.jpg");
-    position: relative;
-    &__content{
-      text-shadow: 0 0 10px rgba(0,0,0,0.6);
-      color: #fff;
-      position: absolute;
-      top: 180px;
-      left: 80px;
-      &__subtitle{
-        font-weight: bold;
-        font-size: 60px;
-      }
-      &__text{
-        margin: 30px 0;
-        font-size: 20px;
-      }
-    }
-  }
-  &__info{
-    background-color: #fcfcfc;
-    padding: 40px ;
-    &__subtitle{
-      font-weight: bold;
-      font-size: 25px;
-      text-align: center;
-      &:after{
-        margin: 10px auto 30px;
-        content:"";
-        clear: both;
-        display: block;
-        height: 4px;
-        width: 80px;
-        background-color: #3CCACE;
-      }
-    }
-    &__lists{
-      display: flex;
-      justify-content: center;
-      &__list{
-        margin: 0 15px;
-        width: 30%;
-        max-width: 300px;
-        text-align: left;
-        &__image{
-          width: 100%;
-          height: auto;
-          position: relative;
-          &__number{
-            color: #fff;
-            font-size: 25px;
-            width: 60px;
-            height: 60px;
-            text-align: center;
-            line-height: 60px;
-            background-color: #3CCACE;
-            border-radius: 3px;
-            position: absolute;
-            top: 0;
-            left: 0;
-          }
-          img{
-            height: 100%;
-            width: 100%;
-          }
-        }
-        &__text{
-          font-size: 24px;
-          margin: 20px 0;
-          font-weight: bold;
-          text-align: center;
-          span{
-            color:  #3CCACE;
-          }
-        }
-        &__description{
-          text-align: left;
-          font-size: 18px;
-          margin-bottom: 40px;
-        }
-        &__description-last{
-          @media (min-width: 1000px) {
-            text-align: center;
-         }
-        }
-      }
-    }
-  }
-  &__middle-image{
-    height: 400px;
-    width: 100%;
-    background-size: cover;
-    background-image: image_url("material/pict/bg-topMiddleDl-pict.jpg");
-    position: relative;
-    &__content{
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-      color: #fff;
-      position: absolute;
-      top: 100px;
-      left: 200px;
-      &__subtitle{
-        font-weight: bold;
-        font-size: 35px;
-      }
-      &__text{
-        margin: 30px 0;
-        font-size: 17px;
-      }
-    }
-  }
-
-  &__feature{
-    background-color: #fdfdfd;
-    padding: 40px ;
-    &__subtitle{
-      font-weight: bold;
-      font-size: 25px;
-      text-align: center;
-      &:after{
-        margin: 10px auto 30px;
-        content:"";
-        clear: both;
-        display: block;
-        height: 4px;
-        width: 80px;
-        background-color: #3CCACE;
-      }
-    }
-    &__lists{
-      display: flex;
-      justify-content: center;
-      &__list{
-        margin: 0 15px;
-        width: 30%;
-        max-width: 300px;
-        &__image{
-          width: 60%;
-          height: auto;
-          margin: 0 auto;
-          img{
-            height: 100%;
-            width: 100%;
-          }
-        }
-        &__text{
-          font-size: 21px;
-          margin: 20px;
-          font-weight: bold;
-          text-align: center;
-          span{
-            color:  #3CCACE;
-          }
-        }
-        &__description{
-          text-align: left;
-          font-size: 18px;
-          margin-bottom: 40px;
-        }
-      }
-    }
-  }
-
   &__new{
     background-color: #f2f2f2;
     width: 100%;
@@ -184,7 +23,12 @@
       margin-bottom: 20px;
     }
     &__items{
+      width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       margin-top: 10px;
       &__item{
@@ -196,6 +40,7 @@
         text-decoration: none;
         img{
           width: 200px;
+          // height: auto;  max-height: 200px;
           height: 200px;
         }
         &__info{
@@ -213,12 +58,13 @@
             .tax{
               font-size: 10px;
             }
-          }
-          &__favorite{
-            line-height: 80px;
-          }
+          }         
         }
       }
+    }
+    nav {
+      padding-top: 10px;
+      font-size: 20px;
     }
   }
 }

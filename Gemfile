@@ -99,3 +99,6 @@ gem 'payjp'
 
 # jquery導入のため6/27高松
 gem "jquery-rails"
+
+# ページネーションのために導入7/4木下
+gem 'kaminari'
