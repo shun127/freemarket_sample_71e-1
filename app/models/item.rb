@@ -9,6 +9,9 @@ class Item < ApplicationRecord
   # validates :prefecture_id,       presence: true
   # validates :preparation_period,  presence: true
   # validates :item_images,         presence: true, on: :update
+  
+  # 次のブランチでしっかり実装しようと思い
+  # 現時点ではコメントアウトにさせていただきます 7/4山中
 
   has_many :item_images, dependent: :destroy 
   accepts_nested_attributes_for :item_images, allow_destroy: true
