@@ -1,5 +1,4 @@
 .alert {
-  color:#262626; 
   background:#FFEBE8;
   text-align: center;
   border:2px solid #FF0211;
@@ -7,5 +6,7 @@
   li {
     padding: 8px;
     text-align: left;
+    font-weight: 500;
+    color: #FF0211;
   }
 }
