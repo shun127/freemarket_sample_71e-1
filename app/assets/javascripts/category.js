@@ -26,7 +26,6 @@ $(function(){
                                 ${insertHTML}
                               </select>
                             </div>`;
-    // console.log(insertHTML)
     $('#children_wrapper').append(grandchildSelectHtml);
     console.log(grandchildSelectHtml)
   };
@@ -64,7 +63,6 @@ $(function(){
   // 子カテゴリー選択によるイベント
   $('.box-new__category__wrapper').on('change', '#child_category', function(){
     //選択された子カテゴリーのID取得し、コントローラーに送る
-    // let childId = $('#child_category option:selected').data('category');
     let childId = document.getElementById('child_category').value;
     console.log(childId)
     if (childId != "---"){ 

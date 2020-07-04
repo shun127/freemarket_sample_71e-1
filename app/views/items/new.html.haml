@@ -42,13 +42,7 @@
           .box-new__category
             .box-new__category__wrapper
               = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択してください"}, {class: "box-new__category__wrapper-select", id: "parent-category"}
-              -#= f.select :category_id, @category_parent_array, {}, {class: 'select-category', id: 'parent_category'}
-            .category-pulldown
-            -# .box-new__category__children#children_box
-            -#   -#親カテゴリー選択によって子カテゴリー表示
-            -# .box-new__category__grandchildren#grandchildren_box
-            -#   -#子カテゴリー選択によって孫カテゴリー表示
-
+      
         .form__item-brand
         .box-new
           .box-new__title

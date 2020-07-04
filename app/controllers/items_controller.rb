@@ -29,7 +29,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @item = Item.new(item_params)
     if @item.save!
       flash[:success] = "出品が完了しました！"
