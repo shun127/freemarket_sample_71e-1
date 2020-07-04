@@ -24,6 +24,11 @@ Rails.application.routes.draw do
       get  'item_details'
       get  'member_done'
     end
+    
+    member do
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
+    end
   end
 
   resources :categories, only: [:index, :show] do
