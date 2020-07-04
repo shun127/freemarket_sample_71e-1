@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @images = @item.item_images.build
-    @category_parent_array = ["選択してください"]
+    @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
     @category_parent_array << parent.name
     end
@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @item = Item.new(item_params)
     if @item.save!
       flash[:success] = "出品が完了しました！"
