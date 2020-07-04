@@ -30,12 +30,12 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
+    if @item.save
       flash[:success] = "出品が完了しました！"
       redirect_to root_path
     else
       flash[:alert] = "入力に誤りがあります。もう一度入力してください。"
-      redirect_to new_item_path
+      render "new"
     end
   end
 

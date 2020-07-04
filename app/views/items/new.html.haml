@@ -1,10 +1,11 @@
 .wrapper
   = render 'item-header'
+  
 .sell
   .main-new
     .content-new
       = form_for @item do |f|
-
+        = render 'layouts/error', model: f.object
         .box-new
           .box-new__title
             %label 出品画像

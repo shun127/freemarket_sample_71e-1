@@ -94,6 +94,7 @@ gem 'active_hash'
 gem "jquery-rails"
 gem 'jquery-turbolinks'
 gem 'payjp'
+gem 'rails-i18n'
 
 # S3導入のため6/26木下
 gem 'fog-aws'
