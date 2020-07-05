@@ -5,8 +5,9 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :destroy]
 
   def index
-    @items = Item.all.includes(:item_images)
+    # @items = Item.all.includes(:item_images) 作業中のためコメントアウトしてます 7/5山中
     @parents = Category.where(ancestry: nil)
+    @items = Item.includes(:item_images).order('created_at DESC')
   end
 
   def show
