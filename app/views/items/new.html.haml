@@ -39,8 +39,11 @@
             %label カテゴリー
             %span.box-new__title__must 必須
 
-          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択してください"}, {class: "select-category", id: "parent-category"}
-
+          .box-new__category
+            .box-new__category__wrapper
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択してください"}, {class: "box-new__category__wrapper-select", id: "parent-category"}
+      
+        .form__item-brand
         .box-new
           .box-new__title
             %label ブランド

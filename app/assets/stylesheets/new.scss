@@ -170,8 +170,12 @@
           outline: none;
           padding: 0 56px 0 16px;
           width: 100%;
-          
         }
+
+        &__category__wrapper {
+          padding: 20px 0;
+        }
+
         .pricebox {
           width: 285px;
           padding: 0 16px;
