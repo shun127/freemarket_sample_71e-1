@@ -23,6 +23,9 @@ Rails.application.routes.draw do
       #商品詳細ページのフロント実装コードレビュー確認のための仮ルーティングです。伊藤6/4
       get  'item_details'
       get  'member_done'
+
+      # カテゴリからの商品一覧ページのルーティング6/29木下
+      get  'category_index'
     end
     
     member do

@@ -96,7 +96,7 @@
       -@items.each do |item|
         %li.top-main__new__items
           = link_to item_path(item.id), class:"top-main__new__items__item" do
-            = image_tag item.item_images[0].src.url
+            -# = image_tag item.item_images[0].src.url エラーが出るため一時的にコメントアウトします 7/5山中
             .top-main__new__items__item__info
               .top-main__new__items__item__info__price
                 =item.name

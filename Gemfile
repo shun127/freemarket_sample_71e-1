@@ -94,6 +94,15 @@ gem 'active_hash'
 gem "jquery-rails"
 gem 'jquery-turbolinks'
 gem 'payjp'
+gem 'rails-i18n'
+
+
+# jquery導入のため6/27高松
+gem "jquery-rails"
+
+# ページネーションのために導入7/4木下
+gem 'kaminari'
 
 # S3導入のため6/26木下
 gem 'fog-aws'
+

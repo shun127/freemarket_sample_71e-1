@@ -5,8 +5,9 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all.includes(:item_images)
+    # @items = Item.all.includes(:item_images) 作業中のためコメントアウトしてます 7/5山中
     @parents = Category.where(ancestry: nil)
+    @items = Item.includes(:item_images).order('created_at DESC')
   end
 
   def show
@@ -30,12 +31,12 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
+    if @item.save
       flash[:success] = "出品が完了しました！"
       redirect_to root_path
     else
       flash[:alert] = "入力に誤りがあります。もう一度入力してください。"
-      redirect_to new_item_path
+      render "new"
     end
   end
 
@@ -69,6 +70,9 @@ class ItemsController < ApplicationController
 
   def purchase_temporary
   end
+
+  def category_index
+  end  
 
   def item_details
   end
