@@ -66,6 +66,9 @@ class ItemsController < ApplicationController
   def purchase_temporary
   end
 
+  def category_index
+  end  
+
   def item_details
   end
 
