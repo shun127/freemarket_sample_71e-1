@@ -21,7 +21,6 @@
             .grandchildren-categories
               -child.children.each do |grandchild|
                 .grandchildren-category
-                  = link_to "#{grandchild.name}", category_path(grandchild), class:"grandchildren-title"
-                  -# = link_to "#{grandchild.name}", category_path(@categories.id), class:"grandchildren-title"
+                  = link_to "#{grandchild.name}", category_path(grandchild), class:"grandchildren-title"                
 .wrapper
   = render 'items/footer'
