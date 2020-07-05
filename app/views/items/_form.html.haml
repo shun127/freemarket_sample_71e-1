@@ -1,0 +1,113 @@
+
+.sell
+  .main-new
+    .content-new
+      = form_for @item do |f|
+
+        .box-new
+          .box-new__title
+            %label 出品画像
+            %span.box-new__title__must 必須
+          .box-new__info-1
+            最大10枚までアップロードできます
+          .box-new__pic
+            = f.fields_for :item_images do |i|
+              = i.file_field :src, type: 'file', class: "box-new__pic__picfile", id: "img"#, name: "item[item_images_attributes][][src]", style: "display: none;"
+
+            .icon-new
+              = image_tag "material/icon/icon_camera.png", size: "20x18"
+            .box-new__pic__inf ドラッグアンドドロップ
+            .box-new__pic__inf またはクリックしてファイルをアップロード<br>
+
+        .box-new
+          .box-new__title
+            %label 商品名
+            %span.box-new__title__must 必須
+          =f.text_field :name, class:"box-new__input", placeholder: "40文字まで"
+          
+        .box-new
+          .box-new__title
+            %label 商品の説明
+            %span.box-new__title__must 必須
+          =f.text_area :item_introduction,rows: "7", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          .box-new__count 1/1000
+        .box-new
+          .box-new__info-2
+            %label 商品の詳細
+          .box-new__title
+            %label カテゴリー
+            %span.box-new__title__must 必須
+
+          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択してください"}, {class: "select-category", id: "parent-category"}
+
+        .box-new
+          .box-new__title
+            %label ブランド
+            %span.box-new__title__opt 任意
+          = f.collection_select :brand_id, Brand.all, :id, :name, {prompt: '選択して下さい'}
+
+        .box-new
+          .box-new__title
+            %label 商品の状態
+            %span.box-new__title__must 必須
+          = f.select :condition, [["新品、未使用","新品、未使用"], ["未使用に近い","未使用に近い"], ["目立った傷や汚れなし","目立った傷や汚れなし"], ["やや傷や汚れあり","やや傷や汚れあり"], ["傷や汚れあり","傷や汚れあり"], ["全体的に状態が悪い","全体的に状態が悪い"]], prompt: '選択してください'
+        
+        .box-new
+          .box-new__info-2
+            %label 配送について
+          .box-new__title
+            %label 配送料の負担
+            %span.box-new__title__must 必須
+          = f.select :postage_payers, [["送料込み（配送者負担）","送料込み（配送者負担）"], ["着払い（購入者負担）","着払い（購入者負担）"]], prompt: '選択してください'
+          
+        .box-new
+          .box-new__title
+            %label 発送元の地域
+            %span.box-new__title__must 必須
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '選択して下さい'}
+          
+        .box-new
+          .box-new__title
+            %label 発送までの日数
+            %span.box-new__title__must 必須
+          =f.select :preparation_period, [["1~2日で発送","1~2日で発送"], ["3~4日で発送","3~4日で発送"], ["4~7日で発送","4~7日で発送"]], prompt: '選択してください'
+
+        .box-new
+          .box-new__info-2
+            %label 価格（¥300〜9,999,999）
+          .box-new__price
+            .box-new__price__title
+              %label 販売価格
+              %span.box-new__price__title__must 必須
+            .box-new__price__input
+              %span.yen ￥
+              = f.text_field :price, class: "pricebox", id: "pricebox-yen", placeholder: "0", min: 300, max: 9999999
+          .box-new__sales
+            .box-new__sales__title 販売手数料（10%)
+            .box-new__sales__fee －
+          .box-new__margin 
+            .box-new__margin__title 販売利益
+            .box-new__margin__profit －
+
+        .button-new
+          .submit-new__btn
+            = f.submit "変更する", class: "submit-new__botton"
+
+          .back-new__btn
+            %a.back-new__botton 
+              = link_to "/"  do
+                もどる  
+
+        %p.box-new__attention
+          禁止されている
+          = link_to "行為" 
+          および
+          = link_to "出品物" 
+          を必ずご確認ください。
+          = link_to "偽ブランド品" 
+          や
+          = link_to "盗品物" 
+          などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
+          = link_to "加盟店規約" 
+          に同意したことになります。
+
