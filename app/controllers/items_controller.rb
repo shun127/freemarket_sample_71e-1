@@ -21,22 +21,11 @@ class ItemsController < ApplicationController
     end
   end
 
-  def get_category_children
-    respond_to do |format|
-      format.html
-      format.json do
-        @children = Category.find(params[:parent_id]).children
-      end
-    end
+  def category_children
+    @category_children = Category.find(params[:parent_name]).children
   end
-
-  def get_category_grandchildren
-    respond_to do |format|
-      format.html
-      format.json do
-        @grandchildren = Category.find("#{params[:child_id]}").children
-      end
-    end
+  def category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
@@ -61,25 +50,6 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render :show
-    end
-  end
-
-
-  def get_category_children
-    respond_to do |format|
-      format.html
-      format.json do
-        @children = Category.find(params[:parent_id]).children
-      end
-    end
-  end
-
-  def get_category_grandchildren
-    respond_to do |format|
-      format.html
-      format.json do
-        @grandchildren = Category.find("#{params[:child_id]}").children
-      end
     end
   end
 
