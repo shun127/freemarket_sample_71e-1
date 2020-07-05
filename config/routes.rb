@@ -27,6 +27,11 @@ Rails.application.routes.draw do
       # カテゴリからの商品一覧ページのルーティング6/29木下
       get  'category_index'
     end
+    
+    member do
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
+    end
   end
 
   resources :categories, only: [:index, :show] do
