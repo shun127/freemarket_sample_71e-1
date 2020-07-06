@@ -101,6 +101,12 @@ class ItemsController < ApplicationController
   end
   #マイページフロント実装コードレビュー確認のための仮です。皆川6/10
   def mypage_card
+    card = CreditCard.where(user_id: current_user.id).first
+    Payjp.api_key = 'sk_test_8c736d594af0a588864c727b'
+    if card then
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
   end
   #マイページフロント実装コードレビュー確認のための仮です。皆川6/10
   def mypage_card_create
