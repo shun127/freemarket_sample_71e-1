@@ -122,6 +122,7 @@ describe User do
 
     # family_name（苗字）は全角ひらがな・漢字・カタカナであること
     it 'family_nameが全角であること（半角カナではない）' do
+      
       user = build(:user, family_name: "ｱｱ")
       user.valid?
       expect(user.errors[:family_name]).to include("is invalid")
@@ -277,6 +278,13 @@ describe User do
       user = build(:user, first_name_kana: "イイ")     
       expect(user).to be_valid 
     end
+
+    # describe "hogehoge" do
+    #   binding.pry
+    #   it "1 + 1は2になること" do
+    #     expect(1 + 1).to eq 2
+    #   end
+    # end
 
   end
 end
