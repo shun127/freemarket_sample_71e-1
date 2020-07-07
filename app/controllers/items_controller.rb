@@ -44,10 +44,13 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update!(item_params) 
-      redirect_to @item
+    @item.update(item_params) 
+    if @item.save
+      flash[:success] = "出品が完了しました！"
+      redirect_to root_path
     else
-      render :show
+      flash[:alert] = "入力に誤りがあります。もう一度入力してください。"
+      render :edit
     end
   end
   
