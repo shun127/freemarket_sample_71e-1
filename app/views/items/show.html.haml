@@ -9,7 +9,7 @@
     .main__informations
       .main__informations__item-photo
         .main__informations__item-photo__top-stage
-          = image_tag src="material/icon/icon-03.png",class:"top-image"
+          -# =@item.item_images.src
         .main__informations__item-photo__sub
           .item__1-5
             = image_tag src="material/icon/icon-03.png",size: "60x60"
@@ -27,7 +27,7 @@
         %tr
           %th.main__informations__information__item     出品者
           %td.main__informations__information__breakdown  
-            
+            =@item.seller.nickname
         %tr
           %th.main__informations__information__item カテゴリー
           %td.main__informations__information__breakdown
@@ -35,7 +35,10 @@
         %tr
           %th.main__informations__information__item  ブランド
           %td.main__informations__information__breakdown
-            
+            -# - if =@item.brand.empty？
+            -#   なし
+            -# - else
+            =@item.brand.name
         %tr
           %th.main__informations__information__item 商品の状態
           %td.main__informations__information__breakdown
@@ -62,6 +65,6 @@
     .main__buy-button
       = link_to('購入画面に進む',purchase_temporary_items_path,class: "button")
     .main__messages
-      =@item.item_introduction
+      -# =@item.item_introduction
   .wrapper
   = render 'footer'
