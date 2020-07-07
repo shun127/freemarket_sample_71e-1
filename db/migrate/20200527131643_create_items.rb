@@ -13,6 +13,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :prefecture_id,                null:false,foreign_key:true
       t.string :preparation_period,           null:false
       t.timestamps
+
     end
   end
 end

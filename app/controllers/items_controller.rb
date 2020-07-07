@@ -2,9 +2,12 @@ class ItemsController < ApplicationController
   # 未ログインのユーザーをリダイレクトさせる。（下記before actionも参照）、サーバーサイド全て完了したらコメントアウト外す。6/15木下
   # before_action :move_to_index, except: [:index, :show]
 
+  before_action :set_item, only: [:show, :edit, :destroy]
+
   def index
+    # @items = Item.all.includes(:item_images) 作業中のためコメントアウトしてます 7/5山中
     @parents = Category.where(ancestry: nil)
-    @items = Item.all
+    @items = Item.includes(:item_images).order('created_at DESC')
   end
 
   def show
@@ -20,32 +23,21 @@ class ItemsController < ApplicationController
     end
   end
 
-  def get_category_children
-    respond_to do |format|
-      format.html
-      format.json do
-        @children = Category.find(params[:parent_id]).children
-      end
-    end
+  def category_children
+    @category_children = Category.find(params[:parent_name]).children
   end
-
-  def get_category_grandchildren
-    respond_to do |format|
-      format.html
-      format.json do
-        @grandchildren = Category.find("#{params[:child_id]}").children
-      end
-    end
+  def category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
+    if @item.save
       flash[:success] = "出品が完了しました！"
       redirect_to root_path
     else
       flash[:alert] = "入力に誤りがあります。もう一度入力してください。"
-      redirect_to new_item_path
+      render "new"
     end
   end
 
@@ -56,24 +48,10 @@ class ItemsController < ApplicationController
   end
   
   def destroy
-  end
-
-
-  def get_category_children
-    respond_to do |format|
-      format.html
-      format.json do
-        @children = Category.find(params[:parent_id]).children
-      end
-    end
-  end
-
-  def get_category_grandchildren
-    respond_to do |format|
-      format.html
-      format.json do
-        @grandchildren = Category.find("#{params[:child_id]}").children
-      end
+    if @item.destroy
+      redirect_to root_path
+    else
+      render :show
     end
   end
 
@@ -88,6 +66,9 @@ class ItemsController < ApplicationController
 
   def purchase_temporary
   end
+
+  def category_index
+  end  
 
   def item_details
    
@@ -108,7 +89,6 @@ class ItemsController < ApplicationController
   #マイページフロント実装コードレビュー確認のための仮です。皆川6/10
   def mypage_card_create
   end
-
   # 'login''sign_up'は削除しました（deviseディレクトリに移動）木下6/15
 
 
@@ -136,5 +116,8 @@ class ItemsController < ApplicationController
     )
     .merge(seller_id: current_user.id, )
   end
-end
 
+  def set_item
+    @item =Item.find(params[:id])
+  end
+end

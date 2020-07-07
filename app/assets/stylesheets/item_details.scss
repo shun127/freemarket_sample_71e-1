@@ -10,7 +10,7 @@
     }
     .main{
       width: 700px;
-      height: 2000px;
+      height: 1000px;
       margin: 40px auto;
       padding: 24px 40px 40px;
       background-color: #fff;
@@ -90,6 +90,45 @@
         padding-top: 32px;
         font-size: 18px;
         white-space: pre-wrap;
+      }
+    }
+    .change__box{
+      width: 700px;
+      height: 200px;
+      margin: 40px auto;
+      padding: 24px 40px 40px;
+      background-color: #fff;
+
+
+      &__edit__button{
+        margin-top: 16px;
+        background-color:#ea352d;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      &__delete__button{
+        margin-top: 16px;
+        background-color: rgba(205, 205, 205, 0.856);
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+      }
+      .button{
+        text-decoration: none;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
       }
     }
 }

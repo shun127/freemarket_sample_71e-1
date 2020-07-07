@@ -1,10 +1,11 @@
 .wrapper
   = render 'item-header'
+  
 .sell
   .main-new
     .content-new
       = form_for @item do |f|
-
+        = render 'layouts/error', model: f.object
         .box-new
           .box-new__title
             %label 出品画像
@@ -12,13 +13,19 @@
           .box-new__info-1
             最大10枚までアップロードできます
           .box-new__pic
-            = f.fields_for :item_images do |i|
-              = i.file_field :src, type: 'file', class: "box-new__pic__picfile", id: "img"#, name: "item[item_images_attributes][][src]", style: "display: none;"
-
+          %label{for: "album_photos_attributes_0_image", class: "label-box", id: "label-box--0"}
             .icon-new
               = image_tag "material/icon/icon_camera.png", size: "20x18"
             .box-new__pic__inf ドラッグアンドドロップ
             .box-new__pic__inf またはクリックしてファイルをアップロード<br>
+          .hidden-content
+          = f.fields_for :item_images do |i|
+            = i.file_field :src, class:"hidden-field" #, type: 'file', class: "box-new__pic__picfile", id: "img", name: "item[item_images_attributes][][src]", style: "display: none;"作業中のためのしています 7/5山中
+            %input{class:"hidden-field", type: "file", name: "album[photos_attributes][1][image]", id: "album_photos_attributes_1_image" }
+            %input{class:"hidden-field", type: "file", name: "album[photos_attributes][2][image]", id: "album_photos_attributes_2_image" }
+            %input{class:"hidden-field", type: "file", name: "album[photos_attributes][3][image]", id: "album_photos_attributes_3_image" }
+            %input{class:"hidden-field", type: "file", name: "album[photos_attributes][4][image]", id: "album_photos_attributes_4_image" }
+
 
         .box-new
           .box-new__title
@@ -39,8 +46,11 @@
             %label カテゴリー
             %span.box-new__title__must 必須
 
-          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択してください"}, {class: "select-category", id: "parent-category"}
-
+          .box-new__category
+            .box-new__category__wrapper
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択してください"}, {class: "box-new__category__wrapper-select", id: "parent-category"}
+      
+        .form__item-brand
         .box-new
           .box-new__title
             %label ブランド
