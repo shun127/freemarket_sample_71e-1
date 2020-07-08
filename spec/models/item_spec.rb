@@ -4,7 +4,7 @@ describe Item do
   describe '#create' do
 
     it "nameがない場合は登録できないこと" do
-      item = build(:item, name: "")
+      item = build(:item, name: nil)
       item.valid?
       expect(item.errors[:name]).to include("を入力してください")
     end
@@ -54,15 +54,35 @@ describe Item do
     it "nameが41文字以上であれば登録できないこと" do
       item = build(:item, name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
       item.valid?
-      expect(item.errors[:name]).to include("is too long (maximum is 40 characters)")
+      expect(item.errors[:name]).to include("は40文字以内で入力してください")
     end
   
     it "nameが40文字以下では登録できること" do
-      item = build(:item, name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-      expect(item).to be_valid  
+      item = build(:item, name: "aaaaaaaaaaaaa")
+      expect(item).to be_valid 
     end
 
+    it "priceが300以下では登録できないこと" do
+      item = build(:item, price: "300")
+      item.valid?
+      expect(item.errors[:price]).to include() 
+    end
+
+    it "priceが9999999以上では登録できないこと" do
+      item = build(:item, price: "1000000")
+      item.valid?
+      expect(item.errors[:price]).to include() 
+    end
     
-    
+    it "item_introductionが1000以上では登録できないこと" do
+      item = build(:item, item_introduction: "1001")
+      item.valid?
+      expect(item.errors[:item_introduction]).to include() 
+    end
+
+    it "item_introductionが1000以下では登録できること" do
+      item = build(:item, item_introduction: "1000")
+      expect(item.errors[:item_introduction]).to include() 
+    end
   end
 end
