@@ -17,8 +17,8 @@
             = form_tag(pay_credit_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
               %label カード番号
               %span.form-require 必須
-              -# = text_field_tag "number", "", class: "input-default", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
               = text_field_tag "number", "", class: "input-default", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+              -# = text_field_tag "number", "", class: "input-default", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
               .mypage__container__main__chapter__card-registraition__content__form-group-card-namber
                 %ul.signup-card-list
                   %li.first
@@ -57,8 +57,6 @@
                   %span 月
                 .mypage__container__main__chapter__card-registraition__content__form-group-expire__select-wrap
                   %select#exp_year{name: "exp_year", type: "text", class: "select-default"}
-                    %option{value: ""} --
-                    %option{value: "2019"}19
                     %option{value: "2020"}20
                     %option{value: "2021"}21
                     %option{value: "2022"}22
