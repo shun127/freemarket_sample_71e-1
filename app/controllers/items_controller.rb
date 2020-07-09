@@ -15,8 +15,6 @@ class ItemsController < ApplicationController
   end
 
   def new
-    # @item = Item.new
-    # @item.item_images.build
     @item = Item.new
     @images = @item.item_images.build
     @category_parent_array = ["---"]
