@@ -5,11 +5,21 @@
     .main__name
       =@item.name
     .main__comment
-      『[一点物][adidas]チームロゴ、アニマルプリント』は、130回の取引実績を持つジェコクマの古着屋フォロー割実施中さんから出品されました。Tシャツ/カットソー(半袖/袖なし)/レディースの商品で、京都府から1~2日で発送されます。
+      =@item.name
+      は、
+      =@item.seller.nickname
+      さんから出品されました。
+      =@item.category.name
+      の商品で、
+      =@item.prefecture.name
+      から
+      =@item.preparation_period
+      されます。
     .main__informations
       .main__informations__item-photo
         .main__informations__item-photo__top-stage
           -# =@item.item_images.src
+          = image_tag(@item.item_images[0].src.url)
         .main__informations__item-photo__sub
           .item__1-5
             = image_tag src="material/icon/icon-03.png",size: "60x60"
@@ -35,10 +45,10 @@
         %tr
           %th.main__informations__information__item  ブランド
           %td.main__informations__information__breakdown
-            -# - if =@item.brand.empty？
-            -#   なし
-            -# - else
-            =@item.brand.name
+            - if @item.brand_id != ""
+              = @item.brand.name
+            - else
+              なし
         %tr
           %th.main__informations__information__item 商品の状態
           %td.main__informations__information__breakdown
