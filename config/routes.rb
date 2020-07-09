@@ -26,6 +26,9 @@ Rails.application.routes.draw do
 
       # カテゴリからの商品一覧ページのルーティング6/29木下
       get  'category_index'
+      # カテゴリJavaScriptのためのルーティング木下7/8
+      get  'window'
+
     end
     
     member do

@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
   def category_children
     @category_children = Category.find(params[:parent_name]).children
   end
+  
   def category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
@@ -73,6 +74,11 @@ class ItemsController < ApplicationController
   end
 
   def member_done
+  end
+  
+  #  カテゴリJavaScriptのためのルーティング木下7/8
+  def window
+    @parents = Category.where(ancestry: nil)
   end
 
   #マイページフロント実装コードレビュー確認のための仮です。皆川6/10

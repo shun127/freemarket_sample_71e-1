@@ -96,6 +96,7 @@ describe User do
       expect(user.errors[:nickname]).to include("は6文字以内で入力してください")
     end
   
+    
     it "nicknameが6文字以下では登録できること" do
       user = build(:user, nickname: "aaaaaa")
       expect(user).to be_valid  
@@ -279,14 +280,6 @@ describe User do
       user = build(:user, first_name_kana: "イイ")     
       expect(user).to be_valid 
     end
-
-    # describe "hogehoge" do
-    #   binding.pry
-    #   it "1 + 1は2になること" do
-    #     expect(1 + 1).to eq 2
-    #   end
-    # end
-
   end
 end
 
