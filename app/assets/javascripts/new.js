@@ -1,26 +1,3 @@
-          // .box__title
-          //   %label 出品画像
-          //   %span.box__title--required 必須
-          // %p.box__file-info 最大10枚までアップロードできます
-          // .box__file
-          //   .box__file__img#img-box
-          //   .box__file__field#file-box
-          //     = f.fields_for :item_images do |i|
-          //       = i.file_field :src, class: "box__file__field--file", data: {index: i.index}
-          //     = icon('fa', 'camera')
-          //     %p 
-          //       クリックしてファイルをアップロード
-
-          // .box-new__pic 
-          //   .box-new__pic__prev#prev-box
-          //   .box-new__pic__lable#label-box
-          //     = f.fields_for :item_images do |i|
-          //       = i.file_field :src, class: "box-new__pic__lable--file", data: {index: i.index}, id:"img-file"
-          //     .icon-new
-          //       = image_tag "material/icon/icon_camera.png", size: "20x18"
-          //     .icon-new__inf ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
-
-
 $(function() {
   function buildImg(index, url) {
     var html = `<div class="box-new__pic__prev__wrapper" data-index="${index}">
