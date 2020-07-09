@@ -5,9 +5,10 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @items = Item.all.includes(:item_images) 作業中のためコメントアウトしてます 7/5山中
+    @items = Item.all.includes(:item_images) 
     @parents = Category.where(ancestry: nil)
-    @items = Item.includes(:item_images).order('created_at DESC')
+    @item = Item.new
+    @item.item_images.build
   end
 
   def show
@@ -116,7 +117,8 @@ class ItemsController < ApplicationController
       :postage_payers,
       :preparation_period,
       :prefecture_id,
-      item_images_attributes: [:id, :item_id, :src],
+      item_images_attributes: [:src],
+      # item_images_attributes: [:id, :item_id, :_destroy, :src],
     )
     .merge(seller_id: current_user.id, )
   end
