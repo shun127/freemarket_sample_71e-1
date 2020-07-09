@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   # 未ログインのユーザーをリダイレクトさせる。（下記before actionも参照）、サーバーサイド全て完了したらコメントアウト外す。6/15木下
   # before_action :move_to_index, except: [:index, :show]
 
-  before_action :set_item, only: [:show, :edit, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.all.includes(:item_images) 
@@ -47,6 +47,13 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if@item.update(item_params) 
+      flash[:success] = "出品が完了しました！"
+      redirect_to root_path
+      else
+        flash[:alert] = "入力に誤りがあります。もう一度入力してください。"
+        render :edit
+    end
   end
   
   def destroy
