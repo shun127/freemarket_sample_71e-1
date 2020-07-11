@@ -109,3 +109,5 @@ gem 'kaminari'
 # S3導入のため6/26木下
 gem 'fog-aws'
 
+gem 'devise-i18n'
+gem 'devise-i18n-views'
