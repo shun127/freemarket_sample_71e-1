@@ -19,8 +19,8 @@ class Item < ApplicationRecord
   
   # belongs_to :seller_item, class_name:"User", optional: true
   belongs_to :seller, class_name: "User", foreign_key: 'seller_id'
-  # belongs_to :buyer_item, class_name:"User", optional: true
-  belongs_to :buyer, class_name: "User", foreign_key: 'buyer_id'
+  belongs_to :buyer_item, class_name:"User", optional: true
+  # belongs_to :buyer, class_name: "User", foreign_key: 'buyer_id'
 
   
 
