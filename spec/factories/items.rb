@@ -11,4 +11,4 @@ FactoryBot.define do
     category {create(:category)}
   end
 
-end
+end 
