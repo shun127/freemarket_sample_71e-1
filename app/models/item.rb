@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   validates :name,                presence: true, length: { maximum: 40 }
-  validates :price,               presence: true, numericality: {only_string: true, greater_than: 300, less_than: 9999999} 
+  validates :price,               presence: true, numericality: {only_string: true, greater_than: 299, less_than: 9999999} 
   validates :item_introduction,   presence: true, length: { maximum: 1000 }
   validates :condition,           presence: true
   validates :category_id,         presence: true
