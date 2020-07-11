@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
       # カテゴリからの商品一覧ページのルーティング6/29木下
       get  'category_index'
+      get  'brand-list'
     end
     
     member do
@@ -43,4 +44,9 @@ Rails.application.routes.draw do
 
   resources :credit_cards , only: [:new, :create, :destroy]
 
+  resources :brand, only: [:index, :show] do
+    collection do
+      get 'brand-list'
+    end
+  end
 end

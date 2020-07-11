@@ -1,11 +1,10 @@
 .wrapper
   = render 'header'
-
-= link_to new_item_path, class:"sell-btn" do
-
-  .sell-btn__text
-    出品する
-  = image_tag('material/icon/icon_camera.png', class:"sell-btn__image")
+-if user_signed_in?
+  = link_to new_item_path, class:"sell-btn" do
+    .sell-btn__text
+      出品する
+    = image_tag('material/icon/icon_camera.png', class:"sell-btn__image")
 .top-main
   .top-main__image
     .top-main__image__content
@@ -97,7 +96,7 @@
         %li.top-main__new__items
           = link_to item_path(item.id), class:"top-main__new__items__item" do
             = image_tag item.item_images[0].src.url 
-            -# エラーになるためコメントアウト 7/9山中　（解除しました7/10木下）
+            -# エラーになるためコメントアウト 7/9山中（解除しました7/10木下）
             .top-main__new__items__item__info
               .top-main__new__items__item__info__price
                 =item.name
