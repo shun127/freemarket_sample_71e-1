@@ -38,8 +38,10 @@
             display: flex;
             flex-wrap: wrap;
             &__img {
-              width: 100px;
-              height: 90px;
+              .subimages {
+                width: 100px;
+                height: 90px;
+              }
             }
           }
         }

@@ -23,7 +23,7 @@
           - @item.item_images.each do |i|
             - if i.item_id.present?
               .main__informations__item-photo__sub__img
-                = image_tag i.src.url
+                = image_tag i.src.url, class:"subimages"
       %table.main__informations__information
         %tr
           %th.main__informations__information__item     出品者
