@@ -18,21 +18,12 @@
     .main__informations
       .main__informations__item-photo
         .main__informations__item-photo__top-stage
-          -# =@item.item_images.src
-          = image_tag(@item.item_images[0].src.url)
+          = image_tag(@item.item_images[0].src.url, size: '300x300', class: "top-image")
         .main__informations__item-photo__sub
-          .item__1-5
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-          .item__1-5
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
+          - @item.item_images.each do |i|
+            - if i.item_id.present?
+              .main__informations__item-photo__sub__img
+                = image_tag i.src.url
       %table.main__informations__information
         %tr
           %th.main__informations__information__item     出品者

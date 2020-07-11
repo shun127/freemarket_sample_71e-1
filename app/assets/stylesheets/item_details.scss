@@ -28,13 +28,20 @@
         display: flex;
         width: 619px;
         &__item-photo{
+          width: 300px;
           &__top-stage{
             .top-image{
-              height: 300px;
+              height: 250px;
             }
           }
-
-
+          &__sub {
+            display: flex;
+            flex-wrap: wrap;
+            &__img {
+              width: 100px;
+              height: 90px;
+            }
+          }
         }
           &__information{
             width: 300px;
