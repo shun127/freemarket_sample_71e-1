@@ -5,10 +5,11 @@ FactoryBot.define do
     price                     {"1999"}
     item_introduction         {"コメント"}
     condition                 {"未使用"}                  
-    postage_payers            {"着払い（購入者負担）"}
+    postage_payers            {"着払い"}
     prefecture_id             {"1"}
     preparation_period        {"4〜7日発送"}
     category {create(:category)}
+    seller_id {create(:user).id}
   end
 
 end

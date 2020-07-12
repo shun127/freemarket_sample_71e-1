@@ -85,4 +85,4 @@ describe Item do
       expect(item.errors[:item_introduction]).to include() 
     end
   end
-end
+end 
