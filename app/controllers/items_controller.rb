@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.includes(:item_images) 
-    @parents = Category.where(ancestry: nil)
+    @parents = Category.roots
     @item = Item.new
     @item.item_images.build
   end
@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @images = @item.item_images.build
+
   end
 
   def category_children
@@ -30,19 +31,18 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # @images = @item.item_images.build
     if @item.save
       flash[:success] = "出品が完了しました！"
       redirect_to root_path
     else
-      # flash[:alert] = "入力に誤りがあります。もう一度入力してください。"
-      # render "new"
       flash[:alert] = "入力に誤りがあります。もう一度入力してください。"
+      @images = @item.item_images.build
       render :new 
       @categories = Category.all
       @category_parent_array = ["---"]
       Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
+      
       end
     end
   end
