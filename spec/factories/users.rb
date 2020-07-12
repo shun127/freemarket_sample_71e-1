@@ -18,6 +18,12 @@ FactoryBot.define do
     prefecture_code       {"東京都"}
     city                  {"渋谷区"}
     house_number          {"1ー1ー1"}
+
+    destination_family_name           {"佐藤"}
+    destination_first_name            {"椿"}  
+    destination_family_name_kana      {"サトウ"}
+    destination_first_name_kana       {"ツバキ"}
+
   end
 
 end
