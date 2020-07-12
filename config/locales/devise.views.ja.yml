@@ -22,6 +22,11 @@ ja:
         building_name : "ビル名"
         phone_number : "電話番号"
 
+        destination_first_name: "送付先氏名（苗字）"
+        destination_family_name: "送付先氏名（名前）"
+        destination_first_name_kana: "送付先氏名（ミョウジ） "
+        destination_family_name_kana: "送付先氏名（ナマエ）"
+
 
 
     models:
