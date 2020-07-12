@@ -85,7 +85,10 @@ end
 
 gem 'haml-rails'	
 gem 'font-awesome-sass'
+
+# binding.pryのgem
 gem 'pry-rails'
+
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
@@ -106,3 +109,5 @@ gem 'kaminari'
 # S3導入のため6/26木下
 gem 'fog-aws'
 
+gem 'devise-i18n'
+gem 'devise-i18n-views'

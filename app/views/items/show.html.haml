@@ -5,27 +5,30 @@
     .main__name
       =@item.name
     .main__comment
+      =@item.name
+      は、
+      =@item.seller.nickname
+      さんから出品されました。
+      =@item.category.name
+      の商品で、
+      =@item.prefecture.name
+      から
+      =@item.preparation_period
+      されます。
     .main__informations
       .main__informations__item-photo
         .main__informations__item-photo__top-stage
-          = image_tag src="material/icon/icon-03.png",class:"top-image"
+          = image_tag(@item.item_images[0].src.url, size: '300x300', class: "top-image")
         .main__informations__item-photo__sub
-          .item__1-5
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-          .item__1-5
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
-            = image_tag src="material/icon/icon-03.png",size: "60x60"
+          - @item.item_images.each do |i|
+            - if i.item_id.present?
+              .main__informations__item-photo__sub__img
+                = image_tag i.src.url, class:"subimages"
       %table.main__informations__information
         %tr
           %th.main__informations__information__item     出品者
-          %td.main__informations__information__breakdown
+          %td.main__informations__information__breakdown  
+            =@item.seller.nickname
         %tr
           %th.main__informations__information__item カテゴリー
           %td.main__informations__information__breakdown
@@ -70,6 +73,5 @@
         = link_to('商品の編集する',edit_item_path,class: "button")
       .change__box__delete__button
         = link_to('商品の削除する',item_path(@item.id),method: :delete,class: "button")
-
   .wrapper
   = render 'footer'

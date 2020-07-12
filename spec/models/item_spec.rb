@@ -62,7 +62,7 @@ describe Item do
       expect(item).to be_valid 
     end
 
-    it "priceが300以下では登録できないこと" do
+    it "priceが299以下では登録できないこと" do
       item = build(:item, price: "300")
       item.valid?
       expect(item.errors[:price]).to include() 

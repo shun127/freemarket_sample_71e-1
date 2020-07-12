@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -83,6 +84,7 @@ class ItemsController < ApplicationController
   end  
 
   def item_details
+   
   end
 
   def member_done
@@ -107,6 +109,7 @@ class ItemsController < ApplicationController
   # def move_to_index
   #   redirect_to action: :index unless user_signed_in?
   # end
+
 
   private
 

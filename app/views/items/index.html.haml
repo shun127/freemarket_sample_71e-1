@@ -1,11 +1,16 @@
 .wrapper
   = render 'header'
 
-= link_to new_item_path, class:"sell-btn" do
+-# 出品の記述いったん残してますあとで消す／木下　7/11
+-# - if user_signed_in?
+-#   = link_to new_item_path, class:"sell-btn" do
 
-  .sell-btn__text
-    出品する
-  = image_tag('material/icon/icon_camera.png', class:"sell-btn__image")
+-#     .sell-btn__text
+-#       出品する
+-#     = image_tag('material/icon/icon_camera.png', class:"sell-btn__image")
+.wrapper
+  = render 'items/sell-btn'
+
 .top-main
   .top-main__image
     .top-main__image__content

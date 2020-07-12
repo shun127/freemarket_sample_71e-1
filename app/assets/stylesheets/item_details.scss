@@ -10,7 +10,7 @@
     }
     .main{
       width: 700px;
-      height: 1000px;
+      height: auto;
       margin: 40px auto;
       padding: 24px 40px 40px;
       background-color: #fff;
@@ -28,13 +28,22 @@
         display: flex;
         width: 619px;
         &__item-photo{
+          width: 300px;
           &__top-stage{
             .top-image{
-              height: 300px;
+              height: 250px;
             }
           }
-
-
+          &__sub {
+            display: flex;
+            flex-wrap: wrap;
+            &__img {
+              .subimages {
+                width: 100px;
+                height: 90px;
+              }
+            }
+          }
         }
           &__information{
             width: 300px;
