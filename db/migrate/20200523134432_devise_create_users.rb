@@ -23,6 +23,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :building_name
       t.string :phone_number
       t.timestamps null: false
+
+      # 送付先氏名を追加しました7/11木下
+      t.string :destination_family_name,                 null:false
+      t.string :destination_first_name,                  null:false
+      t.string :destination_family_name_kana,            null:false
+      t.string :destination_first_name_kana,             null:false
     end
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
