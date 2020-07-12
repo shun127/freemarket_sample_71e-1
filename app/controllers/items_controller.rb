@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   # 未ログインのユーザーをリダイレクトさせる。（下記before actionも参照）、サーバーサイド全て完了したらコメントアウト外す。6/15木下
   # before_action :move_to_index, except: [:index, :show]
 
+  before_action :set_info, only: [:new, :create, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -17,10 +18,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @images = @item.item_images.build
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-    @category_parent_array << parent.name
-    end
   end
 
   def category_children
@@ -32,12 +29,20 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    # @images = @item.item_images.build
     if @item.save
       flash[:success] = "出品が完了しました！"
       redirect_to root_path
     else
+      # flash[:alert] = "入力に誤りがあります。もう一度入力してください。"
+      # render "new"
       flash[:alert] = "入力に誤りがあります。もう一度入力してください。"
-      render "new"
+      render :new 
+      @categories = Category.all
+      @category_parent_array = ["---"]
+      Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+      end
     end
   end
 
@@ -117,10 +122,17 @@ class ItemsController < ApplicationController
       :postage_payers,
       :preparation_period,
       :prefecture_id,
-      item_images_attributes: [:src],
-      # item_images_attributes: [:id, :item_id, :_destroy, :src],
+      item_images_attributes: [:id, :item_id, :src, :_destroy],
     )
     .merge(seller_id: current_user.id, )
+  end
+
+  def set_info
+    @categories = Category.all
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+    @category_parent_array << parent.name
+    end
   end
 
   def set_item

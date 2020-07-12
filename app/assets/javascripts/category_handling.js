@@ -1,7 +1,8 @@
 $(function(){
-  if ($('.box-new__category__wrapper-select')[0] && window.document.location.href !== "http://localhost:3000/items" ) {
+  if(window.document.location.href == "http://localhost:3000/items" && $(".box-new__category__wrapper-select")[0]){
+    // if(window.document.location.href == "http://localhost:3000/items" && $('.select-category')[0]){}
   // カテゴリーセレクトボックスのオプションを作成
-  console.log("new & edit")
+  console.log("aaa")
   function appendOption(category){
     let html = `<option value="${category.id}" data-category="${category.name}">${category.name}</option>`;
     return html;
@@ -37,7 +38,7 @@ $(function(){
     let parentCategory = $('#parent-category').val()
     if (parentCategory != "---"){ 
       $.ajax({
-        url: 'category_children',
+        url: 'items/category_children',
         type: 'GET',
         data: { parent_name: parentCategory },
         dataType: 'json'
@@ -67,7 +68,7 @@ $(function(){
     let childId = document.getElementById('child_category').value;
     if (childId != "---"){ 
       $.ajax({
-        url: 'category_grandchildren',
+        url: 'items/category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'
@@ -88,5 +89,5 @@ $(function(){
       $('#grandchildren_wrapper').remove();
     };
   });
- }
+ };
 });

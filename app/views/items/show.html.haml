@@ -33,7 +33,7 @@
         %tr
           %th.main__informations__information__item  ブランド
           %td.main__informations__information__breakdown
-            =@item.brand.name
+            =@item.brand.name if @item.brand
         %tr
           %th.main__informations__information__item 商品の状態
           %td.main__informations__information__breakdown
