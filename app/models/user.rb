@@ -38,7 +38,7 @@ class User < ApplicationRecord
 
 
   validates :family_name, :first_name, :family_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day ,:post_code ,:prefecture_code , :city, :house_number,  :destination_first_name,:destination_family_name, :destination_first_name_kana, :destination_family_name_kana,presence: true
-  # validates :email, uniqueness: true
+ 
  
   has_many :items, dependent: :destroy 
 end
