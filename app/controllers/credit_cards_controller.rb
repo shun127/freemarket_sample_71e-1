@@ -12,7 +12,7 @@ class CreditCardsController < ApplicationController
     Payjp.api_key = 'sk_test_8c736d594af0a588864c727b'
     # @default_card_information = customer.cards.retrieve(card.card_id)
     if params['payjp-token'].blank?
-      binding.pry
+      # binding.pry
       redirect_to  mypage_card_items_path
       # redirect_to action: "pay"
     else

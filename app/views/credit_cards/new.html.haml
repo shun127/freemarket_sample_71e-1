@@ -1,5 +1,5 @@
 .wrapper
-  = render 'items/header'
+  = render 'header'
 = link_to root_path, class:"sell-btn" do
   .sell-btn__text
     出品する
@@ -18,7 +18,6 @@
               %label カード番号
               %span.form-require 必須
               = text_field_tag "number", "", class: "input-default", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
-              -# = text_field_tag "number", "", class: "input-default", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
               .mypage__container__main__chapter__card-registraition__content__form-group-card-namber
                 %ul.signup-card-list
                   %li.first
@@ -75,5 +74,5 @@
                 #card_token
                 = submit_tag "追加する", id: "token_submit", class: "btn-card-create"
 .wrapper
-  = render 'items/footer'
+  = render 'footer'
 
