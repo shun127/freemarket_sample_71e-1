@@ -99,3 +99,5 @@ gem 'payjp'
 
 # jquery導入のため6/27高松
 gem "jquery-rails"
+#環境変数設定のため7/13高松
+gem  "dotenv-rails"
