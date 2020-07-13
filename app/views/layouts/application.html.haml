@@ -8,4 +8,16 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
+    - if flash[:success]
+      .success
+        = flash[:success]
+
+    - if flash[:success_update]
+      .success
+        = flash[:success_update]
+
+    - if flash[:alert]
+      .alert
+        = flash[:alert]
+
     = yield
