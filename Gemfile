@@ -107,11 +107,9 @@ gem 'kaminari'
 # S3導入のため6/26木下
 gem 'fog-aws'
 
- card
 
 
 #環境変数設定のため7/13高松
 gem  "dotenv-rails"
 
 
- master
