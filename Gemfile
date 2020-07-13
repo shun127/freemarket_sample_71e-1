@@ -85,19 +85,30 @@ end
 
 gem 'haml-rails'	
 gem 'font-awesome-sass'
+
+# binding.pryのgem
 gem 'pry-rails'
+
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ancestry'
 gem 'active_hash'
+gem "jquery-rails"
+gem 'jquery-turbolinks'
+gem 'payjp'
+gem 'rails-i18n'
+
+
+
+
+# ページネーションのために導入7/4木下
+gem 'kaminari'
 
 # S3導入のため6/26木下
 gem 'fog-aws'
-# payjp導入のため6/27高松
-gem 'payjp'
 
-# jquery導入のため6/27高松
-gem "jquery-rails"
+
+
 #環境変数設定のため7/13高松
 gem  "dotenv-rails"
