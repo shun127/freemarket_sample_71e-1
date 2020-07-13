@@ -34,7 +34,7 @@
             %label 商品の説明
             %span.box-new__title__must 必須
           =f.text_area :item_introduction,rows: "7", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-          .box-new__count 1/1000
+        
         .box-new
           .box-new__info-2
             %label 商品の詳細
@@ -95,12 +95,6 @@
             .box-new__price__input
               %span.yen ￥
               = f.text_field :price, class: "pricebox", id: "pricebox-yen", placeholder: "0", min: 300, max: 9999999
-          .box-new__sales
-            .box-new__sales__title 販売手数料（10%)
-            .box-new__sales__fee －
-          .box-new__margin 
-            .box-new__margin__title 販売利益
-            .box-new__margin__profit －
 
         .button-new
           .submit-new__btn
