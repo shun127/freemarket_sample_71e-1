@@ -27,3 +27,10 @@
 /config/master.key
 
 /.env
+public/uploads/*
+
+# 今回の件で追記した内容です。
+.DS_Store
+
+# Ignore uploaded files in development
+ /public/uploads/

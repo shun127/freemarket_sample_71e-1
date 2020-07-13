@@ -8,8 +8,6 @@
 }
 
 
-
-
 @import "items";
 @import "new";
 @import "purchase_temporary";
@@ -21,6 +19,7 @@
 @import "member_done";
 @import "mypage-card-create";
 @import "categories/index";
+@import "categories/show";
 @import "layout/error";
 
 @import "header";
@@ -31,3 +30,21 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "item_details";
+
+.success{
+  background: #3dcace;
+    text-align: center;
+    border: 2px solid #3dcace;
+    padding: 12px;
+    font-weight: 850;
+    color: white;
+ }
+.alert{
+  background: #FFEBE8;
+  text-align: center;
+  border: 2px solid #FF0211;
+  color: #FF0211;
+  padding: 12px;
+  font-weight: 850;
+ }
+

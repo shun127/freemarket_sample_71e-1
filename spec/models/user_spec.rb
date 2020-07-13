@@ -6,86 +6,86 @@ describe User do
     it "nicknameがない場合は登録できないこと" do
       user = build(:user, nickname: "")
       user.valid?
-      expect(user.errors[:nickname]).to include("can't be blank")
+      expect(user.errors[:nickname]).to include("を入力してください")
     end
 
     it "emailがない場合は登録できないこと" do
       user = build(:user, email: "")
       user.valid?
-      expect(user.errors[:email]).to include("can't be blank")
+      expect(user.errors[:email]).to include("を入力してください")
     end
 
     it "passwordがない場合は登録できないこと" do
       user = build(:user, password: "")
       user.valid?
-      expect(user.errors[:password]).to include("can't be blank")
+      expect(user.errors[:password]).to include("を入力してください")
     end
 
     it "family_nameがない場合は登録できないこと" do
       user = build(:user, family_name: "")
       user.valid?
-      expect(user.errors[:family_name]).to include("can't be blank")
+      expect(user.errors[:family_name]).to include("を入力してください")
     end
 
     it "first_nameがない場合は登録できないこと" do
       user = build(:user, first_name: "")
       user.valid?
-      expect(user.errors[:first_name]).to include("can't be blank")
+      expect(user.errors[:first_name]).to include("を入力してください")
     end
 
     it "family_name_kanaがない場合は登録できないこと" do
       user = build(:user, family_name_kana: "")
       user.valid?
-      expect(user.errors[:family_name_kana]).to include("can't be blank")
+      expect(user.errors[:family_name_kana]).to include("を入力してください")
     end
 
     it "first_name_kanaがない場合は登録できないこと" do
       user = build(:user, first_name_kana: "")
       user.valid?
-      expect(user.errors[:first_name_kana]).to include("can't be blank")
+      expect(user.errors[:first_name_kana]).to include("を入力してください")
     end
 
     it "birth_yearがない場合は登録できないこと" do
       user = build(:user, birth_year: "")
       user.valid?
-      expect(user.errors[:birth_year]).to include("can't be blank")
+      expect(user.errors[:birth_year]).to include("を入力してください")
     end
 
     it "birth_monthがない場合は登録できないこと" do
       user = build(:user, birth_month: "")
       user.valid?
-      expect(user.errors[:birth_month]).to include("can't be blank")
+      expect(user.errors[:birth_month]).to include("を入力してください")
     end
 
     it "birth_dayがない場合は登録できないこと" do
       user = build(:user, birth_day: "")
       user.valid?
-      expect(user.errors[:birth_day]).to include("can't be blank")
+      expect(user.errors[:birth_day]).to include("を入力してください")
     end
     
     it "post_codeがない場合は登録できないこと" do
       user = build(:user, post_code: "")
       user.valid?
-      expect(user.errors[:post_code]).to include("can't be blank")
+      expect(user.errors[:post_code]).to include("を入力してください")
     end
 
     it "prefecture_codeがない場合は登録できないこと" do
       user = build(:user, prefecture_code: "")
       user.valid?
-      expect(user.errors[:prefecture_code]).to include("can't be blank")
+      expect(user.errors[:prefecture_code]).to include("を入力してください")
     end
 
     it "cityがない場合は登録できないこと" do
       user = build(:user, city: "")
       user.valid?
-      expect(user.errors[:city]).to include("can't be blank")
+      expect(user.errors[:city]).to include("を入力してください")
     end
 
 
     it "passwordが存在してもpassword_confirmationがない場合は登録できないこと" do
       user = build(:user, password_confirmation: "")
       user.valid?
-      expect(user.errors[:password_confirmation]).to include("doesn't match Password")
+      expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
     end
 
     #文字数制限のある項目のチェック    
@@ -93,7 +93,7 @@ describe User do
       user = build(:user, nickname: "aaaaaaa")
       user.valid?
    
-      expect(user.errors[:nickname]).to include("is too long (maximum is 6 characters)")
+      expect(user.errors[:nickname]).to include("は6文字以内で入力してください")
     end
   
     it "nicknameが6文字以下では登録できること" do
@@ -116,7 +116,7 @@ describe User do
       user = create(:user)
       another_user = build(:user, email: user.email)
       another_user.valid?
-      expect(another_user.errors[:email]).to include("has already been taken")
+      expect(another_user.errors[:email]).to include("はすでに存在します")
     end
   
 
@@ -124,25 +124,25 @@ describe User do
     it 'family_nameが全角であること（半角カナではない）' do
       user = build(:user, family_name: "ｱｱ")
       user.valid?
-      expect(user.errors[:family_name]).to include("is invalid")
+      expect(user.errors[:family_name]).to include("は不正な値です")
     end
 
     it 'family_nameが全角であること（半角英語ではない）' do
       user = build(:user, family_name: "aa")
       user.valid?
-      expect(user.errors[:family_name]).to include("is invalid")
+      expect(user.errors[:family_name]).to include("は不正な値です")
     end
  
     it 'family_nameが全角であること（半角数字ではない）' do
       user = build(:user, family_name: "11")
       user.valid?
-      expect(user.errors[:family_name]).to include("is invalid")
+      expect(user.errors[:family_name]).to include("は不正な値です")
     end
  
     it 'family_nameが全角であること（全角数字ではない）' do
       user = build(:user, family_name: "２２２")
       user.valid?
-      expect(user.errors[:family_name]).to include("is invalid")
+      expect(user.errors[:family_name]).to include("は不正な値です")
     end
  
     it 'family_nameが全角ひらがなであれば登録できる' do
@@ -166,25 +166,25 @@ describe User do
     it 'first_nameが全角であること（半角カナではない）' do
       user = build(:user, first_name: "ｲｲ")
       user.valid?
-      expect(user.errors[:first_name]).to include("is invalid")
+      expect(user.errors[:first_name]).to include("は不正な値です")
     end
 
     it 'first_nameが全角であること（半角英語ではない）' do
       user = build(:user, first_name: "ee")
       user.valid?
-      expect(user.errors[:first_name]).to include("is invalid")
+      expect(user.errors[:first_name]).to include("は不正な値です")
     end
 
     it 'first_nameが全角であること（半角数字ではない）' do
       user = build(:user, first_name: "11")
       user.valid?
-      expect(user.errors[:first_name]).to include("is invalid")
+      expect(user.errors[:first_name]).to include("は不正な値です")
     end
 
     it 'first_nameが全角であること（全角数字ではない）' do
       user = build(:user, first_name: "１１")
       user.valid?
-      expect(user.errors[:first_name]).to include("is invalid")
+      expect(user.errors[:first_name]).to include("は不正な値です")
     end
 
     it 'first_nameが全角ひらがなであれば登録できる' do
@@ -208,31 +208,31 @@ describe User do
     it 'family_name_kana,が全角カタカナであること（半角カナではない）' do
       user = build(:user, family_name_kana: "ｱｱ")
       user.valid?
-      expect(user.errors[:family_name_kana,]).to include("is invalid")
+      expect(user.errors[:family_name_kana,]).to include("は不正な値です")
     end
 
     it 'family_name_kana,が全角カタカナであること（ひらがなではない）' do
       user = build(:user, family_name_kana: "ああ")
       user.valid?
-      expect(user.errors[:family_name_kana,]).to include("is invalid")
+      expect(user.errors[:family_name_kana,]).to include("は不正な値です")
     end
 
     it 'family_name_kana,が全角カタカナであること（全角英語ではない）' do
       user = build(:user, family_name_kana: "ｒｑ")
       user.valid?
-      expect(user.errors[:family_name_kana,]).to include("is invalid")
+      expect(user.errors[:family_name_kana,]).to include("は不正な値です")
     end
 
     it 'family_name_kana,が全角カタカナであること（半角英語ではない）' do
       user = build(:user, family_name_kana: "aa")
       user.valid?
-      expect(user.errors[:family_name_kana,]).to include("is invalid")
+      expect(user.errors[:family_name_kana,]).to include("は不正な値です")
     end
 
     it 'family_name_kana,が全角カタカナであること（数字ではない）' do
       user = build(:user, family_name_kana: "22")
       user.valid?
-      expect(user.errors[:family_name_kana,]).to include("is invalid")
+      expect(user.errors[:family_name_kana,]).to include("は不正な値です")
     end
 
     it 'family_name_kanaが全角カタカナであれば登録できる' do
@@ -246,31 +246,31 @@ describe User do
     it 'first_name_kanaが全角カタカナであること（半角カナではない）' do
       user = build(:user, first_name_kana: "ｲｲ")
       user.valid?
-      expect(user.errors[:first_name_kana]).to include("is invalid")
+      expect(user.errors[:first_name_kana]).to include("は不正な値です")
     end
 
     it 'first_name_kanaが全角カタカナであること（ひらがなではない）' do
       user = build(:user, first_name_kana: "いい")
       user.valid?
-      expect(user.errors[:first_name_kana]).to include("is invalid")
+      expect(user.errors[:first_name_kana]).to include("は不正な値です")
     end
 
     it 'first_name_kanaが全角カタカナであること（全角英語ではない）' do
       user = build(:user, first_name_kana: "ｒｑ")
       user.valid?
-      expect(user.errors[:first_name_kana]).to include("is invalid")
+      expect(user.errors[:first_name_kana]).to include("は不正な値です")
     end
 
     it 'first_name_kanaが全角カタカナであること（半角英語ではない）' do
       user = build(:user, first_name_kana: "EE")
       user.valid?
-      expect(user.errors[:first_name_kana]).to include("is invalid")
+      expect(user.errors[:first_name_kana]).to include("は不正な値です")
     end
 
     it 'first_name_kanaが全角カタカナであること（数字ではない）' do
       user = build(:user, first_name_kana: "11")
       user.valid?
-      expect(user.errors[:first_name_kana]).to include("is invalid")
+      expect(user.errors[:first_name_kana]).to include("は不正な値です")
     end
 
     it 'first_name_kanaが全角カタカナであれば登録できる' do
@@ -278,6 +278,174 @@ describe User do
       expect(user).to be_valid 
     end
 
+    
+
+
+
+
+
+    # 送付先氏名関連　7/11木下
+
+    # destination_family_name（送付先氏名の苗字）は全角ひらがな・漢字・カタカナであること
+    it 'destination_family_nameが全角であること（半角カナではない）' do
+      user = build(:user, destination_family_name: "ｱｱ")
+      user.valid?
+      expect(user.errors[:destination_family_name]).to include("は不正な値です")
+    end
+
+    it 'destination_family_nameが全角であること（半角英語ではない）' do
+      user = build(:user, destination_family_name: "aa")
+      user.valid?
+      expect(user.errors[:destination_family_name]).to include("は不正な値です")
+    end
+ 
+    it 'destination_family_nameが全角であること（半角数字ではない）' do
+      user = build(:user, destination_family_name: "11")
+      user.valid?
+      expect(user.errors[:destination_family_name]).to include("は不正な値です")
+    end
+ 
+    it 'destination_family_nameが全角であること（全角数字ではない）' do
+      user = build(:user, destination_family_name: "２２２")
+      user.valid?
+      expect(user.errors[:destination_family_name]).to include("は不正な値です")
+    end
+ 
+    it 'destination_family_nameが全角ひらがなであれば登録できる' do
+      user = build(:user, destination_family_name: "ああ")     
+      expect(user).to be_valid 
+    end
+   
+    it 'destination_family_nameが全角漢字であれば登録できる' do
+      user = build(:user, destination_family_name: "嗚呼")     
+      expect(user).to be_valid 
+    end
+
+    it 'destination_family_nameが全角カタカナであれば登録できる' do
+      user = build(:user, destination_family_name: "アア")     
+      expect(user).to be_valid 
+    end
+
+
+
+    # fdestination_irst_name（送付先氏名の名前）は全角ひらがな・漢字・カタカナであること
+    it 'destination_first_nameが全角であること（半角カナではない）' do
+      user = build(:user, destination_first_name: "ｲｲ")
+      user.valid?
+      expect(user.errors[:destination_first_name]).to include("は不正な値です")
+    end
+
+    it 'destination_first_nameが全角であること（半角英語ではない）' do
+      user = build(:user, destination_first_name: "ee")
+      user.valid?
+      expect(user.errors[:destination_first_name]).to include("は不正な値です")
+    end
+
+    it 'destination_first_nameが全角であること（半角数字ではない）' do
+      user = build(:user, destination_first_name: "11")
+      user.valid?
+      expect(user.errors[:destination_first_name]).to include("は不正な値です")
+    end
+
+    it 'destination_first_nameが全角であること（全角数字ではない）' do
+      user = build(:user, destination_first_name: "１１")
+      user.valid?
+      expect(user.errors[:destination_first_name]).to include("は不正な値です")
+    end
+
+    it 'destination_first_nameが全角ひらがなであれば登録できる' do
+      user = build(:user, destination_first_name: "ああ")     
+      expect(user).to be_valid 
+    end
+
+    it 'destination_first_nameが全角漢字であれば登録できる' do
+      user = build(:user, destination_first_name: "嗚呼")     
+      expect(user).to be_valid 
+    end
+
+    it 'destination_first_nameが全角カタカナであれば登録できる' do
+      user = build(:user, destination_first_name: "アア")     
+      expect(user).to be_valid 
+    end
+
+
+
+    # destination_family_name_kana（送付先氏名の苗字ふりがな）は全角カタカナのみ
+    it 'destination_family_name_kana,が全角カタカナであること（半角カナではない）' do
+      user = build(:user, destination_family_name_kana: "ｱｱ")
+      user.valid?
+      expect(user.errors[:destination_family_name_kana,]).to include("は不正な値です")
+    end
+
+    it 'destination_family_name_kana,が全角カタカナであること（ひらがなではない）' do
+      user = build(:user, destination_family_name_kana: "ああ")
+      user.valid?
+      expect(user.errors[:destination_family_name_kana,]).to include("は不正な値です")
+    end
+
+    it 'destination_family_name_kana,が全角カタカナであること（全角英語ではない）' do
+      user = build(:user, destination_family_name_kana: "ｒｑ")
+      user.valid?
+      expect(user.errors[:destination_family_name_kana,]).to include("は不正な値です")
+    end
+
+    it 'destination_family_name_kana,が全角カタカナであること（半角英語ではない）' do
+      user = build(:user, destination_family_name_kana: "aa")
+      user.valid?
+      expect(user.errors[:destination_family_name_kana,]).to include("は不正な値です")
+    end
+
+    it 'destination_family_name_kana,が全角カタカナであること（数字ではない）' do
+      user = build(:user, destination_family_name_kana: "22")
+      user.valid?
+      expect(user.errors[:destination_family_name_kana,]).to include("は不正な値です")
+    end
+
+    it 'destination_family_name_kanaが全角カタカナであれば登録できる' do
+      user = build(:user, destination_family_name_kana: "アア")     
+      expect(user).to be_valid 
+    end
+
+
+
+    # destination_first_name_kana（送付先氏名の名前ふりがな）は全角カタカナのみ
+    it 'destination_first_name_kanaが全角カタカナであること（半角カナではない）' do
+      user = build(:user, destination_first_name_kana: "ｲｲ")
+      user.valid?
+      expect(user.errors[:destination_first_name_kana]).to include("は不正な値です")
+    end
+
+    it 'destination_first_name_kanaが全角カタカナであること（ひらがなではない）' do
+      user = build(:user, destination_first_name_kana: "いい")
+      user.valid?
+      expect(user.errors[:destination_first_name_kana]).to include("は不正な値です")
+    end
+
+    it 'destination_first_name_kanaが全角カタカナであること（全角英語ではない）' do
+      user = build(:user, destination_first_name_kana: "ｒｑ")
+      user.valid?
+      expect(user.errors[:destination_first_name_kana]).to include("は不正な値です")
+    end
+
+    it 'destination_first_name_kanaが全角カタカナであること（半角英語ではない）' do
+      user = build(:user, destination_first_name_kana: "EE")
+      user.valid?
+      expect(user.errors[:destination_first_name_kana]).to include("は不正な値です")
+    end
+
+    it 'destination_first_name_kanaが全角カタカナであること（数字ではない）' do
+      user = build(:user, destination_first_name_kana: "11")
+      user.valid?
+      expect(user.errors[:destination_first_name_kana]).to include("は不正な値です")
+    end
+
+    it 'destination_first_name_kanaが全角カタカナであれば登録できる' do
+      user = build(:user, destination_first_name_kana: "イイ")     
+      expect(user).to be_valid 
+    end
+
+ 
+      
   end
 end
 

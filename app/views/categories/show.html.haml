@@ -1,0 +1,26 @@
+.wrapper
+  = render 'items/header'
+
+.top-main
+  
+  .top-main__new
+    .top-main__new__text       
+      = @category.name   
+
+    .top-main__new__items  
+      - @items.each do |i|      
+        = link_to item_path(i.id), class:"top-main__new__items__item" do            
+          = image_tag i.item_images[0].src.url
+          
+          .top-main__new__items__item__info
+            .top-main__new__items__item__info__price
+              %br             
+              = i.name
+              %br 
+              = i.price
+              円(税込み)
+              
+    = paginate(@items)  
+        
+.wrapper
+  = render 'items/item-footer'
