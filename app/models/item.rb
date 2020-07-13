@@ -19,7 +19,7 @@ class Item < ApplicationRecord
   
 
   belongs_to :seller, class_name: "User", foreign_key: 'seller_id'
-  belongs_to :buyer_item, class_name:"User", optional: true
+  belongs_to :buyer, class_name:"User", optional: true, foreign_key: 'buyer_id'
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture, dependent: :destroy
