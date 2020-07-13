@@ -30,8 +30,15 @@ Rails.application.routes.draw do
       get  'mypage_card_create'
 
       #商品詳細ページのフロント実装コードレビュー確認のための仮ルーティングです。伊藤6/4
-      get  'item_details'
       get  'member_done'
+
+      # カテゴリからの商品一覧ページのルーティング6/29木下
+      get  'category_index'
+    end
+    
+    member do
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
     end
   end
 
@@ -43,5 +50,4 @@ Rails.application.routes.draw do
   end
 
   resources :credit_cards , only: [:new, :create, :destroy]
-
 end

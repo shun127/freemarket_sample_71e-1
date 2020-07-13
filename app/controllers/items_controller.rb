@@ -2,48 +2,48 @@ class ItemsController < ApplicationController
   # 未ログインのユーザーをリダイレクトさせる。（下記before actionも参照）、サーバーサイド全て完了したらコメントアウト外す。6/15木下
   # before_action :move_to_index, except: [:index, :show]
 
+  before_action :set_info, only: [:new, :create, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+
   def index
-    @parents = Category.where(ancestry: nil)
+    @items = Item.all.includes(:item_images) 
+    @parents = Category.roots
+    @item = Item.new
+    @item.item_images.build
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def new
     @item = Item.new
     @images = @item.item_images.build
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-    @category_parent_array << parent.name
-    end
+
   end
 
-  def get_category_children
-    respond_to do |format|
-      format.html
-      format.json do
-        @children = Category.find(params[:parent_id]).children
-      end
-    end
+  def category_children
+    @category_children = Category.find(params[:parent_name]).children
   end
-
-  def get_category_grandchildren
-    respond_to do |format|
-      format.html
-      format.json do
-        @grandchildren = Category.find("#{params[:child_id]}").children
-      end
-    end
+  def category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
+    if @item.save
       flash[:success] = "出品が完了しました！"
       redirect_to root_path
     else
       flash[:alert] = "入力に誤りがあります。もう一度入力してください。"
-      redirect_to new_item_path
+      @images = @item.item_images.build
+      render :new 
+      @categories = Category.all
+      @category_parent_array = ["---"]
+      Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+      
+      end
     end
   end
 
@@ -51,27 +51,20 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if@item.update(item_params) 
+      flash[:success_update] = "変更が完了しました！"
+      redirect_to root_path
+      else
+        flash[:alert] = "入力に誤りがあります。もう一度入力してください。"
+        render :edit
+    end
   end
   
   def destroy
-  end
-
-
-  def get_category_children
-    respond_to do |format|
-      format.html
-      format.json do
-        @children = Category.find(params[:parent_id]).children
-      end
-    end
-  end
-
-  def get_category_grandchildren
-    respond_to do |format|
-      format.html
-      format.json do
-        @grandchildren = Category.find("#{params[:child_id]}").children
-      end
+    if @item.destroy
+      redirect_to root_path
+    else
+      render :show
     end
   end
 
@@ -87,7 +80,11 @@ class ItemsController < ApplicationController
   def purchase_temporary
   end
 
+  def category_index
+  end  
+
   def item_details
+   
   end
 
   def member_done
@@ -111,7 +108,6 @@ class ItemsController < ApplicationController
   #マイページフロント実装コードレビュー確認のための仮です。皆川6/10
   def mypage_card_create
   end
-
   # 'login''sign_up'は削除しました（deviseディレクトリに移動）木下6/15
 
 
@@ -119,6 +115,7 @@ class ItemsController < ApplicationController
   # def move_to_index
   #   redirect_to action: :index unless user_signed_in?
   # end
+
 
   private
 
@@ -134,8 +131,20 @@ class ItemsController < ApplicationController
       :postage_payers,
       :preparation_period,
       :prefecture_id,
-      item_images_attributes: [:id, :item_id, :src],
+      item_images_attributes: [:id, :item_id, :src, :_destroy],
     )
     .merge(seller_id: current_user.id, )
+  end
+
+  def set_info
+    @categories = Category.all
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+    @category_parent_array << parent.name
+    end
+  end
+
+  def set_item
+    @item =Item.find(params[:id])
   end
 end

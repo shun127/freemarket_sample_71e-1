@@ -1,8 +1,15 @@
 .wrapper
   = render 'header'
 
+-# 出品の記述いったん残してますあとで消す／木下　7/11
+-# - if user_signed_in?
+-#   = link_to new_item_path, class:"sell-btn" do
+
+-#     .sell-btn__text
+-#       出品する
+-#     = image_tag('material/icon/icon_camera.png', class:"sell-btn__image")
 .wrapper
-  = render 'sell-btn'
+  = render 'items/sell-btn'
 
 .top-main
   .top-main__image
@@ -88,25 +95,20 @@
   .top-main__new
     .top-main__new__text 
       新着アイテム
-    = link_to "#", class:"link" do
+    = link_to "/", class:"link" do
       もっと見る
-    - for i in 1..3
-      .top-main__new__items
-        - for j in 1..5
-          -# %a.top-main__new__items__item
-          = link_to item_details_items_path, class:"top-main__new__items__item" do
-            -# = image_tag "gift.jpeg"
-            = image_tag "material/pict/pict-reason-01.jpg"
+    %ul.top-main__box
+      -@items.each do |item|
+        %li.top-main__new__items1
+          = link_to item_path(item.id), class:"top-main__new__items__item" do
+            = image_tag item.item_images[0].src.url
+
             .top-main__new__items__item__info
               .top-main__new__items__item__info__price
-                item
-                %br 1000円
-                %span.tax
-                  (税込み)
-                .top-main__new__items__item__info__name
-                 
-              .top-main__new__items__item__info__favorite
-                ★0
+                =item.name
+                ¥
+                =item.price
+                (税込み)
 
 .wrapper
   = render 'footer'

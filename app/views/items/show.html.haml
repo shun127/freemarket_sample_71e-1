@@ -1,0 +1,77 @@
+.wrapper
+  = render 'header'
+.body  
+  .main
+    .main__name
+      =@item.name
+    .main__comment
+      =@item.name
+      は、
+      =@item.seller.nickname
+      さんから出品されました。
+      =@item.category.name
+      の商品で、
+      =@item.prefecture.name
+      から
+      =@item.preparation_period
+      されます。
+    .main__informations
+      .main__informations__item-photo
+        .main__informations__item-photo__top-stage
+          = image_tag(@item.item_images[0].src.url, size: '300x300', class: "top-image")
+        .main__informations__item-photo__sub
+          - @item.item_images.each do |i|
+            - if i.item_id.present?
+              .main__informations__item-photo__sub__img
+                = image_tag i.src.url, class:"subimages"
+      %table.main__informations__information
+        %tr
+          %th.main__informations__information__item     出品者
+          %td.main__informations__information__breakdown  
+            =@item.seller.nickname
+        %tr
+          %th.main__informations__information__item カテゴリー
+          %td.main__informations__information__breakdown
+            =@item.category.name
+        %tr
+          %th.main__informations__information__item  ブランド
+          %td.main__informations__information__breakdown
+            =@item.brand.name if @item.brand
+        %tr
+          %th.main__informations__information__item 商品の状態
+          %td.main__informations__information__breakdown
+            =@item.condition
+        %tr
+          %th.main__informations__information__item 配送料の負担
+          %td.main__informations__information__breakdown
+            =@item.postage_payers
+        %tr
+          %th.main__informations__information__item 配送元の地域
+          %td.main__informations__information__breakdown
+            =@item.prefecture.name
+        %tr
+          %th.main__informations__information__item 発送日までの目安
+          %td.main__informations__information__breakdown
+            =@item.preparation_period
+    .main__price-box
+      .main__price-box__item-price
+        ¥
+        =@item.price
+      .main__price-box__item-price__tax
+        (税込)
+      .main__price-box__item-price__postage-included
+        送料込み
+    - if user_signed_in? && current_user.id == @item.seller_id
+    - else user_signed_in? && current_user.id != @item.seller_id
+      .main__buy-button
+        = link_to('購入画面に進む',purchase_temporary_items_path,class: "button")
+    .main__messages
+      =@item.item_introduction
+  - if user_signed_in? && current_user.id == @item.seller_id
+    .change__box
+      .change__box__edit__button
+        = link_to('商品の編集する',edit_item_path,class: "button")
+      .change__box__delete__button
+        = link_to('商品の削除する',item_path(@item.id),method: :delete,class: "button")
+  .wrapper
+  = render 'footer'

@@ -1,6 +1,6 @@
 .wrapper
   = render 'item-header'
-  
+
 .sell
   .main-new
     .content-new
@@ -15,14 +15,22 @@
             最大10枚までアップロードできます
           .box-new__pic 
             .box-new__pic__prev#prev-box
-            .box-new__pic__lable#label-box
-              = f.fields_for :item_images do |i|
-                = i.file_field :src, class: "box-new__pic__lable--file", data: {index: i.index}, id:"img-file"
-
+              - if @item.persisted?
+                - @item.item_images.each_with_index do |image, index|
+                  .box-new__pic__prev___wrapper{data:{index: index}}
+                    = image_tag "#{image.src}", data:{index: index} 
+                    .box-new__pic__prev__wrapper__delete{data:{index: index}}
+                      削除する
+            .box-new__pic__lable#label-box{data:{edit: "edit"}}
               .icon-new
                 = image_tag "material/icon/icon_camera.png", size: "20x18"
               .icon-new__inf ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
 
+              = f.fields_for :item_images do |i|
+                - if @item.persisted?
+                  = i.file_field :src, class: "box-new__pic__lable--file", id: "item_item_images_attributes_#{i.index}_src", data: {index: i.index}, name: "item[item_images_attributes][#{i.index}][src]", style: "display:none"
+                  = i.check_box :_destroy, data:{ index: i.index }, style: "display:none", class: "box-new__pic__lable--checkbox"
+                
         .box-new
           .box-new__title
             %label 商品名
@@ -44,12 +52,12 @@
 
           .box-new__category
             .box-new__category__wrapper
-              = f.collection_select :category_id, Category.roots, :id, :name, {prompt: "選択してください", selected: @item.category&.root&.id}, {class: "box-new__category__wrapper-select", id: "parent-category"}
-              - if @item.category.present?
-                #children_wrapper.box-new__category__wrapper
-                  = f.collection_select :category_id,  @item.category.root.children, :id, :name, { include_blank: true, selected: @item.category.parent.id}, class: "box-new__category__wrapper-select", id: 'child_category'
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, { include_blank: true, selected: @item.category.root.id}, {class: "box-new__category__wrapper-select", id: "parent-category"}
+              #children_wrapper.box-new__category__wrapper
+                = f.collection_select :category_id,  @item.category.root.children, :id, :name, { include_blank: true, selected: @item.category.parent.id}, class: "box-new__category__wrapper-select", id: 'child_category'
                 #grandchildren_wrapper.box-new__category__wrapper
                   = f.collection_select :category_id, @item.category.siblings, :id, :name, { include_blank: true, selected: @item.category.id}, {class: "box-new__category__wrapper-select", id: "grandchild_category"}
+          
         .form__item-brand
         .box-new
           .box-new__title
@@ -57,13 +65,11 @@
             %span.box-new__title__opt 任意
           = f.collection_select :brand_id, Brand.all, :id, :name, {prompt: '選択して下さい'}
 
-
         .box-new
           .box-new__title
             %label 商品の状態
             %span.box-new__title__must 必須
           = f.select :condition, [["新品、未使用","新品、未使用"], ["未使用に近い","未使用に近い"], ["目立った傷や汚れなし","目立った傷や汚れなし"], ["やや傷や汚れあり","やや傷や汚れあり"], ["傷や汚れあり","傷や汚れあり"], ["全体的に状態が悪い","全体的に状態が悪い"]], prompt: '選択してください'
-
         
         .box-new
           .box-new__info-2
@@ -104,7 +110,7 @@
 
         .button-new
           .submit-new__btn
-            = f.submit "出品する", class: "submit-new__botton"
+            = f.submit "変更する", class: "submit-new__botton"
 
           .back-new__btn
             %a.back-new__botton 
@@ -125,4 +131,4 @@
           に同意したことになります。
 
 .wrapper
-  = render 'item-footer'
+= render 'item-footer'
