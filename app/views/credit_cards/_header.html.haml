@@ -1,0 +1,30 @@
+.header-part
+  .box-part
+    .box-part__upper
+      .box-part__upper__icon
+        = link_to root_path do
+          =image_tag "material/logo/logo.png", class: "header-part-image"
+      .box-part__upper__search
+        %input{type: "text", class: "box-part__upper__search__input", placeholder: " キーワードから探す"}
+        .box-part__upper__search__btn
+          =image_tag "material/icon/icon-search 1.png", class: "search-icon"
+    
+    .box-part__select
+      .box-part__select__left
+        .box-part__select__left__category
+          =link_to categories_path , class:"box-part__select__left__category" do
+            カテゴリー
+        =link_to "#" , class:"box-part__select__left__brand" do
+          ブランド
+
+      .box-part__select__right
+        - if user_signed_in?         
+          = link_to mypage_items_path, class: "box__select__right__new" do
+            マイページ
+          = link_to destroy_user_session_path, method: :delete, class: "box__select__right__new" do
+            ログアウト
+        - else    
+          = link_to new_user_session_path, class:"box__select__right__login" do
+            ログイン
+          = link_to new_user_registration_path, class:"box__select__right__new" do
+            新規会員登録

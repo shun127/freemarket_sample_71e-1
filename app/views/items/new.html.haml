@@ -18,6 +18,7 @@
             .box-new__pic__lable#label-box
               = f.fields_for :item_images do |i|
                 = i.file_field :src, class: "box-new__pic__lable--file", data: {index: i.index}, id:"img-file"
+
               .icon-new
                 = image_tag "material/icon/icon_camera.png", size: "20x18"
               .icon-new__inf ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
@@ -43,8 +44,12 @@
 
           .box-new__category
             .box-new__category__wrapper
-              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択してください"}, {class: "box-new__category__wrapper-select", id: "parent-category"}
-      
+              = f.collection_select :category_id, Category.roots, :id, :name, {prompt: "選択してください", selected: @item.category&.root&.id}, {class: "box-new__category__wrapper-select", id: "parent-category"}
+              - if @item.category.present?
+                #children_wrapper.box-new__category__wrapper
+                  = f.collection_select :category_id,  @item.category.root.children, :id, :name, { include_blank: true, selected: @item.category.parent.id}, class: "box-new__category__wrapper-select", id: 'child_category'
+                #grandchildren_wrapper.box-new__category__wrapper
+                  = f.collection_select :category_id, @item.category.siblings, :id, :name, { include_blank: true, selected: @item.category.id}, {class: "box-new__category__wrapper-select", id: "grandchild_category"}
         .form__item-brand
         .box-new
           .box-new__title
@@ -52,11 +57,13 @@
             %span.box-new__title__opt 任意
           = f.collection_select :brand_id, Brand.all, :id, :name, {prompt: '選択して下さい'}
 
+
         .box-new
           .box-new__title
             %label 商品の状態
             %span.box-new__title__must 必須
           = f.select :condition, [["新品、未使用","新品、未使用"], ["未使用に近い","未使用に近い"], ["目立った傷や汚れなし","目立った傷や汚れなし"], ["やや傷や汚れあり","やや傷や汚れあり"], ["傷や汚れあり","傷や汚れあり"], ["全体的に状態が悪い","全体的に状態が悪い"]], prompt: '選択してください'
+
         
         .box-new
           .box-new__info-2

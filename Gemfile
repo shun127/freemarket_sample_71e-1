@@ -100,8 +100,6 @@ gem 'payjp'
 gem 'rails-i18n'
 
 
-# jquery導入のため6/27高松
-gem "jquery-rails"
 
 # ページネーションのために導入7/4木下
 gem 'kaminari'
@@ -109,5 +107,9 @@ gem 'kaminari'
 # S3導入のため6/26木下
 gem 'fog-aws'
 
-gem 'devise-i18n'
-gem 'devise-i18n-views'
+
+
+#環境変数設定のため7/13高松
+gem  "dotenv-rails"
+
+
