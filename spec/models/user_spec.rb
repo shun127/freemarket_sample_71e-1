@@ -85,7 +85,7 @@ describe User do
     it "passwordが存在してもpassword_confirmationがない場合は登録できないこと" do
       user = build(:user, password_confirmation: "")
       user.valid?
-      expect(user.errors[:password_confirmation]).to include("とPasswordの入力が一致しません")
+      expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
     end
 
     #文字数制限のある項目のチェック    
@@ -278,6 +278,174 @@ describe User do
       expect(user).to be_valid 
     end
 
+    
+
+
+
+
+
+    # 送付先氏名関連　7/11木下
+
+    # destination_family_name（送付先氏名の苗字）は全角ひらがな・漢字・カタカナであること
+    it 'destination_family_nameが全角であること（半角カナではない）' do
+      user = build(:user, destination_family_name: "ｱｱ")
+      user.valid?
+      expect(user.errors[:destination_family_name]).to include("は不正な値です")
+    end
+
+    it 'destination_family_nameが全角であること（半角英語ではない）' do
+      user = build(:user, destination_family_name: "aa")
+      user.valid?
+      expect(user.errors[:destination_family_name]).to include("は不正な値です")
+    end
+ 
+    it 'destination_family_nameが全角であること（半角数字ではない）' do
+      user = build(:user, destination_family_name: "11")
+      user.valid?
+      expect(user.errors[:destination_family_name]).to include("は不正な値です")
+    end
+ 
+    it 'destination_family_nameが全角であること（全角数字ではない）' do
+      user = build(:user, destination_family_name: "２２２")
+      user.valid?
+      expect(user.errors[:destination_family_name]).to include("は不正な値です")
+    end
+ 
+    it 'destination_family_nameが全角ひらがなであれば登録できる' do
+      user = build(:user, destination_family_name: "ああ")     
+      expect(user).to be_valid 
+    end
+   
+    it 'destination_family_nameが全角漢字であれば登録できる' do
+      user = build(:user, destination_family_name: "嗚呼")     
+      expect(user).to be_valid 
+    end
+
+    it 'destination_family_nameが全角カタカナであれば登録できる' do
+      user = build(:user, destination_family_name: "アア")     
+      expect(user).to be_valid 
+    end
+
+
+
+    # fdestination_irst_name（送付先氏名の名前）は全角ひらがな・漢字・カタカナであること
+    it 'destination_first_nameが全角であること（半角カナではない）' do
+      user = build(:user, destination_first_name: "ｲｲ")
+      user.valid?
+      expect(user.errors[:destination_first_name]).to include("は不正な値です")
+    end
+
+    it 'destination_first_nameが全角であること（半角英語ではない）' do
+      user = build(:user, destination_first_name: "ee")
+      user.valid?
+      expect(user.errors[:destination_first_name]).to include("は不正な値です")
+    end
+
+    it 'destination_first_nameが全角であること（半角数字ではない）' do
+      user = build(:user, destination_first_name: "11")
+      user.valid?
+      expect(user.errors[:destination_first_name]).to include("は不正な値です")
+    end
+
+    it 'destination_first_nameが全角であること（全角数字ではない）' do
+      user = build(:user, destination_first_name: "１１")
+      user.valid?
+      expect(user.errors[:destination_first_name]).to include("は不正な値です")
+    end
+
+    it 'destination_first_nameが全角ひらがなであれば登録できる' do
+      user = build(:user, destination_first_name: "ああ")     
+      expect(user).to be_valid 
+    end
+
+    it 'destination_first_nameが全角漢字であれば登録できる' do
+      user = build(:user, destination_first_name: "嗚呼")     
+      expect(user).to be_valid 
+    end
+
+    it 'destination_first_nameが全角カタカナであれば登録できる' do
+      user = build(:user, destination_first_name: "アア")     
+      expect(user).to be_valid 
+    end
+
+
+
+    # destination_family_name_kana（送付先氏名の苗字ふりがな）は全角カタカナのみ
+    it 'destination_family_name_kana,が全角カタカナであること（半角カナではない）' do
+      user = build(:user, destination_family_name_kana: "ｱｱ")
+      user.valid?
+      expect(user.errors[:destination_family_name_kana,]).to include("は不正な値です")
+    end
+
+    it 'destination_family_name_kana,が全角カタカナであること（ひらがなではない）' do
+      user = build(:user, destination_family_name_kana: "ああ")
+      user.valid?
+      expect(user.errors[:destination_family_name_kana,]).to include("は不正な値です")
+    end
+
+    it 'destination_family_name_kana,が全角カタカナであること（全角英語ではない）' do
+      user = build(:user, destination_family_name_kana: "ｒｑ")
+      user.valid?
+      expect(user.errors[:destination_family_name_kana,]).to include("は不正な値です")
+    end
+
+    it 'destination_family_name_kana,が全角カタカナであること（半角英語ではない）' do
+      user = build(:user, destination_family_name_kana: "aa")
+      user.valid?
+      expect(user.errors[:destination_family_name_kana,]).to include("は不正な値です")
+    end
+
+    it 'destination_family_name_kana,が全角カタカナであること（数字ではない）' do
+      user = build(:user, destination_family_name_kana: "22")
+      user.valid?
+      expect(user.errors[:destination_family_name_kana,]).to include("は不正な値です")
+    end
+
+    it 'destination_family_name_kanaが全角カタカナであれば登録できる' do
+      user = build(:user, destination_family_name_kana: "アア")     
+      expect(user).to be_valid 
+    end
+
+
+
+    # destination_first_name_kana（送付先氏名の名前ふりがな）は全角カタカナのみ
+    it 'destination_first_name_kanaが全角カタカナであること（半角カナではない）' do
+      user = build(:user, destination_first_name_kana: "ｲｲ")
+      user.valid?
+      expect(user.errors[:destination_first_name_kana]).to include("は不正な値です")
+    end
+
+    it 'destination_first_name_kanaが全角カタカナであること（ひらがなではない）' do
+      user = build(:user, destination_first_name_kana: "いい")
+      user.valid?
+      expect(user.errors[:destination_first_name_kana]).to include("は不正な値です")
+    end
+
+    it 'destination_first_name_kanaが全角カタカナであること（全角英語ではない）' do
+      user = build(:user, destination_first_name_kana: "ｒｑ")
+      user.valid?
+      expect(user.errors[:destination_first_name_kana]).to include("は不正な値です")
+    end
+
+    it 'destination_first_name_kanaが全角カタカナであること（半角英語ではない）' do
+      user = build(:user, destination_first_name_kana: "EE")
+      user.valid?
+      expect(user.errors[:destination_first_name_kana]).to include("は不正な値です")
+    end
+
+    it 'destination_first_name_kanaが全角カタカナであること（数字ではない）' do
+      user = build(:user, destination_first_name_kana: "11")
+      user.valid?
+      expect(user.errors[:destination_first_name_kana]).to include("は不正な値です")
+    end
+
+    it 'destination_first_name_kanaが全角カタカナであれば登録できる' do
+      user = build(:user, destination_first_name_kana: "イイ")     
+      expect(user).to be_valid 
+    end
+
+ 
+      
   end
 end
 
