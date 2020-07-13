@@ -32,7 +32,6 @@ class CreditCardsController < ApplicationController
 
   def delete #PayjpとCardデータベースを削除します
     
-    card = CreditCard.where(user_id: current_user.id).first
     card = CreditCard.find_by(user_id: current_user.id)
     if card.blank?
     else
@@ -45,7 +44,6 @@ class CreditCardsController < ApplicationController
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
-    card = CreditCard.where(user_id: current_user.id).first
     card = CreditCard.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to action: "new" 
