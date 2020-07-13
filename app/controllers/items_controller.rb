@@ -52,7 +52,7 @@ class ItemsController < ApplicationController
 
   def update
     if@item.update(item_params) 
-      flash[:success] = "出品が完了しました！"
+      flash[:success_update] = "変更が完了しました！"
       redirect_to root_path
       else
         flash[:alert] = "入力に誤りがあります。もう一度入力してください。"
