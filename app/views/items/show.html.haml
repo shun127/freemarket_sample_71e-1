@@ -32,6 +32,12 @@
         %tr
           %th.main__informations__information__item カテゴリー
           %td.main__informations__information__breakdown
+            =@item.category.parent.parent.name
+            %br
+            = icon("fas", "angle-right", class: "icon-angle-right")
+            =@item.category.parent.name
+            %br
+            = icon("fas", "angle-right", class: "icon-angle-right")
             =@item.category.name
         %tr
           %th.main__informations__information__item  ブランド
