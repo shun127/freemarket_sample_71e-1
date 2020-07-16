@@ -1,13 +1,24 @@
 Rails.application.routes.draw do
+  get 'purchase/index'
+  get 'purchase/done'
   get 'credit_cards/new'
   get 'credit_cards/show'
   devise_for :users
   root "items#index"
+  #クレカ登録削除機能 高松
   resources :credit_cards, only: [:new, :show] do
     collection do
       post 'show', to: 'credit_cards#show'
       post 'pay', to: 'credit_cards#pay'
       post 'delete', to: 'credit_cards#delete'
+    end
+  end
+  #購入機能 高松
+  resources :purchase, only: [:index] do
+    collection do
+      get 'index', to: 'purchase#index'
+      post 'pay', to: 'purchase#pay'
+      get 'done', to: 'purchase#done'
     end
   end
   resources :items do

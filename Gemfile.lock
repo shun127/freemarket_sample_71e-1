@@ -63,7 +63,7 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (>= 1.9.0)
-    capistrano-bundler (2.0.0)
+    capistrano-bundler (2.0.1)
       capistrano (~> 3.1)
     capistrano-rails (1.6.1)
       capistrano (~> 3.1)
@@ -299,7 +299,7 @@ GEM
       rspec-mocks (~> 3.9)
       rspec-support (~> 3.9)
     rspec-support (3.9.3)
-    rubocop (0.87.1)
+    rubocop (0.88.0)
       parallel (~> 1.10)
       parser (>= 2.7.1.1)
       rainbow (>= 2.2.2, < 4.0)
