@@ -56,7 +56,7 @@
     .main__price-box
       .main__price-box__item-price
         ¥
-        =@item.price
+        = @item.price
       .main__price-box__item-price__tax
         (税込)
       .main__price-box__item-price__postage-included
@@ -64,14 +64,20 @@
     - if user_signed_in? && current_user.id == @item.seller_id
     - else user_signed_in? && current_user.id != @item.seller_id
       .main__buy-button
-        = link_to('購入画面に進む',purchase_temporary_items_path,class: "button")
+        -# = form_tag {controller: "purchase", action: "index", method: :post} do
+        - redirect_to pay_purchase_index_path
+          %button 
+            購入する  
+        
+        
     .main__messages
       =@item.item_introduction
-  - if user_signed_in? && current_user.id == @item.seller_id
-    .change__box
-      .change__box__edit__button
-        = link_to('商品の編集する',edit_item_path,class: "button")
-      .change__box__delete__button
-        = link_to('商品の削除する',item_path(@item.id),method: :delete,class: "button")
-  .wrapper
-  = render 'footer'
+    
+  -# - if user_signed_in? && current_user.id == @item.seller_id
+  -#   .change__box
+      -# .change__box__edit__button
+      -#   - link_to('商品の編集する',edit_item_path,class: "button")
+      -# .change__box__delete__button
+      -#   - link_to('商品の削除する',item_path(@item.id),method: :delete,class: "button")
+-# .wrapper
+-#   = render 'footer'
