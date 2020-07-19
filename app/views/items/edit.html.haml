@@ -52,12 +52,13 @@
 
           .box-new__category
             .box-new__category__wrapper
-              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, { include_blank: true, selected: @item.category.root.id}, {class: "box-new__category__wrapper-select", id: "parent-category"}
-              #children_wrapper.box-new__category__wrapper
-                = f.collection_select :category_id,  @item.category.root.children, :id, :name, { include_blank: true, selected: @item.category.parent.id}, class: "box-new__category__wrapper-select", id: 'child_category'
-                #grandchildren_wrapper.box-new__category__wrapper
-                  = f.collection_select :category_id, @item.category.siblings, :id, :name, { include_blank: true, selected: @item.category.id}, {class: "box-new__category__wrapper-select", id: "grandchild_category"}
-          
+              = f.collection_select :category_id, Category.roots, :id, :name, {prompt: "選択してください", selected: @item.category&.root&.id}, {class: "box-new__category__wrapper-select", id: "parent-category"}
+              - if @item.category.present?
+                #children_wrapper.box-new__category__wrapper
+                  = f.collection_select :category_id,  @item.category.root.children, :id, :name, { include_blank: true, selected: @item.category.parent.id}, class: "box-new__category__wrapper-select", id: 'child_category'
+                  #grandchildren_wrapper.box-new__category__wrapper
+                    = f.collection_select :category_id, @item.category.siblings, :id, :name, { include_blank: true, selected: @item.category.id}, {class: "box-new__category__wrapper-select", id: "grandchild_category"}
+            
         .form__item-brand
         .box-new
           .box-new__title
