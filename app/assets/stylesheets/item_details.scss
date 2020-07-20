@@ -122,25 +122,30 @@
         font-size: 24px;
         font-weight: bold;
         border-radius: 5px;
+        position: relative;
       }
       &__delete__button{
         margin-top: 16px;
         background-color: rgba(205, 205, 205, 0.856);
         height: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         text-decoration: none;
         color: white;
         font-size: 15px;
         font-weight: bold;
         border-radius: 5px;
+        position: relative;
       }
       .button{
         text-decoration: none;
         color: white;
         font-size: 24px;
         font-weight: bold;
+        position: absolute;
+        height:100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
 }
