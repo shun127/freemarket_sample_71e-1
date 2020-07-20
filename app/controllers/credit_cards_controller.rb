@@ -7,7 +7,8 @@ class CreditCardsController < ApplicationController
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    # Payjp.api_key =/ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = 'sk_test_8c736d594af0a588864c727b'
 
     if params['payjp-token'].blank?
 
@@ -35,7 +36,8 @@ class CreditCardsController < ApplicationController
     card = CreditCard.find_by(user_id: current_user.id)
     if card.blank?
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      # Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = 'sk_test_8c736d594af0a588864c727b'
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete

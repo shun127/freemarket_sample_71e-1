@@ -32,7 +32,8 @@
         .actions
           = f.submit "ログイン", class:"next_button" 
 
-        = render "devise/shared/links"
+        -# 「パスワードお忘れですか」については、機能未実装のためリンクを一旦外しています。
+        -# = render "devise/shared/links"
 
 .wrapper
   = render 'items/item-footer'

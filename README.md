@@ -1,3 +1,5 @@
+https://gyazo.com/cb41013470b991520a1b2fe533d83a4b
+
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|

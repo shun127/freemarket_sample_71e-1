@@ -44,6 +44,7 @@ Rails.application.routes.draw do
       #商品詳細ページのフロント実装コードレビュー確認のための仮ルーティングです。伊藤6/4
       get  'member_done'
 
+
       # カテゴリからの商品一覧ページのルーティング6/29木下
       get  'category_index'
 
@@ -51,6 +52,7 @@ Rails.application.routes.draw do
       get 'purchase_index/:id', to: 'items#purchase_index'
       post 'pay/:id', to: 'items#pay'
       get 'done/:id', to: 'items#done'
+
 
     end
     
