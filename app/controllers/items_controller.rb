@@ -1,7 +1,4 @@
 class ItemsController < ApplicationController
-  # 未ログインのユーザーをリダイレクトさせる。（下記before actionも参照）、サーバーサイド全て完了したらコメントアウト外す。6/15木下
-  # before_action :move_to_index, except: [:index, :show]
-
   before_action :set_info, only: [:new, :create, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
@@ -80,11 +77,7 @@ class ItemsController < ApplicationController
   def purchase_temporary
   end
 
-  def category_index
-  end  
-
-  def item_details
-   
+  def item_details   
   end
 
   def member_done
@@ -105,16 +98,11 @@ class ItemsController < ApplicationController
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
   end
+
   #マイページフロント実装コードレビュー確認のための仮です。皆川6/10
   def mypage_card_create
+
   end
-  # 'login''sign_up'は削除しました（deviseディレクトリに移動）木下6/15
-
-
-  # 未ログインのユーザーをリダイレクトさせる。（下記before actionも参照）、サーバーサイド「全て完了した」らコメントアウト外す。6/15木下
-  # def move_to_index
-  #   redirect_to action: :index unless user_signed_in?
-  # end
 
 
   private
