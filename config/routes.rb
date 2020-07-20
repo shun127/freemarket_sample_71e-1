@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  # get 'purchase/index'
-  # get 'purchase/done'
-  # get 'credit_cards/new'
-  # get 'credit_cards/show'
+
   devise_for :users
   root "items#index"
   #クレカ登録削除機能 高松
@@ -14,21 +11,10 @@ Rails.application.routes.draw do
     end
   end
   
-  #購入機能 高松
-  # resources :purchase, only: [:index] do
-  #   collection do
-  #     get 'index/:id', to: 'purchase#index'
-  #     post 'pay/:id', to: 'purchase#pay'
-  #     get 'done/:id', to: 'purchase#done'
-  #   end
-  # end
   resources :items do
     collection do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
-      # get  'purchase/:id'=>  'items#purchase', as: 'purchase'
-      # post 'pay/:id'=>   'items#pay', as: 'pay'
-      # get  'done'=>      'items#done', as: 'done'
 
       #商品購入のフロント実装コードレビュー確認のための仮ルーティングです。木下6/3
       # 'login''sign_up'は削除しました（deviseディレクトリに移動）木下6/15
@@ -69,5 +55,4 @@ Rails.application.routes.draw do
     end
   end
 
-  # resources :credit_cards , only: [:new, :create, :destroy]
 end

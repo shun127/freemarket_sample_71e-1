@@ -70,9 +70,9 @@
     - if user_signed_in? && current_user.id == @item.seller_id
     - else user_signed_in? && current_user.id != @item.seller_id
       .main__buy-button
+        -# 以下のprefixを使うとエラー発生
         -# = link_to "購入画面に進む", purchase_index_items_path(@item.id), method: :get
         = link_to "購入画面に進む", "/items/purchase_index/#{@item.id}", method: :get
-
       
     .main__messages
       =@item.item_introduction
