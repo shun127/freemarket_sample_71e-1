@@ -95,8 +95,6 @@
   .top-main__new
     .top-main__new__text 
       新着アイテム
-    = link_to "/", class:"link" do
-      もっと見る
     %ul.top-main__box
       -@items.each do |item|
         %li.top-main__new__items1
