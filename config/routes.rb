@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'purchase/index'
-  get 'purchase/done'
-  get 'credit_cards/new'
-  get 'credit_cards/show'
+  # get 'purchase/index'
+  # get 'purchase/done'
+  # get 'credit_cards/new'
+  # get 'credit_cards/show'
   devise_for :users
   root "items#index"
   #クレカ登録削除機能 高松
@@ -13,21 +13,22 @@ Rails.application.routes.draw do
       post 'delete', to: 'credit_cards#delete'
     end
   end
+  
   #購入機能 高松
-  resources :purchase, only: [:index] do
-    collection do
-      get 'index', to: 'purchase#index'
-      post 'pay', to: 'purchase#pay'
-      get 'done', to: 'purchase#done'
-    end
-  end
+  # resources :purchase, only: [:index] do
+  #   collection do
+  #     get 'index/:id', to: 'purchase#index'
+  #     post 'pay/:id', to: 'purchase#pay'
+  #     get 'done/:id', to: 'purchase#done'
+  #   end
+  # end
   resources :items do
     collection do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
-      get  'purchase/:id'=>  'items#purchase', as: 'purchase'
-      post 'pay/:id'=>   'items#pay', as: 'pay'
-      get  'done'=>      'items#done', as: 'done'
+      # get  'purchase/:id'=>  'items#purchase', as: 'purchase'
+      # post 'pay/:id'=>   'items#pay', as: 'pay'
+      # get  'done'=>      'items#done', as: 'done'
 
       #商品購入のフロント実装コードレビュー確認のための仮ルーティングです。木下6/3
       # 'login''sign_up'は削除しました（deviseディレクトリに移動）木下6/15
@@ -45,6 +46,12 @@ Rails.application.routes.draw do
 
       # カテゴリからの商品一覧ページのルーティング6/29木下
       get  'category_index'
+
+      # 購入機能のルーティングです7/20
+      get 'purchase_index/:id', to: 'items#purchase_index'
+      post 'pay/:id', to: 'items#pay'
+      get 'done/:id', to: 'items#done'
+
     end
     
     member do
@@ -60,5 +67,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :credit_cards , only: [:new, :create, :destroy]
+  # resources :credit_cards , only: [:new, :create, :destroy]
 end

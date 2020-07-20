@@ -100,7 +100,7 @@
     %ul.top-main__box
       -@items.each do |item|
         %li.top-main__new__items1
-          = link_to item_path(item.id), class:"top-main__new__items__item" do
+          = link_to item_path(item.id), class:"top-main__new__items__item", item_id: item.id do
             = image_tag item.item_images[0].src.url
 
             .top-main__new__items__item__info
