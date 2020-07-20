@@ -7,28 +7,49 @@
 .footer-part
   %ul.footer-part__contents
     %li.footer-part__contents__content
-      %p FURIMAについて
-      = link_to "#" do
-        会社概要(運営会社)
-      = link_to "#", class:"privacy" do
-        プライバシーポリシー
-      = link_to "#", class:"kiyaku" do
-        FURIMA利用規約
-      = link_to "#", class:"tokuyaku" do
-        ポイントに関する特約 
+      %h2 FURIMAについて
+      %p.campany 会社概要(運営会社)
+      %p.privacy プライバシーポリシー
+      %p.kiyaku FURIMA利用規約
+      %p.tokuyaku ポイントに関する特約 
     %li.footer-part__contents__content
-      %p FURIMAを見る
+      %h2 FURIMAを見る
       = link_to categories_path, class:"category" do
         カテゴリー一覧
-      = link_to "#", class:"brand" do
-        ブランド一覧
+      %p.brand ブランド一覧
     %li.footer-part__contents__content
-      %p ヘルプ＆ガイド
-      = link_to "#", class:"guide" do
-        FURIMAガイド
-      = link_to "#", class:"guideline" do
-        FURIMAロゴ利用ガイドライン
-      = link_to "#", class:"osirase" do
-        お知らせ
+      %h2 ヘルプ＆ガイド
+      %p.guide FURIMAガイド
+      %p.guideline FURIMAロゴ利用ガイドライン
+      %p.osirase お知らせ
   = image_tag "material/logo/logo-white.png", class:"footer-part__logo"
   .footer-part__logotitle © FURIMA
+
+  -# .footer-part
+  -# %ul.footer-part__contents
+  -#   %li.footer-part__contents__content
+  -#     %p FURIMAについて
+  -#     = link_to "#" do
+  -#       会社概要(運営会社)
+  -#     = link_to "#", class:"privacy" do
+  -#       プライバシーポリシー
+  -#     = link_to "#", class:"kiyaku" do
+  -#       FURIMA利用規約
+  -#     = link_to "#", class:"tokuyaku" do
+  -#       ポイントに関する特約 
+  -#   %li.footer-part__contents__content
+  -#     %p FURIMAを見る
+  -#     = link_to categories_path, class:"category" do
+  -#       カテゴリー一覧
+  -#     = link_to "#", class:"brand" do
+  -#       ブランド一覧
+  -#   %li.footer-part__contents__content
+  -#     %p ヘルプ＆ガイド
+  -#     = link_to "#", class:"guide" do
+  -#       FURIMAガイド
+  -#     = link_to "#", class:"guideline" do
+  -#       FURIMAロゴ利用ガイドライン
+  -#     = link_to "#", class:"osirase" do
+  -#       お知らせ
+  -# = image_tag "material/logo/logo-white.png", class:"footer-part__logo"
+  -# .footer-part__logotitle © FURIMA
