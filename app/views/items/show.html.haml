@@ -66,11 +66,12 @@
       .main__price-box__item-price__tax
         (税込)
       .main__price-box__item-price__postage-included
-        送料込み
+      
     - if user_signed_in? && current_user.id == @item.seller_id
     - else user_signed_in? && current_user.id != @item.seller_id
       .main__buy-button
-        = link_to('購入画面に進む',purchase_temporary_items_path,class: "button")
+        = link_to('購入画面に進む',purchase_temporary_item_path,class: "button")
+      
     .main__messages
       =@item.item_introduction
   - if user_signed_in? && current_user.id == @item.seller_id

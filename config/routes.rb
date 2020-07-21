@@ -18,9 +18,8 @@ Rails.application.routes.draw do
       post 'pay/:id'=>   'items#pay', as: 'pay'
       get  'done'=>      'items#done', as: 'done'
 
-      #商品購入のフロント実装コードレビュー確認のための仮ルーティングです。木下6/3
-      # 'login''sign_up'は削除しました（deviseディレクトリに移動）木下6/15
-      get  'purchase_temporary'
+      # 商品購入のルーティングですが、idをつけたいので、ルーティング変更7/20木下
+      # get  'purchase_temporary'
 
       #マイページフロント実装コードレビュー確認のための仮ルーティングです。皆川6/10
       get  'mypage'
@@ -37,6 +36,9 @@ Rails.application.routes.draw do
     member do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
+      
+      # idをつけたいので、ルーティングをcollection doより移動7/20木下
+      get  'purchase_temporary' 
     end
   end
 
