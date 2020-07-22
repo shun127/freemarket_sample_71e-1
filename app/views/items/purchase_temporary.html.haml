@@ -2,54 +2,65 @@
   = render 'items/item-header'
 .main
   .main__body
-    .main__body__top
-      購入内容の確認
-    .main__body__item    
-      = image_tag('material/pict/pict-reason-01.jpg', class:"main__body__item__img")
-      .main__body__item__explanation
-        .main__body__item__explanation__text
-          サファイアリング♡7号 美品【エテ】K10 サファイア デザインリング☆アガット 
-        .main__body__item__explanation__price
-          10,900 （税込）送料込み     
+    .main__body__box
+      .main__body__box__top
+        購入内容の確認
+      .main__body__box__item    
+        = image_tag(@item.item_images[0].src.url, size: '150x150', class: "main__body__item__img")
+        .main__body__box__item__explanation
+          .main__body__box__item__explanation__text
+            =@item.name
+          .main__body__box__item__explanation__price
+            
+            = @item.postage_payers 
+            %li
+              = "¥ #{@item.price} （税込）"  
+            
 
-    .main__body__price
-      .main__body__price__text
-        支払い金額
-      .main__body__price__price
-        ￥1,000   
+      .main__body__box__price
+        .main__body__box__price__text
+          支払い金額
+        .main__body__box__price__price
+          ￥
+          =@item.price
 
-    .main__body__method_payment
-      .main__body__method_payment__list
-        .main__body__method_payment__list__title
-          支払い方法
-        .main__body__method_payment__list__card
-          クレジットカード
-        .main__body__method_payment__list__number
-          0000-0000-0000-0000
-        .main__body__method_payment__list__expiration_date
-          04/24
-        .main__body__method_payment__list__card_type       
-          = icon('fab', 'cc-visa fa-2x')           
-      .main__body__method_payment__edit
-        変更する
+      .main__body__box__method_payment
+        .main__body__box__method_payment__list
+          .main__body__box__method_payment__list__title
+            支払い方法
+          .main__body__box__method_payment__list__card
+            クレジットカード
+          .main__body__box__method_payment__list__number
+            0000-0000-0000-0000
+          .main__body__box__method_payment__list__expiration_date
+            04/24
+          .main__body__box__method_payment__list__card_type       
+            = icon('fab', 'cc-visa fa-2x')           
+        .main__body__box__method_payment__edit
+          変更する
 
-    .main__body__shipping_address
-      .main__body__shipping_address__list        
-        .main__body__shipping_address__list__title
-          配送先
-        .main__body__shipping_address__list__postal_code
-          〒000-0000
-        .main__body__shipping_address__list__address
-          東京都千代田区日本橋1-1-1
-        .main__body__shipping_address__list__name
-          国分 太郎        
-      .main__body__shipping_address__edit
-        変更する     
+      .main__body__box__shipping_address
+        .main__body__box__shipping_address__list        
+          .main__body__box__shipping_address__list__title
+            配送先
+          .main__body__box__shipping_address__list__postal_code
+            = current_user.post_code
+          .main__body__box__shipping_address__list__address
+            = current_user.prefecture_code 
+            = current_user.city
+            = current_user.house_number
+            = current_user.building_name    
+            
+          .main__body__box__shipping_address__list__name
+            = current_user.destination_family_name
+            = current_user.destination_first_name   
+
 
     .main__body__purchase
       .main__body__purchase__box
         = link_to "/purchase/done/#{@item}" do
           購入する
+
 .wrapper
   = render 'items/item-footer'
 
