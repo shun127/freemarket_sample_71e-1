@@ -110,7 +110,9 @@ class ItemsController < ApplicationController
   
 
   def purchase_temporary
- 
+
+    @item = Item.find(params[:id])
+
   end
 
   def item_details   
