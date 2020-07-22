@@ -69,7 +69,6 @@ class ItemsController < ApplicationController
   require 'payjp'
 
   def purchase_index
-    # card = CreditCard.where(user_id: current_user.id).first
     card = CreditCard.find_by(user_id: current_user.id)
     
     if card.blank?
@@ -85,7 +84,6 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    # card = CreditCard.where(user_id: current_user.id).first
     card = CreditCard.find_by(user_id: current_user.id)
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     @item = Item.find_by(params[:id])
