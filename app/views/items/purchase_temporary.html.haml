@@ -58,7 +58,11 @@
 
     .main__body__purchase
       .main__body__purchase__box
-        = link_to "/purchase/done/#{@item}" do
+        = form_tag(action: :pay, method: :post) do
+          %button 購入する
+        
+        -# 動作に問題ないことを確認して最後に消します７・23木下
+        -# = link_to "/purchase/done/#{@item}" do
           購入する
 
 .wrapper
