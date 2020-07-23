@@ -71,9 +71,13 @@
     - else user_signed_in? && current_user.id != @item.seller_id
       .main__buy-button
 
+        -# 動作を確認して最後に消す7/23木下
         -# 以下のprefixを使うとエラー発生
         -# = link_to "購入画面に進む", purchase_index_items_path(@item.id), method: :get
-        = link_to "購入画面に進む", "/items/purchase_index/#{@item.id}", method: :get
+        -# = link_to "購入画面に進む", "/items/purchase_index/#{@item.id}", method: :get
+
+        -# 以下正しいページ遷移へ修正木下7/23
+        = link_to "購入画面に進む", purchase_temporary_item_path, method: :get
 
       
     .main__messages
