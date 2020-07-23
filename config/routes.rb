@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'credit_cards/new'
-  get 'credit_cards/show'
+
   devise_for :users
   root "items#index"
+  #クレカ登録削除機能 高松
   resources :credit_cards, only: [:new, :show] do
     collection do
       post 'show', to: 'credit_cards#show'
@@ -10,13 +10,11 @@ Rails.application.routes.draw do
       post 'delete', to: 'credit_cards#delete'
     end
   end
+  
   resources :items do
     collection do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
-      get  'purchase/:id'=>  'items#purchase', as: 'purchase'
-      post 'pay/:id'=>   'items#pay', as: 'pay'
-      get  'done'=>      'items#done', as: 'done'
 
       # 商品購入のルーティングですが、idをつけたいので、ルーティング変更7/20木下
       # get  'purchase_temporary'
@@ -30,6 +28,16 @@ Rails.application.routes.draw do
 
       #商品詳細ページのフロント実装コードレビュー確認のための仮ルーティングです。伊藤6/4
       get  'member_done'
+
+
+      # カテゴリからの商品一覧ページのルーティング6/29木下
+      get  'category_index'
+
+      # 購入機能のルーティングです7/20
+      get 'purchase_index/:id', to: 'items#purchase_index'
+      post 'pay/:id', to: 'items#pay'
+      get 'done/:id', to: 'items#done'
+
 
     end
     
@@ -49,5 +57,4 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :credit_cards , only: [:new, :create, :destroy]
 end

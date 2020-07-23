@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    
   end
 
   def new
@@ -65,17 +66,51 @@ class ItemsController < ApplicationController
     end
   end
 
-  def purchase
+  require 'payjp'
+
+  def purchase_index
+    card = CreditCard.find_by(user_id: current_user.id)
+    
+    if card.blank?
+
+      redirect_to pay_credit_cards_path
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
   end
 
   def pay
+    card = CreditCard.find_by(user_id: current_user.id)
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    @item = Item.find_by(params[:id])
+    Payjp::Charge.create(
+    amount: @item.price,
+    customer: card.customer_id, 
+    currency: 'jpy', 
+  )
+  redirect_to "/items/done/#{params[:id]}"
+  end
+  
+  def done
+    @item = Item.find_by(params[:id])
+    @item.buyer_id = current_user.id
+    if @item.save then
+
+    else
+      redirect_to item_path(params[:id])
+    end
   end
 
-  def done
-  end
+  
 
   def purchase_temporary
+
     @item = Item.find(params[:id])
+
   end
 
   def item_details   
