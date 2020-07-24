@@ -75,7 +75,7 @@ class ItemsController < ApplicationController
 
       redirect_to pay_credit_cards_path
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials[:PAYJP][:secret_access_key]
       
       customer = Payjp::Customer.retrieve(card.customer_id)
       
@@ -85,7 +85,7 @@ class ItemsController < ApplicationController
 
   def pay
     card = CreditCard.find_by(user_id: current_user.id)
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp.api_key = Rails.application.credentials[:PAYJP][:secret_access_key]
     @item = Item.find_by(params[:id])
     Payjp::Charge.create(
     amount: @item.price,
@@ -128,7 +128,7 @@ class ItemsController < ApplicationController
   #マイページフロント実装コードレビュー確認のための仮です。皆川6/10
   def mypage_card
     card = CreditCard.where(user_id: current_user.id).first
-    Payjp.api_key = 'sk_test_8c736d594af0a588864c727b'
+    Payjp.api_key = Rails.application.credentials[:PAYJP][:secret_access_key]
     if card then
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
