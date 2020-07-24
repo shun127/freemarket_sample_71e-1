@@ -15,7 +15,10 @@
       %p.purchase-box__complete__3 
         ￥
         = @item.price
-        %span.tax (送料込み)
+        - if @item.postage_payers == "送料込み（配送者負担）"
+          %span.tax 送料込み
+        - else 
+          %span.tax 送料別
       .back-sold__btn
         %a.back-new__botton 
           = link_to "/"  do
