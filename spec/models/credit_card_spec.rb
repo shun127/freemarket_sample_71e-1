@@ -9,6 +9,7 @@ describe CreditCard do
       expect(credit_card.errors[:customer_id]).to include("を入力してください")
     end
     
+
     it "card_idがないと登録できない" do
       credit_card = build(:credit_card, card_id: "")
       credit_card.valid?

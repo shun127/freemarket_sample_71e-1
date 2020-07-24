@@ -69,14 +69,19 @@
       
     - if user_signed_in? && current_user.id == @item.seller_id
     - else user_signed_in? && current_user.id != @item.seller_id
+      -# クレカなしの場合カード登録へリダイレクト、うまくいかないのでいったんコメントアウト7/24木下
+      -# - if @card_id.present?
+      -#   = link_to purchase_temporary_item_path, class: "item-buy-btn" do
+      -#     購入画面に進む
+      -# - else
+      -#   .item-buy__not
+      -#     %ul.item-buy__not--card
+      -#       ※お客様のカード情報はまだ登録されていません。
+      -#       %li
+      -#         = link_to new_credit_card_path, class: "new-card" do
+      -#           カード登録へ進む
+      
       .main__buy-button
-
-        -# 動作を確認して最後に消す7/23木下
-        -# 以下のprefixを使うとエラー発生
-        -# = link_to "購入画面に進む", purchase_index_items_path(@item.id), method: :get
-        -# = link_to "購入画面に進む", "/items/purchase_index/#{@item.id}", method: :get
-
-        -# 以下正しいページ遷移へ修正木下7/23
         = link_to "購入画面に進む", purchase_temporary_item_path, method: :get
 
       
@@ -88,5 +93,6 @@
         = link_to('商品の編集する',edit_item_path,class: "button")
       .change__box__delete__button
         = link_to('商品の削除する',item_path(@item.id),method: :delete,class: "button")
+ 
   .wrapper
   = render 'footer'
