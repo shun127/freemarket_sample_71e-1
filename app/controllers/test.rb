@@ -1,4 +1,4 @@
-Parameters: {"utf8"=>"✓"
+Parameters {"utf8"=>"✓"
    "authenticity_token"=>"O5eU8buw83doSiC4VPJnbT0Xx3WO07nQTuu2MMq2CyhzZsMRqzd0iucn7vHA6qOIgyuY2se7Vq1Idy48DygbzA=="
    "item"=>
     {"item_images_attributes"=>
