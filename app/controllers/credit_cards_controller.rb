@@ -7,6 +7,8 @@ class CreditCardsController < ApplicationController
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
+    # セキュリティのためdotenvの.envからcredentials.ymlに記述変更。環境変数は一旦残しておきます7/24木下
+    # Payjp.api_key =ENV["PAYJP_PRIVATE_KEY"]  
     Payjp.api_key = Rails.application.credentials[:PAYJP][:secret_access_key]
 
     if params['payjp-token'].blank?
@@ -35,7 +37,10 @@ class CreditCardsController < ApplicationController
     card = CreditCard.find_by(user_id: current_user.id)
     if card.blank?
     else
-     Payjp.api_key = Rails.application.credentials[:PAYJP][:secret_access_key]
+      # セキュリティのためdotenvの.envからcredentials.ymlに記述変更。環境変数は一旦残しておきます7/24木下
+      # Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials[:PAYJP][:secret_access_key]
+
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
@@ -48,7 +53,9 @@ class CreditCardsController < ApplicationController
     if card.blank?
       redirect_to action: "new" 
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      # セキュリティのためdotenvの.envからcredentials.ymlに記述変更。環境変数は一旦残しておきます7/24木下
+      # Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials[:PAYJP][:secret_access_key]
 
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
