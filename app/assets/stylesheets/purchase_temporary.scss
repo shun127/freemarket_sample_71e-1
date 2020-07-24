@@ -154,27 +154,7 @@
             font-size: small;
           }
         }
-      }
-      
-      // &__purchase{
-        
-      //   height: 150px;
-      //   width: 100%;
-      //   position: relative;      
-      //   &__box {
-       
-          
-      //     position: absolute;
-          
-          
-      //     text-align: center;        
-      //     line-height: 60px;
-      //     font-size: 15px;        
-      //     font-weight: bolder;
-          
-      //     border-radius: 5px;
-      //   }
-      // }
+      }  
     }
   }
 }
@@ -192,10 +172,5 @@
   color: white;
   border: none;
   margin-left: auto;
-      margin-right: auto;
-  // top: 50%;
-  // left: 50%;
-  // -webkit-transform : translate(-50%,-50%);
-  // transform : translate(-50%,-50%);
-
+  margin-right: auto;
 }

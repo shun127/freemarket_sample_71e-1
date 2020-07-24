@@ -2,11 +2,6 @@ require 'rails_helper'
 
 describe CreditCard do
   describe '#create' do
-    # it "user_idがないと登録できない" do
-    #   credit_card = build(:credit_card, user_id: nil)
-    #   credit_card.valid?
-    #   expect(credit_card.errors[:user_id]).to include("")
-    # end
 
     it "customer_idがないと登録できない" do
       credit_card = build(:credit_card, customer_id: "")
