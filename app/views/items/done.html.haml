@@ -1,7 +1,30 @@
-%h2 購入が完了しました！
-%p 
-  = @item.name
-%p 
-  ￥
-  = @item.price
-  (送料込み)
+.wrapper
+  = render 'item-header'
+
+.purchase-body  
+  .purchase-box
+    .purchase-box__info
+      .purchase-box__info__1 発送をお待ちください
+      .purchase-box__info__2 出品者からの発送通知をお待ちください
+    .purchase-box__complete
+      .purchase-box__complete__1 購入が完了しました！
+      .purchase-box__complete__pic
+        = image_tag(@item.item_images[0].src.url, size: '200x200', class: "top-image")
+      %p.purchase-box__complete__2 
+        = @item.name
+      %p.purchase-box__complete__3 
+        ￥
+        = @item.price
+        %span.tax (送料込み)
+      .back-sold__btn
+        %a.back-new__botton 
+          = link_to "/"  do
+            もどる  
+
+-# %h2 購入が完了しました！
+-# %p 
+-#   = @item.name
+-# %p 
+-#   ￥
+-#   = @item.price
+-#   (送料込み)
