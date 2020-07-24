@@ -100,6 +100,7 @@
         %li.top-main__new__items1
           = link_to item_path(item.id), class:"top-main__new__items__item", item_id: item.id do
             = image_tag item.item_images[0].src.url
+
             .top-main__new__items__item__info
               .top-main__new__items__item__info__price
                 =item.name
@@ -107,10 +108,8 @@
                 =item.price
                 (税込み)
             -if item.buyer_id.present? 
-              .items-box_photo__sold
-                .items-box_photo__sold__inner
-                  SOLD
-
-
+              .top-main__new__items__item__sold
+                .top-main__new__items__item__sold__inner
+                  SOLD 
 .wrapper
   = render 'footer'
