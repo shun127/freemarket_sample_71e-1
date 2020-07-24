@@ -156,6 +156,21 @@
         }
       }  
     }
+    &__purchase {
+      padding: 32px 16px 56px;
+      .buy_btn {
+        font-weight: 600;
+        font-size: 17px;
+        height: 48px;
+        width: 295px;
+        padding: 0 24px;
+        border-radius: 4px;
+        &:hover {
+          background-color: #cf0411;
+          text-decoration: none !important;
+        }
+      }
+    }
   }
 }
 
