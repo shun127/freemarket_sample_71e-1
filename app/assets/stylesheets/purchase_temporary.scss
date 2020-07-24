@@ -154,31 +154,23 @@
             font-size: small;
           }
         }
-      }
-
-      &__purchase{
-        height: 150px;
-        width: 100%;
-        position: relative;      
-        &__box {
-          height: 60px;
-          width: 200px;
-          background-color: red;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          -webkit-transform : translate(-50%,-50%);
-          transform : translate(-50%,-50%);
-          text-align: center;        
-          line-height: 60px;
-          font-size: 15px;        
-          font-weight: bolder;
-          color: white;
-          border-radius: 5px;
-        }
-      }
+      }  
     }
   }
 }
 
+.hoge{
+  height: 150px;
+  width: 100%;
+}
 
+.buy_btn{
+  display: block;
+  width: 200px;
+  height: 60px;
+  background: #ea352d;
+  color: white;
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+}

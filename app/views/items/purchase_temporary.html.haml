@@ -30,14 +30,20 @@
             支払い方法
           .main__body__box__method_payment__list__card
             クレジットカード
-          .main__body__box__method_payment__list__number
-            0000-0000-0000-0000
+          .main__body__box__method_payment__list__number            
+            = "**** **** **** " + @default_card_information.last4
+           
           .main__body__box__method_payment__list__expiration_date
-            04/24
-          .main__body__box__method_payment__list__card_type       
-            = icon('fab', 'cc-visa fa-2x')           
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+           
+          -# クレカのアイコンは最終的に削除する7/23木下
+          -# .main__body__box__method_payment__list__card_type       
+          -#   = icon('fab', 'cc-visa fa-2x')           
         .main__body__box__method_payment__edit
-          変更する
+          = link_to mypage_card_items_path, class:"guide" do
+            変更する 
 
       .main__body__box__shipping_address
         .main__body__box__shipping_address__list        
@@ -58,8 +64,12 @@
 
     .main__body__purchase
       .main__body__purchase__box
+        -# = form_with url: {controller: "items",action: "pay"}, method:"POST",  local: true do |f|
+        -#   = f.button "購入する", class: "payment-btn"
+        
+        -# 高松くん？が作った箇所？？form_withにするので7/23木下コメントアウト
         = form_tag(action: :pay, method: :post) do
-          %button 購入する
+          %button.buy_btn 購入する
         
         -# 動作に問題ないことを確認して最後に消します７・23木下
         -# = link_to "/purchase/done/#{@item}" do
@@ -67,9 +77,3 @@
 
 .wrapper
   = render 'items/item-footer'
-
-
-
-
-
-
