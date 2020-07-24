@@ -107,6 +107,9 @@
                 ¥
                 =item.price
                 (税込み)
-
+            -if item.buyer_id.present? 
+              .top-main__new__items__item__sold
+                .top-main__new__items__item__sold__inner
+                  SOLD 
 .wrapper
   = render 'footer'
