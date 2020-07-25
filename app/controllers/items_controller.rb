@@ -48,12 +48,13 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       flash[:alert] = "入力に誤りがあります。もう一度入力してください。"
-      @images = @item.item_images.build 
+      @images = @item.item_images.build
+      render :new 
       @categories = Category.all
       @category_parent_array = ["---"]
       Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
-      render :new
+      
       end
     end
   end
