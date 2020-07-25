@@ -131,10 +131,14 @@ class ItemsController < ApplicationController
 
   def purchase_temporary
     card = CreditCard.find_by(user_id: current_user.id)
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    @default_card_information = customer.cards.retrieve(card.card_id)
-    @item = Item.find(params[:id])
-
+    if card.blank?
+      flash[:card] = "購入する際は クレジットカードを登録してください。"
+      redirect_to pay_credit_cards_path
+    else
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+      @item = Item.find(params[:id])
+    end
   end
 
   def item_details   

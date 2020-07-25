@@ -20,5 +20,9 @@
     - if flash[:alert]
       .alert
         = flash[:alert]
+    
+    - if flash[:card]
+      .alert
+        = flash[:card]
 
     = yield
