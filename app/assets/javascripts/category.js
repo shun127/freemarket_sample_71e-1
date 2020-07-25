@@ -36,7 +36,7 @@ $(function(){
     let parentCategory = $('#parent-category').val()
     if (parentCategory != "---"){ 
       $.ajax({
-        url: 'category_children',
+        url: '/items/category_children',
         type: 'GET',
         data: { parent_name: parentCategory },
         dataType: 'json'
@@ -66,7 +66,7 @@ $(function(){
     let childId = document.getElementById('child_category').value;
     if (childId != "---"){ 
       $.ajax({
-        url: 'category_grandchildren',
+        url: '/items/category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'
