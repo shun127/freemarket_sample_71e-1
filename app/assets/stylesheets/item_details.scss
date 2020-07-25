@@ -86,12 +86,17 @@
       }
       &__buy-button{
         margin-top: 16px;
-        background-color:#ea352d;
+        background-color:#ea352d;        
         height: 60px;
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 5px;
+        a {
+          color: white;
+          font-size: 18px;
+          font-weight: bolder;
+        }
         .button{
           text-decoration: none;
           color: white;
