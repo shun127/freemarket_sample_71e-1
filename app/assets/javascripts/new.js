@@ -54,7 +54,6 @@ $(function() {
           fileIndex.shift();
           fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
-    console.log(buildFileField)
   });
   $('#prev-box').on('click', '.box-new__pic__prev__wrapper__delete', function(e) {
     const targetIndex = $(this).data('index');

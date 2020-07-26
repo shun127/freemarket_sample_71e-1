@@ -2,7 +2,6 @@ $(function(){
   if(window.document.location.href == "http://localhost:3000/items" && $(".box-new__category__wrapper-select")[0]){
     // if(window.document.location.href == "http://localhost:3000/items" && $('.select-category')[0]){}
   // カテゴリーセレクトボックスのオプションを作成
-  console.log("aaa")
   function appendOption(category){
     let html = `<option value="${category.id}" data-category="${category.name}">${category.name}</option>`;
     return html;

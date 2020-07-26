@@ -68,7 +68,7 @@ class ItemsController < ApplicationController
       redirect_to root_path
       else
         flash[:alert] = "入力に誤りがあります。もう一度入力してください。"
-        render :edit
+        redirect_to action: :edit
     end
   end
   
